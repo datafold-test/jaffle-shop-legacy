@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: stg_supplies
+    description: >
+      One row per supply (ingredient / packaging) attached to a product SKU.
+      Staging cleanup over raw_supplies: snake_case rename, synthetic
+      surrogate key, and cents→dollars conversion. Note that supply_id is
+      NOT unique on its own — a product has many supplies; uniqueness is
+      on (supply_uuid, product_id).
+    columns:
+      - name: supply_id
+        description: Synthetic surrogate key md5(concat(id, '-', sku)).
+        tests:
+          - not_null
+      - name: supply_uuid
+        description: Natural supply identifier from the raw source.
+        tests:
+          - not_null
+      - name: supply_name
+        description: Human-readable supply name.
+        tests:
+          - not_null
+      - name: product_id
+        description: FK to stg_products.product_id (the SKU this supply is consumed by).
+        tests:
+          - not_null
+      - name: supply_cost_cents
+        description: Audit column — original cost in cents from the raw source.
+      - name: supply_cost
+        description: Supply cost in dollars (cents/100, numeric(18,2)).
+      - name: is_perishable_supply
+        description: True if the supply is perishable.
+        tests:
+          - not_null
