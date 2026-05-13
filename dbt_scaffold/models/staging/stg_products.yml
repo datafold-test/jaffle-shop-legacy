@@ -1,0 +1,41 @@
+version: 2
+
+models:
+  - name: stg_products
+    description: >
+      Staging cleanup of the raw product catalog. Renames the legacy SKU/NAME/TYPE
+      columns into snake_case, preserves the integer cents price for auditing,
+      adds a dollar-denominated product_price, and derives is_food_item /
+      is_drink_item flags from product_type.
+    columns:
+      - name: product_id
+        description: Stable SKU identifier for the product.
+        data_tests:
+          - not_null
+          - unique
+      - name: product_name
+        description: Human-readable product name.
+        data_tests:
+          - not_null
+      - name: product_type
+        description: Product category — currently 'jaffle' or 'beverage'.
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: ['jaffle', 'beverage']
+      - name: product_description
+        description: Long-form marketing description; may be null.
+      - name: product_price_cents
+        description: Raw integer price in cents, preserved from the source for auditing.
+      - name: product_price
+        description: Product price in dollars (cents / 100, numeric(18,2)).
+        data_tests:
+          - not_null
+      - name: is_food_item
+        description: True when product_type = 'jaffle'.
+        data_tests:
+          - not_null
+      - name: is_drink_item
+        description: True when product_type = 'beverage'.
+        data_tests:
+          - not_null
