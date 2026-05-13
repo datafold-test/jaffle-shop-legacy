@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: >
+      Customer dimension at staging layer. One row per customer, sourced from
+      raw_customers with ID/NAME renamed to customer_id/customer_name.
+    columns:
+      - name: customer_id
+        description: Primary key — UUID from the operational store.
+        data_tests:
+          - not_null
+          - unique
+      - name: customer_name
+        description: Customer's full name as captured by the source system.
+        data_tests:
+          - not_null
