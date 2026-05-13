@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: stg_order_items
+    description: >
+      Staging view of raw order line items. One row per order item; renames
+      the raw PK to order_item_id and the SKU to product_id while preserving
+      the FK to stg_orders.
+    columns:
+      - name: order_item_id
+        description: Primary key for the order line item.
+        tests:
+          - not_null
+          - unique
+      - name: order_id
+        description: FK to stg_orders.order_id.
+        tests:
+          - not_null
+      - name: product_id
+        description: FK to stg_products.product_id (the raw SKU).
+        tests:
+          - not_null
