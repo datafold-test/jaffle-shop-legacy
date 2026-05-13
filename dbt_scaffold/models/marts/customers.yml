@@ -1,0 +1,59 @@
+version: 2
+
+models:
+  - name: customers
+    description: >
+      One row per customer with per-customer lifetime metrics rolled up from
+      the orders mart: count of distinct orders, repeat-buyer flag,
+      first/last order timestamps, and lifetime spend (pre-tax, tax, total).
+      Customers with no orders still appear, with 0 counts / FALSE flag /
+      NULL timestamps. Built as a table in JAFFLE_DBT_DB.MARTS.
+    columns:
+      - name: customer_id
+        description: Primary key — UUID from the operational store.
+        data_tests:
+          - not_null
+          - unique
+      - name: customer_name
+        description: Customer's full name as captured by the source system.
+        data_tests:
+          - not_null
+      - name: count_lifetime_orders
+        description: >
+          Number of distinct orders the customer has placed across all time.
+          Coalesced to 0 for customers with no orders.
+        data_tests:
+          - not_null
+      - name: is_repeat_buyer
+        description: >
+          True when the customer has placed more than one distinct order.
+          Coalesced to FALSE for customers with no orders.
+        data_tests:
+          - not_null
+      - name: first_ordered_at
+        description: >
+          Day of the customer's first order (already day-truncated upstream
+          in stg_orders). NULL for customers with no orders — NOT coalesced,
+          matching legacy behaviour.
+      - name: last_ordered_at
+        description: >
+          Day of the customer's most recent order (already day-truncated
+          upstream). NULL for customers with no orders — NOT coalesced.
+      - name: lifetime_spend_pretax
+        description: >
+          Sum of order subtotals (pre-tax) across all the customer's orders,
+          in dollars. Coalesced to 0 for customers with no orders.
+        data_tests:
+          - not_null
+      - name: lifetime_tax_paid
+        description: >
+          Sum of tax paid across all the customer's orders, in dollars.
+          Coalesced to 0 for customers with no orders.
+        data_tests:
+          - not_null
+      - name: lifetime_spend
+        description: >
+          Sum of order totals (including tax) across all the customer's
+          orders, in dollars. Coalesced to 0 for customers with no orders.
+        data_tests:
+          - not_null
