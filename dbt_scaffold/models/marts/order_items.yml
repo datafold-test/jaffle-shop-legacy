@@ -1,0 +1,53 @@
+version: 2
+
+models:
+  - name: order_items
+    description: >
+      One row per order item, enriched with product attributes (name, dollar
+      price, food/drink flags), the order's ordered_at date, and the total
+      supply cost rolled up from stg_supplies for that product. Built as a
+      table in JAFFLE_DBT_DB.MARTS.
+    columns:
+      - name: order_item_id
+        description: Stable identifier for the order item (one row per item on an order).
+        data_tests:
+          - not_null
+          - unique
+      - name: order_id
+        description: FK to orders.order_id.
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('stg_orders')
+              field: order_id
+      - name: ordered_at
+        description: Day the order was placed (date-truncated upstream in stg_orders).
+        data_tests:
+          - not_null
+      - name: product_id
+        description: FK to products.product_id (SKU).
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('stg_products')
+              field: product_id
+      - name: product_name
+        description: Human-readable product name, from stg_products.
+        data_tests:
+          - not_null
+      - name: product_price
+        description: Product price in dollars at time of join, from stg_products.
+        data_tests:
+          - not_null
+      - name: is_food_item
+        description: True when product_type = 'jaffle'.
+        data_tests:
+          - not_null
+      - name: is_drink_item
+        description: True when product_type = 'beverage'.
+        data_tests:
+          - not_null
+      - name: supply_cost
+        description: >
+          Total dollar supply cost for this product (SUM over stg_supplies grouped
+          by product_id). NULL when the product has no supplies.
