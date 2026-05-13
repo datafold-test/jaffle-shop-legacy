@@ -1,0 +1,69 @@
+version: 2
+
+models:
+  - name: orders
+    description: >
+      One row per order with the staging order fields (location, customer,
+      date, dollar totals) plus a per-order roll-up of the order_items mart
+      (order_cost, order_items_subtotal, item counts) and two convenience
+      booleans (is_food_order, is_drink_order). Built as a table in
+      JAFFLE_DBT_DB.MARTS.
+    columns:
+      - name: order_id
+        description: Primary key — stable identifier for the order.
+        tests:
+          - not_null
+          - unique
+      - name: location_id
+        description: Store identifier the order was placed at.
+        tests:
+          - not_null
+      - name: customer_id
+        description: FK to customers.customer_id.
+        tests:
+          - not_null
+      - name: ordered_at
+        description: Day the order was placed (date-truncated upstream in stg_orders).
+        tests:
+          - not_null
+      - name: subtotal
+        description: Pre-tax order subtotal in dollars (from stg_orders).
+        tests:
+          - not_null
+      - name: tax_paid
+        description: Tax paid on the order in dollars (from stg_orders).
+        tests:
+          - not_null
+      - name: order_total
+        description: Order total in dollars including tax (from stg_orders).
+        tests:
+          - not_null
+      - name: order_cost
+        description: >
+          Total supply cost for the order — SUM(supply_cost) over the order's
+          items. NULL when the order has no items.
+      - name: order_items_subtotal
+        description: >
+          Sum of product_price across the order's items. NULL when the order
+          has no items.
+      - name: count_order_items
+        description: >
+          Number of items on the order. NULL when the order has no items
+          (LEFT JOIN preserves the row, but the aggregate stays NULL — the
+          legacy behaviour).
+      - name: count_food_items
+        description: Number of food items on the order. NULL when no items.
+      - name: count_drink_items
+        description: Number of drink items on the order. NULL when no items.
+      - name: is_food_order
+        description: >
+          True when the order contains at least one food item. COALESCEd —
+          orders with no items map to FALSE.
+        tests:
+          - not_null
+      - name: is_drink_order
+        description: >
+          True when the order contains at least one drink item. COALESCEd —
+          orders with no items map to FALSE.
+        tests:
+          - not_null
