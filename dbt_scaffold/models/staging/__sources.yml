@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: jaffle_raw
+    database: JAFFLE_LEGACY_DB
+    schema: PUBLIC
+    description: >
+      Raw e-commerce tables sitting in the legacy Snowflake database.
+      These are the inputs the dbt project transforms into stg_/mart models.
+    tables:
+      - name: raw_customers
+      - name: raw_orders
+      - name: raw_items
+      - name: raw_products
+      - name: raw_supplies
