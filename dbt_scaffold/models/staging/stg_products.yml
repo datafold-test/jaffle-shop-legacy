@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: stg_products
+    description: >
+      Staging model for products. Renames and cleans columns from raw_products,
+      converts the price from cents to dollars, and derives boolean product-kind
+      flags (is_food_item, is_drink_item) used by downstream mart models.
+    columns:
+      - name: product_id
+        description: Unique product identifier (sourced from SKU in raw_products).
+        tests:
+          - not_null
+          - unique
+
+      - name: product_name
+        description: Human-readable product name.
+        tests:
+          - not_null
+
+      - name: product_type
+        description: Product category — either 'jaffle' or 'beverage'.
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['jaffle', 'beverage']
+
+      - name: product_description
+        description: Optional long-form description of the product (may be null).
+
+      - name: product_price_cents
+        description: Raw product price in cents, preserved from raw_products for auditing purposes.
+        tests:
+          - not_null
+
+      - name: product_price
+        description: Product price in dollars, derived from product_price_cents via the cents_to_dollars macro.
+        tests:
+          - not_null
+
+      - name: is_food_item
+        description: Boolean flag — true when the product_type is 'jaffle' (a food item).
+
+      - name: is_drink_item
+        description: Boolean flag — true when the product_type is 'beverage' (a drink item).
