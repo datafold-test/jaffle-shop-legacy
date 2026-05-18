@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: stg_supplies
+    description: One row per (supply, product-SKU) pairing — ingredients/packaging tied to a product.
+    columns:
+      - name: supply_id
+        description: Surrogate key — md5(concat(supply_uuid, '-', product_id)).
+        tests:
+          - not_null
+          - unique
+      - name: supply_uuid
+        description: Natural supply id (RAW_SUPPLIES.ID).
+      - name: supply_name
+        description: Human-readable supply name.
+      - name: product_id
+        description: FK to stg_products.product_id (RAW_SUPPLIES.SKU).
+        tests:
+          - not_null
+      - name: supply_cost_cents
+        description: Audit column — supply cost in cents (raw integer from RAW_SUPPLIES.COST).
+      - name: supply_cost
+        description: Supply cost in dollars (cents_to_dollars(cost)).
+      - name: is_perishable_supply
+        description: True if the supply is perishable.
