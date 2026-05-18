@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: stg_orders
+    description: "Staged orders — one row per order from the POS export, with cents and dollar variants of money columns and a day-truncated ordered_at."
+    columns:
+      - name: order_id
+        description: "Primary key — order UUID."
+        tests:
+          - not_null
+          - unique
+      - name: location_id
+        description: "FK to stg_locations (store/location UUID)."
+        tests:
+          - not_null
+      - name: customer_id
+        description: "FK to stg_customers."
+        tests:
+          - not_null
+      - name: subtotal_cents
+        description: "Raw subtotal, in cents (audit column)."
+      - name: tax_paid_cents
+        description: "Raw tax paid, in cents (audit column)."
+      - name: order_total_cents
+        description: "Raw order total, in cents (audit column)."
+      - name: subtotal
+        description: "Subtotal in dollars (cents/100)."
+      - name: tax_paid
+        description: "Tax paid in dollars (cents/100)."
+      - name: order_total
+        description: "Order total in dollars (cents/100)."
+      - name: ordered_at
+        description: "Order timestamp truncated to day."
