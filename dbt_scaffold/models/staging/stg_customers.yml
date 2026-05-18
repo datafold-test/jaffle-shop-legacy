@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: "Customer dimension, one row per customer. Renamed from raw_customers."
+    columns:
+      - name: customer_id
+        description: "UUID primary key for the customer."
+        data_tests:
+          - not_null
+          - unique
+      - name: customer_name
+        description: "Customer display name."
+        data_tests:
+          - not_null

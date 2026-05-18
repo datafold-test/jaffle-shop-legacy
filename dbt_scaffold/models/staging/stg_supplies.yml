@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: stg_supplies
+    description: >
+      Staging-layer supplies. One row per (supply, product) pair —
+      `supply_id` is a synthetic surrogate `md5(concat(id, '-', sku))`
+      because supplies link N:1 to products in the raw feed.
+    columns:
+      - name: supply_id
+        description: Surrogate key — md5(concat(supply_uuid, '-', product_id)).
+        tests:
+          - not_null
+          - unique
+      - name: supply_uuid
+        description: Natural supply identifier (not unique on its own — repeats per SKU).
+        tests:
+          - not_null
+      - name: supply_name
+        description: Human-readable supply name.
+        tests:
+          - not_null
+      - name: product_id
+        description: SKU of the product this supply is tied to (FK to stg_products.product_id).
+        tests:
+          - not_null
+      - name: supply_cost_cents
+        description: Raw supply cost in cents (parity column with the legacy table).
+        tests:
+          - not_null
+      - name: supply_cost
+        description: Supply cost in dollars (cents → dollars via cents_to_dollars macro).
+        tests:
+          - not_null
+      - name: is_perishable_supply
+        description: Flag indicating whether the supply is perishable.
+        tests:
+          - not_null

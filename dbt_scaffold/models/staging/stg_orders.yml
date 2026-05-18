@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: stg_orders
+    description: >
+      One row per order. Renames the POS columns to analytics naming and
+      adds dollar variants of the cent columns. Ordered_at is truncated to day.
+    columns:
+      - name: order_id
+        description: Surrogate key — order UUID from the POS.
+        tests:
+          - not_null
+          - unique
+      - name: location_id
+        description: FK to stg_locations (not yet modeled). Store UUID.
+        tests:
+          - not_null
+      - name: customer_id
+        description: FK to stg_customers. Customer UUID.
+        tests:
+          - not_null
+      - name: subtotal_cents
+        description: Pre-tax order subtotal, integer cents (audit column).
+      - name: tax_paid_cents
+        description: Tax paid, integer cents (audit column).
+      - name: order_total_cents
+        description: Total order amount, integer cents (audit column).
+      - name: subtotal
+        description: Pre-tax order subtotal in dollars.
+      - name: tax_paid
+        description: Tax paid in dollars.
+      - name: order_total
+        description: Total order amount in dollars.
+      - name: ordered_at
+        description: Order timestamp truncated to day.
