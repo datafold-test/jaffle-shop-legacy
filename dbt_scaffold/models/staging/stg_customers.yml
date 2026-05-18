@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: Customer records cleaned from raw_customers — renames id/name to customer_id/customer_name.
+    columns:
+      - name: customer_id
+        description: Surrogate UUID for the customer (primary key).
+        data_tests:
+          - not_null
+          - unique
+      - name: customer_name
+        description: Customer's display name.
+        data_tests:
+          - not_null
