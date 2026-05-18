@@ -1,0 +1,49 @@
+version: 2
+
+models:
+  - name: orders
+    description: >
+      Mart model rolling up orders with per-order item summary and food/drink flags.
+      Translated from legacy ORDERS_SUMMARY. Each row is one order, joined to an
+      aggregated view of its order items (cost, subtotal, item counts by category).
+    columns:
+      - name: order_id
+        description: Primary key. Unique identifier for each order.
+        tests:
+          - not_null
+          - unique
+      - name: location_id
+        description: Identifier for the store location where the order was placed.
+      - name: customer_id
+        description: Foreign key to the customer who placed the order.
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_customers')
+              field: customer_id
+      - name: ordered_at
+        description: Day-truncated timestamp when the order was placed.
+      - name: subtotal
+        description: Order subtotal in dollars (pre-tax).
+      - name: tax_paid
+        description: Tax amount paid on the order in dollars.
+      - name: order_total
+        description: Total order amount including tax, in dollars.
+      - name: order_cost
+        description: Total supply cost for all items in the order. Nullable when no items.
+      - name: order_items_subtotal
+        description: Sum of product prices for all items in the order. Nullable when no items.
+      - name: count_order_items
+        description: Number of items in the order. Nullable when no items.
+      - name: count_food_items
+        description: Number of food items in the order. Nullable when no items.
+      - name: count_drink_items
+        description: Number of drink items in the order. Nullable when no items.
+      - name: is_food_order
+        description: Boolean flag — true if the order contains at least one food item.
+        tests:
+          - not_null
+      - name: is_drink_order
+        description: Boolean flag — true if the order contains at least one drink item.
+        tests:
+          - not_null

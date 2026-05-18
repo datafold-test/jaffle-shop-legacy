@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: customers
+    description: >
+      Mart model computing per-customer lifetime metrics. Translated from legacy
+      CUSTOMERS_SUMMARY. Each row is one customer, with aggregated lifetime order
+      counts, first/last order dates, and lifetime spend figures. Customers with
+      no orders are included via a LEFT JOIN, with numeric metrics coalesced to 0
+      and is_repeat_buyer coalesced to false.
+    columns:
+      - name: customer_id
+        description: Primary key. Unique identifier for each customer.
+        tests:
+          - not_null
+          - unique
+          - relationships:
+              to: ref('stg_customers')
+              field: customer_id
+      - name: customer_name
+        description: Customer's full name.
+      - name: count_lifetime_orders
+        description: Total number of distinct orders placed by the customer. 0 for customers with no orders.
+        tests:
+          - not_null
+      - name: is_repeat_buyer
+        description: Boolean flag — true if the customer has placed more than one order.
+        tests:
+          - not_null
+      - name: first_ordered_at
+        description: Timestamp of the customer's first order. Null for customers with no orders.
+      - name: last_ordered_at
+        description: Timestamp of the customer's most recent order. Null for customers with no orders.
+      - name: lifetime_spend_pretax
+        description: Lifetime pre-tax spend in dollars (sum of order subtotals). 0 for customers with no orders.
+        tests:
+          - not_null
+      - name: lifetime_tax_paid
+        description: Lifetime tax paid in dollars (sum of tax_paid across all orders). 0 for customers with no orders.
+        tests:
+          - not_null
+      - name: lifetime_spend
+        description: Lifetime total spend including tax in dollars (sum of order_total). 0 for customers with no orders.
+        tests:
+          - not_null
