@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: stg_order_items
+    description: One row per order line item, with primary key + FK columns renamed to project conventions.
+    columns:
+      - name: order_item_id
+        description: Surrogate primary key for the order line item (renamed from RAW_ITEMS.ID).
+        data_tests:
+          - not_null
+          - unique
+      - name: order_id
+        description: FK to stg_orders.order_id (renamed from RAW_ITEMS.ORDER_ID).
+        data_tests:
+          - not_null
+      - name: product_id
+        description: FK to stg_products.product_id (renamed from RAW_ITEMS.SKU).
+        data_tests:
+          - not_null
