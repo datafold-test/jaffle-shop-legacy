@@ -1,0 +1,43 @@
+version: 2
+
+models:
+  - name: order_items
+    description: >
+      One row per order item. Combines order-item facts with their order's
+      ordered_at, the product attributes (name, price, food/drink flags), and the
+      total supply cost for the product (SUM across all supplies for that SKU).
+      Products with no supplies yield supply_cost = NULL.
+    columns:
+      - name: order_item_id
+        description: Primary key — unique identifier for each order item.
+        tests:
+          - not_null
+          - unique
+      - name: order_id
+        description: FK to stg_orders.order_id.
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_orders')
+              field: order_id
+      - name: ordered_at
+        description: Day-truncated order timestamp (inherited from stg_orders).
+      - name: product_id
+        description: FK to stg_products.product_id.
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_products')
+              field: product_id
+      - name: product_name
+        description: Product display name.
+      - name: product_price
+        description: Product price in dollars (numeric(18,2)).
+      - name: is_food_item
+        description: True when product type = 'jaffle'.
+      - name: is_drink_item
+        description: True when product type = 'beverage'.
+      - name: supply_cost
+        description: >
+          SUM of supply_cost (dollars) across all supplies belonging to this
+          product_id. Nullable — products with no supplies → NULL.
