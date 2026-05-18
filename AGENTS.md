@@ -44,13 +44,36 @@ dbt_scaffold/
 
 ## Per-file translation rules
 
-The `legacy/` directory uses numeric prefixes to indicate the layer:
+The `legacy/` directory uses numeric prefixes to indicate the layer. Each
+legacy `.sql` script materializes ONE legacy warehouse table; the
+translated dbt model materializes ONE target warehouse table:
 
-| Prefix | Layer | Translates to |
-|---|---|---|
-| `01_raw_*.sql` | Raw DDL — **DO NOT translate.** These define the dbt sources declared in `models/staging/__sources.yml`. | `source('jaffle_raw', 'raw_*')` references. |
-| `10_stg_*.sql` | Staging transforms (rename + light cast). | `models/staging/stg_*.sql` as a view. |
-| `20_*.sql` | Mart transforms (joins + aggregates). | `models/marts/<name>.sql` as a table. |
+| Prefix | Legacy script | Legacy warehouse table (the *real* asset) | dbt file produced | Target warehouse table (the dbt-built asset) |
+|---|---|---|---|---|
+| `01_raw_*.sql` | DDL — **DO NOT translate** | source — declared in `__sources.yml` | (none) | (none — source-only) |
+| `10_stg_customers.sql` | rename | `JAFFLE_LEGACY_DB.PUBLIC.STG_CUSTOMERS` | `models/staging/stg_customers.sql` | `JAFFLE_DBT_DB.STAGING.STG_CUSTOMERS` |
+| `10_stg_orders.sql` | rename + macro | `JAFFLE_LEGACY_DB.PUBLIC.STG_ORDERS` | `models/staging/stg_orders.sql` | `JAFFLE_DBT_DB.STAGING.STG_ORDERS` |
+| `10_stg_order_items.sql` | rename | `JAFFLE_LEGACY_DB.PUBLIC.STG_ORDER_ITEMS` | `models/staging/stg_order_items.sql` | `JAFFLE_DBT_DB.STAGING.STG_ORDER_ITEMS` |
+| `10_stg_products.sql` | rename + flags | `JAFFLE_LEGACY_DB.PUBLIC.STG_PRODUCTS` | `models/staging/stg_products.sql` | `JAFFLE_DBT_DB.STAGING.STG_PRODUCTS` |
+| `10_stg_supplies.sql` | rename + cents | `JAFFLE_LEGACY_DB.PUBLIC.STG_SUPPLIES` | `models/staging/stg_supplies.sql` | `JAFFLE_DBT_DB.STAGING.STG_SUPPLIES` |
+| `20_order_items_enriched.sql` | mart join | `JAFFLE_LEGACY_DB.PUBLIC.ORDER_ITEMS_ENRICHED` | `models/marts/order_items.sql` | `JAFFLE_DBT_DB.MARTS.ORDER_ITEMS` |
+| `20_orders_summary.sql` | mart agg | `JAFFLE_LEGACY_DB.PUBLIC.ORDERS_SUMMARY` | `models/marts/orders.sql` | `JAFFLE_DBT_DB.MARTS.ORDERS` |
+| `20_customers_summary.sql` | mart agg | `JAFFLE_LEGACY_DB.PUBLIC.CUSTOMERS_SUMMARY` | `models/marts/customers.sql` | `JAFFLE_DBT_DB.MARTS.CUSTOMERS` |
+
+> **CRITICAL — asset paths vs file paths.** The MAPS_TO edges + migration
+> artifacts (see "Done definition" below) describe the **warehouse table
+> assets**, not the `.sql` files. When you fill `legacy_paths` and
+> `asset_path`, use the database FQN tuples from the *Legacy warehouse
+> table* and *Target warehouse table* columns above. **Never** put
+> `("legacy", "10_stg_orders.sql")` or `("dbt_scaffold", "models",
+> "staging", "stg_orders.sql")` into an artifact — those are file paths,
+> not data assets, and they produce graph nodes that no consumer can
+> resolve. The mart-layer files participate in the same rule: e.g.
+> `legacy/20_orders_summary.sql` produces the table
+> `JAFFLE_LEGACY_DB.PUBLIC.ORDERS_SUMMARY`, and the dbt model
+> `models/marts/orders.sql` produces the table
+> `JAFFLE_DBT_DB.MARTS.ORDERS`. Those two FQNs are what the MAPS_TO edge
+> connects.
 
 Inside each translated `.sql` file:
 
@@ -102,4 +125,21 @@ rather than `fail` if they diverge.
 2. Matching `.yml` file declaring columns + at least one `not_null` / `unique` test on the primary key.
 3. `dbt build --select <model>` runs clean.
 4. Row-level data-diff against the legacy counterpart returns 0 differing rows on business columns.
-5. A migration artifact is attached to the ticket with `legacy_paths`, `asset_path`, `target_kind="dataset"`, and a `data_diff` validation entry citing the diff ID.
+5. A migration artifact is attached to the ticket with the warehouse FQN tuples (NOT file paths). For staging tickets, that's `legacy_paths=[("JAFFLE_LEGACY_DB", "PUBLIC", "STG_<NAME>")]` and `asset_path=("JAFFLE_DBT_DB", "STAGING", "STG_<NAME>")`. For mart tickets, the legacy table is `JAFFLE_LEGACY_DB.PUBLIC.<UPPERCASE_NAME>` and the target is `JAFFLE_DBT_DB.MARTS.<UPPERCASE_NAME>` (see the table above for the exact mapping). `target_kind="dataset"`. Validation entry should be `data_diff` citing the diff ID; when data sources aren't configured for the goal, fall back to `manual` with a brief `notes` line explaining the validation gap.
+
+## Ticket-framing guidance for the Lead
+
+When you (the Lead) create developer tickets from this AGENTS.md, **title
+and describe them in terms of the warehouse table assets**, not the
+`.sql` filenames. Use the *Legacy warehouse table* and *Target warehouse
+table* columns in the per-file table above. For example:
+
+- Good: *"Translate `JAFFLE_LEGACY_DB.PUBLIC.STG_ORDERS` → `JAFFLE_DBT_DB.STAGING.STG_ORDERS`"*
+- Bad: *"Translate `legacy/10_stg_orders.sql` → `dbt_scaffold/models/staging/stg_orders.sql`"*
+
+The implementation file paths still go in the description as a pointer
+(*"implemented by writing `dbt_scaffold/models/staging/stg_orders.sql` from
+`legacy/10_stg_orders.sql`"*), but they are secondary. Frame everything
+the developer + reviewer touch downstream around the warehouse FQNs so
+the migration artifact comes out correctly — see "Done definition"
+above.
