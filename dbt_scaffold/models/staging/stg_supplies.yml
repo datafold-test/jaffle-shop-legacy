@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: stg_supplies
+    description: >
+      One row per (supply, product) pair. Renamed view over raw_supplies
+      with a synthetic surrogate key (md5 of supply uuid + sku) because a
+      single supply uuid can appear against multiple products (N:1).
+    columns:
+      - name: supply_id
+        description: Primary key — md5(concat(supply_uuid, '-', product_id)).
+        data_tests:
+          - not_null
+          - unique
+      - name: supply_uuid
+        description: Original raw_supplies.id; NOT unique on its own (N:1 to products).
+        data_tests:
+          - not_null
+      - name: product_id
+        description: FK to stg_products.product_id (was raw_supplies.sku).
+        data_tests:
+          - not_null
+      - name: supply_name
+        description: Human-readable name of the supply (raw_supplies.name).
+        data_tests:
+          - not_null
+      - name: is_perishable_supply
+        description: Boolean flag; true if the supply is perishable (raw_supplies.perishable).
+        data_tests:
+          - not_null
+      - name: supply_cost_cents
+        description: Supply cost in cents (preserved from raw_supplies.cost for audit).
+        data_tests:
+          - not_null
+      - name: supply_cost
+        description: Supply cost in dollars (cents_to_dollars(cost)).
+        data_tests:
+          - not_null
