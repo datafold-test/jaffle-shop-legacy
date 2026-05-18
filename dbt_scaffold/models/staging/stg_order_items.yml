@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: stg_order_items
+    description: One row per item on an order. Renamed view over raw_items.
+    columns:
+      - name: order_item_id
+        description: Primary key — surrogate id of the order item (from raw_items.id).
+        tests:
+          - not_null
+          - unique
+      - name: order_id
+        description: FK to stg_orders.order_id.
+        tests:
+          - not_null
+      - name: product_id
+        description: FK to stg_products.product_id (was raw_items.sku).
+        tests:
+          - not_null
