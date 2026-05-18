@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: >
+      Staging cleanup of raw_customers. Renames id/name to
+      customer_id/customer_name and hands a snake-cased schema to the
+      analytics layer.
+    columns:
+      - name: customer_id
+        description: Primary key. UUID identifying the customer.
+        tests:
+          - not_null
+          - unique
+      - name: customer_name
+        description: Customer's full name as captured in the operational store.
+        tests:
+          - not_null
