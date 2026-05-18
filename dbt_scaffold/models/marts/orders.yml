@@ -1,0 +1,39 @@
+version: 2
+
+models:
+  - name: orders
+    description: >
+      Order-grain mart. One row per order, joined to a per-order roll-up of
+      order items (cost, subtotal, item counts, food/drink flags).
+    columns:
+      - name: order_id
+        description: Primary key — unique identifier of the order.
+        tests:
+          - not_null
+          - unique
+      - name: location_id
+        description: Store/location where the order was placed.
+      - name: customer_id
+        description: Customer who placed the order.
+      - name: ordered_at
+        description: Day the order was placed (truncated to day in stg_orders).
+      - name: subtotal
+        description: Pre-tax order subtotal in dollars.
+      - name: tax_paid
+        description: Tax paid in dollars.
+      - name: order_total
+        description: Total order amount in dollars.
+      - name: order_cost
+        description: Sum of supply costs across order items, in dollars.
+      - name: order_items_subtotal
+        description: Sum of product prices across order items, in dollars.
+      - name: count_order_items
+        description: Number of order_items rows attached to this order.
+      - name: count_food_items
+        description: Number of food items in the order.
+      - name: count_drink_items
+        description: Number of drink items in the order.
+      - name: is_food_order
+        description: True when the order contains at least one food item.
+      - name: is_drink_order
+        description: True when the order contains at least one drink item.
