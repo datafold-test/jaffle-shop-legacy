@@ -1,0 +1,34 @@
+version: 2
+
+models:
+  - name: stg_products
+    description: >
+      Staging view over raw_products. Renames POS columns, preserves the
+      cents-denominated price for auditing, derives a dollar-denominated
+      product_price, and exposes is_food_item / is_drink_item flags.
+    columns:
+      - name: product_id
+        description: Primary key — surrogate for the legacy SKU.
+        tests:
+          - not_null
+          - unique
+      - name: product_name
+        description: Display name of the product.
+        tests:
+          - not_null
+      - name: product_type
+        description: Product category — 'jaffle' (food) or 'beverage'.
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['jaffle', 'beverage']
+      - name: product_description
+        description: Free-text description; may be null.
+      - name: product_price_cents
+        description: Raw price in cents, preserved from raw_products for auditing.
+      - name: product_price
+        description: Dollar-denominated price (numeric(18,2)) derived from product_price_cents.
+      - name: is_food_item
+        description: True when product_type = 'jaffle'.
+      - name: is_drink_item
+        description: True when product_type = 'beverage'.
