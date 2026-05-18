@@ -1,0 +1,57 @@
+version: 2
+
+models:
+  - name: customers
+    description: >
+      Customer-grain mart. One row per customer, with lifetime order metrics
+      aggregated from the orders mart and joined to stg_customers for
+      customer attributes. Customers with no orders have zero/false defaults
+      on all spend and order-count columns.
+    columns:
+      - name: customer_id
+        description: Primary key — unique identifier of the customer.
+        tests:
+          - not_null
+          - unique
+      - name: customer_name
+        description: Customer's display name.
+        tests:
+          - not_null
+      - name: count_lifetime_orders
+        description: >
+          Total number of distinct orders placed by this customer.
+          Defaults to 0 for customers with no orders.
+        tests:
+          - not_null
+      - name: is_repeat_buyer
+        description: >
+          True when the customer has placed more than one order.
+          Defaults to false for customers with 0 or 1 orders.
+        tests:
+          - not_null
+      - name: first_ordered_at
+        description: >
+          Timestamp of the customer's earliest order. NULL for customers
+          who have never placed an order.
+      - name: last_ordered_at
+        description: >
+          Timestamp of the customer's most recent order. NULL for customers
+          who have never placed an order.
+      - name: lifetime_spend_pretax
+        description: >
+          Sum of order subtotals (pre-tax) across all of this customer's
+          orders, in dollars. Defaults to 0 for customers with no orders.
+        tests:
+          - not_null
+      - name: lifetime_tax_paid
+        description: >
+          Sum of tax paid across all of this customer's orders, in dollars.
+          Defaults to 0 for customers with no orders.
+        tests:
+          - not_null
+      - name: lifetime_spend
+        description: >
+          Sum of order totals (including tax) across all of this customer's
+          orders, in dollars. Defaults to 0 for customers with no orders.
+        tests:
+          - not_null
