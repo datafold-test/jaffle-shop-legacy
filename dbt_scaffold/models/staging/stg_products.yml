@@ -1,0 +1,25 @@
+version: 2
+
+models:
+  - name: stg_products
+    description: Staging projection of the product catalog — one row per SKU.
+    columns:
+      - name: product_id
+        description: Primary key — renamed from raw SKU.
+        tests:
+          - not_null
+          - unique
+      - name: product_name
+        description: Human-readable product name.
+      - name: product_type
+        description: Product category, e.g. 'jaffle' or 'beverage'.
+      - name: product_description
+        description: Free-text product description.
+      - name: product_price_cents
+        description: Raw integer price in cents, preserved for auditing.
+      - name: product_price
+        description: Product price in dollars (price_cents / 100).
+      - name: is_food_item
+        description: True when product_type = 'jaffle'.
+      - name: is_drink_item
+        description: True when product_type = 'beverage'.
