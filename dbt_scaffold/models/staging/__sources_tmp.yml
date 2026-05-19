@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: jaffle_tmp
+    database: JAFFLE_SHOP
+    schema: PROD
+    description: >
+      Reference production tables from JAFFLE_SHOP.PROD, used by placeholder
+      staging models during parallel development. These will be replaced by
+      real staging model implementations once they land.
+    tables:
+      - name: stg_order_items
+      - name: stg_orders
+      - name: stg_products
+      - name: stg_supplies

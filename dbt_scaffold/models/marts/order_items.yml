@@ -1,0 +1,47 @@
+version: 2
+
+models:
+  - name: order_items
+    description: >
+      Enriched order-item fact. One row per order line item, decorated with
+      the order's ordered_at, the product's name / price / kind flags, and a
+      LEFT-joined roll-up of the product's total supply cost.
+    columns:
+      - name: order_item_id
+        description: Surrogate key for the order item. Unique per row.
+        tests:
+          - not_null
+          - unique
+      - name: order_id
+        description: FK to orders.order_id (and stg_orders.order_id).
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_orders')
+                field: order_id
+      - name: ordered_at
+        description: Day the order was placed (already truncated in stg_orders).
+        tests:
+          - not_null
+      - name: product_id
+        description: FK to stg_products.product_id.
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_products')
+                field: product_id
+      - name: product_name
+        description: Product display name.
+      - name: product_price
+        description: Product unit price in dollars (converted upstream in stg_products).
+      - name: is_food_item
+        description: True when the product type is 'jaffle'.
+      - name: is_drink_item
+        description: True when the product type is 'beverage'.
+      - name: supply_cost
+        description: >
+          Total supply cost for the product (SUM over stg_supplies.supply_cost
+          grouped by product_id), in dollars. Nullable — products with no
+          supply rows in stg_supplies will have NULL here.
