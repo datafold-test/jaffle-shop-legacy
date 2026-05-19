@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: customers
+    description: >
+      Customers dimension enriched with lifetime order aggregates
+      (count, repeat-buyer flag, first/last order timestamps, lifetime spend).
+    columns:
+      - name: customer_id
+        description: Surrogate key for the customer.
+        data_tests:
+          - not_null
+          - unique
+      - name: customer_name
+        description: Full name of the customer.
+      - name: count_lifetime_orders
+        description: Total number of distinct orders placed by the customer.
+        data_tests:
+          - not_null
+      - name: is_repeat_buyer
+        description: True if the customer has placed more than one order.
+        data_tests:
+          - not_null
+      - name: first_ordered_at
+        description: Timestamp of the customer's first order. NULL if no orders.
+      - name: last_ordered_at
+        description: Timestamp of the customer's most recent order. NULL if no orders.
+      - name: lifetime_spend_pretax
+        description: Sum of all pre-tax order subtotals for the customer (in dollars).
+      - name: lifetime_tax_paid
+        description: Sum of all tax paid across the customer's orders (in dollars).
+      - name: lifetime_spend
+        description: Sum of all order totals (pre-tax + tax) for the customer (in dollars).
