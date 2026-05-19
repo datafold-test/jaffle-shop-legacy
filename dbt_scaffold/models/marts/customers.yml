@@ -1,0 +1,46 @@
+version: 2
+
+models:
+  - name: customers
+    description: >
+      Per-customer lifetime mart. One row per customer with lifetime order
+      count, first/last ordered_at, lifetime pretax spend, lifetime tax paid,
+      and lifetime spend. Customers with no orders are kept; their numeric
+      lifetime aggregates are coalesced to 0 and is_repeat_buyer to false,
+      while first_ordered_at / last_ordered_at remain NULL.
+      Translated from JAFFLE_LEGACY_DB.PUBLIC.CUSTOMERS_SUMMARY
+      (legacy/20_customers_summary.sql).
+    columns:
+      - name: customer_id
+        description: Surrogate UUID for the customer. Primary key.
+        data_tests:
+          - not_null
+          - unique
+      - name: customer_name
+        description: Customer display name (from stg_customers).
+        data_tests:
+          - not_null
+      - name: count_lifetime_orders
+        description: Distinct order count across all time. 0 for customers with no orders.
+        data_tests:
+          - not_null
+      - name: is_repeat_buyer
+        description: True when count_lifetime_orders > 1; false otherwise (including 0 for customers with no orders).
+        data_tests:
+          - not_null
+      - name: first_ordered_at
+        description: Earliest ordered_at across the customer's orders. NULL for customers with no orders.
+      - name: last_ordered_at
+        description: Latest ordered_at across the customer's orders. NULL for customers with no orders.
+      - name: lifetime_spend_pretax
+        description: Sum of orders.subtotal across all orders (in dollars). 0 for customers with no orders.
+        data_tests:
+          - not_null
+      - name: lifetime_tax_paid
+        description: Sum of orders.tax_paid across all orders (in dollars). 0 for customers with no orders.
+        data_tests:
+          - not_null
+      - name: lifetime_spend
+        description: Sum of orders.order_total across all orders (in dollars). 0 for customers with no orders.
+        data_tests:
+          - not_null
