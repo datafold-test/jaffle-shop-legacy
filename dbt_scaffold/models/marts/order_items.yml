@@ -1,0 +1,52 @@
+version: 2
+
+models:
+  - name: order_items
+    description: >
+      Mart-layer enrichment of order line items. One row per order_item_id,
+      joined with the parent order (for ordered_at), the product (for name,
+      price, food/drink flags), and a roll-up of total supply cost per
+      product (LEFT JOIN — NULL if the product has no supplies).
+      Translated from legacy table JAFFLE_LEGACY_DB.PUBLIC.ORDER_ITEMS_ENRICHED.
+    columns:
+      - name: order_item_id
+        description: Primary key — one row per order line item.
+        data_tests:
+          - not_null
+          - unique
+
+      - name: order_id
+        description: FK to stg_orders.order_id. INNER JOIN, so always non-null.
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('stg_orders')
+              field: order_id
+
+      - name: ordered_at
+        description: Day on which the parent order was placed (already day-truncated in stg_orders).
+
+      - name: product_id
+        description: FK to stg_products.product_id. INNER JOIN, so always non-null.
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('stg_products')
+              field: product_id
+
+      - name: product_name
+        description: Display name of the product.
+
+      - name: product_price
+        description: Per-unit product price in dollars (already converted in stg_products).
+
+      - name: is_food_item
+        description: True when the product is a jaffle (food).
+
+      - name: is_drink_item
+        description: True when the product is a beverage.
+
+      - name: supply_cost
+        description: >
+          Sum of supply_cost across all supplies for this product_id.
+          NULL when the product has no rows in stg_supplies (LEFT JOIN).

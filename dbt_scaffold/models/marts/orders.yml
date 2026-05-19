@@ -1,0 +1,80 @@
+version: 2
+
+models:
+  - name: orders
+    description: >
+      Mart-level order rollup. One row per order_id (grain = stg_orders), enriched
+      with per-order aggregates from the order_items mart: total cost, items subtotal,
+      item counts (total, food, drink), and derived boolean flags for food/drink orders.
+      Translated from legacy table JAFFLE_LEGACY_DB.PUBLIC.ORDERS_SUMMARY.
+    columns:
+      - name: order_id
+        description: Primary key — unique identifier for each order.
+        data_tests:
+          - not_null
+          - unique
+
+      - name: location_id
+        description: Identifier of the store/location where the order was placed.
+        data_tests:
+          - not_null
+
+      - name: customer_id
+        description: Identifier of the customer who placed the order.
+        data_tests:
+          - not_null
+
+      - name: ordered_at
+        description: Date on which the order was placed (day-truncated, sourced from stg_orders).
+        data_tests:
+          - not_null
+
+      - name: subtotal
+        description: Order subtotal in dollars (excludes tax).
+
+      - name: tax_paid
+        description: Tax paid on the order in dollars.
+
+      - name: order_total
+        description: Total order amount including tax, in dollars.
+
+      - name: order_cost
+        description: >
+          Sum of supply costs across all order items for this order
+          (NULL when the order has no matched items in order_items — LEFT JOIN).
+
+      - name: order_items_subtotal
+        description: >
+          Sum of product prices across all order items for this order
+          (NULL when the order has no matched items in order_items — LEFT JOIN).
+
+      - name: count_order_items
+        description: >
+          Total number of line items in the order
+          (NULL when the order has no matched items in order_items — LEFT JOIN).
+
+      - name: count_food_items
+        description: >
+          Number of food (jaffle) items in the order
+          (NULL when the order has no matched items in order_items — LEFT JOIN).
+
+      - name: count_drink_items
+        description: >
+          Number of drink (beverage) items in the order
+          (NULL when the order has no matched items in order_items — LEFT JOIN).
+
+      - name: is_food_order
+        description: >
+          True when the order contains at least one food item.
+          Always non-null: COALESCE on count_food_items ensures false (not null)
+          when there are no matched order items.
+        data_tests:
+          - not_null
+
+      - name: is_drink_order
+        description: >
+          True when the order contains at least one drink item.
+          Always non-null: COALESCE on count_drink_items ensures false (not null)
+          when there are no matched order items.
+        data_tests:
+          - not_null
