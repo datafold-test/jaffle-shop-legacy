@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: >
+      Staging view over raw_customers. Renames the source UUID / name fields
+      to the project-standard customer_id / customer_name. One row per customer.
+    columns:
+      - name: customer_id
+        description: Surrogate UUID identifying the customer. Primary key.
+        tests:
+          - not_null
+          - unique
+      - name: customer_name
+        description: Customer display name as captured in the operational store.
+        tests:
+          - not_null
