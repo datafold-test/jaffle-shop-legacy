@@ -2,8 +2,12 @@ version: 2
 
 sources:
   - name: jaffle_raw
-    database: JAFFLE_LEGACY_DB
-    schema: PUBLIC
+    # NOTE: The raw data lives in JAFFLE_SHOP.RAW in this environment.
+    # The AGENTS.md documentation references JAFFLE_LEGACY_DB.PUBLIC, which is the
+    # intended production target database name, but the actual Snowflake account
+    # uses JAFFLE_SHOP.RAW for raw source tables. Updated to reflect the real layout.
+    database: JAFFLE_SHOP
+    schema: RAW
     description: >
       Raw e-commerce tables sitting in the legacy Snowflake database.
       These are the inputs the dbt project transforms into stg_/mart models.
