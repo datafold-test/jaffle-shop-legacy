@@ -1,0 +1,63 @@
+version: 2
+
+models:
+  - name: orders
+    description: >
+      Orders fact table enriched with per-order item roll-up from the order_items mart.
+      Joins stg_orders (one row per order) with an aggregation of order_items to attach
+      cost, subtotal, item counts, and food/drink flags. Every order from stg_orders
+      appears in this model (LEFT JOIN), so orders with no items will have NULL cost/count
+      columns but non-null boolean flags (coalesced to FALSE).
+    columns:
+      - name: order_id
+        description: Unique identifier for the order (primary key).
+        tests:
+          - not_null
+          - unique
+
+      - name: location_id
+        description: Identifier of the store/location where the order was placed.
+
+      - name: customer_id
+        description: Identifier of the customer who placed the order.
+        tests:
+          - not_null
+
+      - name: ordered_at
+        description: Date the order was placed (truncated to day).
+        tests:
+          - not_null
+
+      - name: subtotal
+        description: Order subtotal in dollars (excluding tax).
+
+      - name: tax_paid
+        description: Tax amount paid in dollars.
+
+      - name: order_total
+        description: Total order amount in dollars (subtotal + tax).
+
+      - name: order_cost
+        description: Total supply cost across all items in the order (sum of supply_cost from order_items). NULL if order has no items.
+
+      - name: order_items_subtotal
+        description: Sum of per-item product prices for this order (sum of product_price from order_items). NULL if order has no items.
+
+      - name: count_order_items
+        description: Number of line items in the order. NULL if order has no items.
+
+      - name: count_food_items
+        description: Number of food items (jaffle-type products) in the order. NULL if order has no items.
+
+      - name: count_drink_items
+        description: Number of drink items (beverage-type products) in the order. NULL if order has no items.
+
+      - name: is_food_order
+        description: True if the order contains at least one food item (count_food_items > 0). False for orders with no food items or no items at all.
+        tests:
+          - not_null
+
+      - name: is_drink_order
+        description: True if the order contains at least one drink item (count_drink_items > 0). False for orders with no drink items or no items at all.
+        tests:
+          - not_null
