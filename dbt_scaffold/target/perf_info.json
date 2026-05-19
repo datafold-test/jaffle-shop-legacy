@@ -1,0 +1,57 @@
+{
+    "path_count": 208,
+    "parsed_path_count": 208,
+    "static_analysis_path_count": 1,
+    "static_analysis_parsed_path_count": 0,
+    "is_partial_parse_enabled": true,
+    "is_static_analysis_enabled": true,
+    "read_files_elapsed": 0.010810926090925932,
+    "load_macros_elapsed": 0.5349988150410354,
+    "parse_project_elapsed": 0.37471793685108423,
+    "patch_sources_elapsed": 0.01529682008549571,
+    "process_manifest_elapsed": 0.0214099760632962,
+    "load_all_elapsed": 1.0712814810685813,
+    "projects": [
+        {
+            "project_name": "jaffle_shop",
+            "elapsed": 0.36618993687443435,
+            "parsers": [
+                {
+                    "parser": "model",
+                    "elapsed": 0.13895782502368093,
+                    "parsed_path_count": 1
+                },
+                {
+                    "parser": "test",
+                    "elapsed": 0.22441633907146752,
+                    "parsed_path_count": 2
+                }
+            ],
+            "parsed_path_count": 3
+        },
+        {
+            "project_name": "dbt_snowflake",
+            "elapsed": 0.002459215931594372,
+            "parsers": [],
+            "parsed_path_count": 0
+        },
+        {
+            "project_name": "dbt",
+            "elapsed": 0.0036645999643951654,
+            "parsers": [
+                {
+                    "parser": "doc",
+                    "elapsed": 0.00015706405974924564,
+                    "parsed_path_count": 1
+                }
+            ],
+            "parsed_path_count": 1
+        },
+        {
+            "project_name": "dbt_utils",
+            "elapsed": 0.002298966981470585,
+            "parsers": [],
+            "parsed_path_count": 0
+        }
+    ]
+}

@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: stg_orders
+    description: Staged orders — one row per POS order, money in both cents and dollars.
+    columns:
+      - name: order_id
+        description: Primary key — order UUID.
+        data_tests:
+          - not_null
+          - unique
+      - name: location_id
+        description: FK to the store/location where the order was placed.
+      - name: customer_id
+        description: FK to stg_customers.customer_id.
+        data_tests:
+          - not_null
+      - name: subtotal_cents
+        description: Subtotal in cents (raw, for audit).
+      - name: tax_paid_cents
+        description: Tax paid in cents (raw, for audit).
+      - name: order_total_cents
+        description: Order total in cents (raw, for audit).
+      - name: subtotal
+        description: Subtotal in dollars.
+      - name: tax_paid
+        description: Tax paid in dollars.
+      - name: order_total
+        description: Order total in dollars.
+      - name: ordered_at
+        description: Order timestamp truncated to day grain.
