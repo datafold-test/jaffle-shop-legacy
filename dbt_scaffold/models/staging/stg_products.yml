@@ -1,0 +1,34 @@
+version: 2
+
+models:
+  - name: stg_products
+    description: >
+      Staging view over raw_products. Renames SKU→product_id, converts the
+      cents-denominated price to dollars via the cents_to_dollars macro, and
+      derives boolean kind flags (is_food_item, is_drink_item).
+    columns:
+      - name: product_id
+        description: Surrogate primary key (legacy SKU).
+        tests:
+          - not_null
+          - unique
+      - name: product_name
+        description: Human-readable product name.
+        tests:
+          - not_null
+      - name: product_type
+        description: Product category — currently 'jaffle' or 'beverage'.
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['jaffle', 'beverage']
+      - name: product_description
+        description: Long-form marketing description.
+      - name: product_price_cents
+        description: Raw price in cents (audit column, retained for parity).
+      - name: product_price
+        description: Price in dollars (numeric(18,2)).
+      - name: is_food_item
+        description: True when product_type = 'jaffle'.
+      - name: is_drink_item
+        description: True when product_type = 'beverage'.
