@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: stg_products
+    description: >
+      Product catalog cleaned for analytics: renames SKU→product_id, converts
+      the integer cents price to dollars, and derives is_food_item /
+      is_drink_item flags from product type.
+    columns:
+      - name: product_id
+        description: Primary key. Renamed from RAW_PRODUCTS.SKU.
+        tests:
+          - not_null
+          - unique
+      - name: product_name
+        description: Human-readable product name.
+        tests:
+          - not_null
+      - name: product_type
+        description: Product category — currently 'jaffle' or 'beverage'.
+        tests:
+          - not_null
+      - name: product_description
+        description: Free-text product description; nullable.
+      - name: product_price_cents
+        description: Audit column — raw integer price in cents, preserved for legacy parity.
+        tests:
+          - not_null
+      - name: product_price
+        description: Product price in dollars (cents / 100).
+        tests:
+          - not_null
+      - name: is_food_item
+        description: True when product_type = 'jaffle'.
+        tests:
+          - not_null
+      - name: is_drink_item
+        description: True when product_type = 'beverage'.
+        tests:
+          - not_null
