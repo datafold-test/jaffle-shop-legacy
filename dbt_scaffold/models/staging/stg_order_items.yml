@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: stg_order_items
+    description: >
+      Staging view over raw_items. One row per order line item, with
+      identifiers renamed to project conventions (order_item_id,
+      product_id). Foreign keys to stg_orders.order_id and
+      stg_products.product_id are preserved.
+    columns:
+      - name: order_item_id
+        description: Surrogate primary key of the order line item (was raw_items.id).
+        data_tests:
+          - not_null
+          - unique
+      - name: order_id
+        description: FK to stg_orders.order_id.
+        data_tests:
+          - not_null
+      - name: product_id
+        description: FK to stg_products.product_id (sourced from raw_items.sku).
+        data_tests:
+          - not_null
