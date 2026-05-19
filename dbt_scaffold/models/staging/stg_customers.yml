@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: "Staging model for customers — renames raw columns to canonical names."
+    columns:
+      - name: customer_id
+        description: "Surrogate UUID for the customer (from raw_customers.id)."
+        tests:
+          - not_null
+          - unique
+      - name: customer_name
+        description: "Customer display name."
+        tests:
+          - not_null

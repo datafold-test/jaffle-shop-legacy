@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: stg_orders
+    description: >
+      Cleaned-up staging model for orders. Renames POS-native columns to analytics
+      names, preserves raw cent columns for auditing, adds dollar-converted variants,
+      and truncates the order timestamp to day granularity.
+    columns:
+      - name: order_id
+        description: Unique identifier for each order (UUID). Maps from legacy ID column.
+        tests:
+          - not_null
+          - unique
+
+      - name: location_id
+        description: Identifier of the store/location where the order was placed. Maps from legacy STORE_ID column.
+        tests:
+          - not_null
+
+      - name: customer_id
+        description: Identifier of the customer who placed the order. Maps from legacy CUSTOMER column.
+        tests:
+          - not_null
+
+      - name: subtotal_cents
+        description: Order subtotal in cents (raw integer). Preserved for auditing purposes.
+
+      - name: tax_paid_cents
+        description: Tax paid in cents (raw integer). Preserved for auditing purposes.
+
+      - name: order_total_cents
+        description: Order total in cents (raw integer). Preserved for auditing purposes.
+
+      - name: subtotal
+        description: Order subtotal converted to dollars (numeric 18,2).
+
+      - name: tax_paid
+        description: Tax paid converted to dollars (numeric 18,2).
+
+      - name: order_total
+        description: Order total converted to dollars (numeric 18,2).
+
+      - name: ordered_at
+        description: Timestamp of the order, truncated to day granularity.
