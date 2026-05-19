@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: stg_supplies
+    description: >
+      Per-supply staging view: one row per (raw_supplies.id, raw_supplies.sku) pair.
+      Adds a deterministic surrogate key (supply_id) and derives supply_cost in
+      dollars from the raw cents value. Translated from
+      JAFFLE_LEGACY_DB.PUBLIC.STG_SUPPLIES (legacy DDL+DML split:
+      10_stg_supplies_ddl.sql + 10_stg_supplies_dml.sql).
+    columns:
+      - name: supply_id
+        description: Surrogate key, md5(id || '-' || sku). Primary key.
+        data_tests:
+          - not_null
+          - unique
+      - name: supply_uuid
+        description: Source-system uuid (raw_supplies.id).
+        data_tests:
+          - not_null
+      - name: supply_name
+        description: Human-friendly supply name.
+      - name: product_id
+        description: Foreign key to stg_products.product_id (raw_supplies.sku).
+      - name: supply_cost_cents
+        description: Raw cost in cents, as ingested. Audit column — not business-significant.
+      - name: supply_cost
+        description: Cost in dollars, derived via the cents_to_dollars macro.
+      - name: is_perishable_supply
+        description: True if the supply is perishable.
