@@ -19,6 +19,25 @@ mirrors that structure.
   - mart models as **tables** in `JAFFLE_DBT_DB.MARTS`
 - **Same Snowflake account, separate databases.** No cross-account moves.
 
+## Logical vs physical identifiers
+
+The FQNs in this document — `JAFFLE_LEGACY_DB.PUBLIC.*` and `JAFFLE_DBT_DB.{STAGING,MARTS}.*` — are the project's **canonical logical identifiers**. They appear in:
+
+- the per-file mapping table below;
+- ticket titles and descriptions framed by the Lead;
+- `record_translation_mapping` calls in the DKG (`source_paths` / `target_path`).
+
+The **physical** Snowflake names backing them can differ per environment. A dev/test account may host the same data under `JAFFLE_SHOP.RAW.*` (raw) and `JAFFLE_SHOP.{PROD,STAGING,MARTS}.*` (built tiers). Two places carry physical names, and only these two:
+
+- `dbt_scaffold/models/staging/__sources.yml` — the dbt source declaration; `profiles.yml` / `dbt_project.yml` / env overrides resolve it to the right physical FQN at build time.
+- The data-diff **baseline** you pass to the diff tool at validation time — set by the goal, not by you.
+
+**Do not rewrite logical identifiers to match physical ones, or vice versa.** If a logical FQN doesn't resolve in your Snowflake session, the answer is to ask the Lead — not to "fix" `__sources.yml` or the per-file mapping table to match what `INFORMATION_SCHEMA` shows.
+
+## Do not modify `__sources.yml`
+
+`dbt_scaffold/models/staging/__sources.yml` is pre-wired against the logical source identifiers. It can *look* inconsistent with the Snowflake `INFORMATION_SCHEMA` for the account you're on — that's by design; the resolution layer (profile / project config / env vars) closes the gap at build time. Touching this file to "match reality" breaks every downstream model in the same dispatch and gets the ticket bounced.
+
 ## File layout for the translation
 
 Translated dbt files go under `dbt_scaffold/` — that's the dbt project
@@ -79,6 +98,12 @@ materializes ONE target warehouse table:
 > `models/marts/orders.sql` produces the table
 > `JAFFLE_DBT_DB.MARTS.ORDERS`. Those two FQNs are what the MAPS_TO
 > edge connects.
+>
+> These FQNs are the project's **logical / DKG identifiers**; they need
+> not resolve in the physical Snowflake account you're connected to.
+> `record_translation_mapping` accepts them by design — do not query
+> `INFORMATION_SCHEMA` to "verify they exist" before recording the
+> mapping. See **Logical vs physical identifiers** above.
 
 Inside each translated `.sql` file:
 
@@ -109,6 +134,8 @@ columns. Audit columns (anything ending in `_CENTS`) are kept on the dbt
 side for parity but are NOT business-significant — flag those as `warn`
 rather than `fail` if they diverge.
 
+> **Diff baseline = physical Snowflake.** The "Legacy table" column above shows the **logical** identifier (what goes into the DKG mapping). The actual diff runs against whichever **physical** baseline the goal has provisioned in this account — for the current dev/test account that has been `JAFFLE_SHOP.PROD.STG_<NAME>` (staging) / `JAFFLE_SHOP.PROD.<UPPERCASE_NAME>` (marts), per the precedent set by approved sibling tickets. The Lead pins the per-goal baseline in the ticket description; if it isn't there, ask before running diffs — do not guess from `INFORMATION_SCHEMA`.
+
 ## Conventions
 
 - **Snake-case** identifiers everywhere in the dbt project (`customer_id`, `ordered_at`).
@@ -121,7 +148,7 @@ rather than `fail` if they diverge.
 
 - Don't translate `legacy/01_raw_*.sql` — those define dbt **sources**, not models.
 - Don't add new seed CSVs. The raw tables are already populated in the legacy DB; sources point at them directly.
-- Don't change `dbt_project.yml`, `profiles.yml`, `packages.yml`, or `models/staging/__sources.yml`. They're pre-wired.
+- Don't change `dbt_project.yml`, `profiles.yml`, or `packages.yml`. They're pre-wired. (`__sources.yml` has its own dedicated section above — read it.)
 - Don't introduce snapshot or seed logic for this first migration pass.
 
 ## Done definition for one translated model
@@ -153,6 +180,12 @@ rather than `fail` if they diverge.
    bookkeeping. That's a pre-DKG record kept around for the UI; the
    DKG mapping in step 5 is the authoritative bookkeeping going forward.
 
+## Verify before claiming a fix
+
+Before posting a "FIXED" comment about a config file you think you modified, run `git diff <file>` or call the `changed_files` tool. If the file is **unchanged from the goal work branch**, do not claim a fix — the apparent inconsistency is intentional (see "Logical vs physical identifiers" above) and you should escalate to the Lead instead of silently rewriting it. A claim-without-a-diff cascades: the reviewer rejects the ticket on the alleged change, the next developer reverts a change that never happened, and the goal stalls on a misperception.
+
+**For reviewers**: before rejecting on a "developer modified file X" basis, verify the file was actually modified. If `changed_files` shows no diff against the goal work branch, the developer's narrative is wrong and the rejection rests on a misperception — re-check the ticket instead of bouncing it.
+
 ## Ticket-framing guidance for the Lead
 
 When you (the Lead) create developer tickets from this AGENTS.md, **title
@@ -169,3 +202,5 @@ The implementation file paths still go in the description as a pointer
 the developer + reviewer touch downstream around the warehouse FQNs so
 the migration artifact comes out correctly — see "Done definition"
 above.
+
+When you set up a goal, **pin the physical diff baseline** for this account in the goal description or initial-task body (e.g. *"diff left side = `JAFFLE_SHOP.PROD.STG_<NAME>` for staging, `JAFFLE_SHOP.PROD.<UPPERCASE_NAME>` for marts"*). Without it, developers fall back to the logical FQNs from the per-file table, which won't resolve, and the validation step blocks.
