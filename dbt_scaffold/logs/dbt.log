@@ -749,3 +749,415 @@ Object does not exist, or operation cannot be performed.
 [0m14:58:03.657963 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x729b7072e8d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x729b676ab050>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x729b676ab8c0>]}
 [0m14:58:03.658159 [debug] [MainThread]: Flushing usage events
 [0m14:58:04.059553 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m15:02:38.099148 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7221ff9de6c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7221ff2b6ab0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7221ff2b7140>]}
+
+
+============================== 15:02:38.104284 | a58d83c2-6a89-4afe-9119-b6c2e6b53e60 ==============================
+[0m15:02:38.104284 [info ] [MainThread]: Running with dbt=1.11.10
+[0m15:02:38.104621 [debug] [MainThread]: running dbt with arguments {'log_path': '/tmp/tbdispatch_8148141166f145adaa7c432e1050ab5f/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/logs', 'log_cache_events': 'False', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'partial_parse': 'True', 'fail_fast': 'False', 'indirect_selection': 'eager', 'version_check': 'True', 'send_anonymous_usage_stats': 'True', 'debug': 'False', 'use_experimental_parser': 'False', 'quiet': 'False', 'profiles_dir': '/tmp/tmpedc66368', 'invocation_command': 'dbt compile --profiles-dir /tmp/tmpedc66368 --project-dir /tmp/tbdispatch_8148141166f145adaa7c432e1050ab5f/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold', 'use_colors': 'True', 'log_format': 'default', 'write_json': 'True', 'cache_selected_only': 'False', 'no_print': 'None', 'warn_error': 'None', 'empty': 'False', 'printer_width': '80', 'introspect': 'True', 'static_parser': 'True'}
+[0m15:02:38.288285 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m15:02:38.288652 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m15:02:38.288804 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m15:02:38.504498 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'a58d83c2-6a89-4afe-9119-b6c2e6b53e60', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7221fbd24e30>]}
+[0m15:02:38.556926 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'a58d83c2-6a89-4afe-9119-b6c2e6b53e60', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7221fd3dcf80>]}
+[0m15:02:38.557641 [info ] [MainThread]: Registered adapter: snowflake=1.11.5
+[0m15:02:38.632031 [error] [MainThread]: Encountered an error:
+Compilation Error
+  dbt found 1 package(s) specified in packages.yml, but only 0 package(s) installed in dbt_packages. Run "dbt deps" to install package dependencies.
+[0m15:02:38.632732 [debug] [MainThread]: Resource report: {"command_name": "compile", "command_success": false, "command_wall_clock_time": 0.5726557, "process_in_blocks": "0", "process_kernel_time": 0.172582, "process_mem_max_rss": "136192", "process_out_blocks": "16", "process_user_time": 1.593142}
+[0m15:02:38.633158 [debug] [MainThread]: Command `dbt compile` failed at 15:02:38.633091 after 0.57 seconds
+[0m15:02:38.633352 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x722200625b80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7221fbcf9100>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7221fbcf9610>]}
+[0m15:02:38.633547 [debug] [MainThread]: Flushing usage events
+[0m15:02:39.034874 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m15:02:42.127723 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70266de603e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70266bb06a50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70266ddcc890>]}
+
+
+============================== 15:02:42.132267 | 0f45dff8-7ac9-45c3-b881-c5abf368529b ==============================
+[0m15:02:42.132267 [info ] [MainThread]: Running with dbt=1.11.10
+[0m15:02:42.132572 [debug] [MainThread]: running dbt with arguments {'empty': 'None', 'introspect': 'True', 'debug': 'False', 'log_cache_events': 'False', 'static_parser': 'True', 'version_check': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/tmp/tmpu44u7zm5', 'send_anonymous_usage_stats': 'True', 'invocation_command': 'dbt deps --profiles-dir /tmp/tmpu44u7zm5 --project-dir /tmp/tbdispatch_8148141166f145adaa7c432e1050ab5f/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold', 'log_format': 'default', 'fail_fast': 'False', 'indirect_selection': 'eager', 'target_path': 'None', 'use_experimental_parser': 'False', 'warn_error': 'None', 'log_path': '/tmp/tbdispatch_8148141166f145adaa7c432e1050ab5f/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/logs', 'quiet': 'False', 'use_colors': 'True', 'partial_parse': 'True', 'printer_width': '80', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'write_json': 'True', 'no_print': 'None'}
+[0m15:02:42.213755 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '0f45dff8-7ac9-45c3-b881-c5abf368529b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70266be23f20>]}
+[0m15:02:42.221526 [debug] [MainThread]: Set downloads directory='/tmp/dbt-downloads-hudtp8t0'
+[0m15:02:42.221903 [debug] [MainThread]: Making package index registry request: GET https://hub.getdbt.com/api/v1/index.json
+[0m15:02:42.284180 [debug] [MainThread]: Response from registry index: GET https://hub.getdbt.com/api/v1/index.json 200
+[0m15:02:42.285667 [debug] [MainThread]: Making package registry request: GET https://hub.getdbt.com/api/v1/dbt-labs/dbt_utils.json
+[0m15:02:42.351407 [debug] [MainThread]: Response from registry: GET https://hub.getdbt.com/api/v1/dbt-labs/dbt_utils.json 200
+[0m15:02:42.362245 [info ] [MainThread]: Updating lock file in file path: /tmp/tbdispatch_8148141166f145adaa7c432e1050ab5f/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/package-lock.yml
+[0m15:02:42.363834 [debug] [MainThread]: Set downloads directory='/tmp/dbt-downloads-txnby8dt'
+[0m15:02:42.365947 [info ] [MainThread]: Installing dbt-labs/dbt_utils
+[0m15:02:42.628286 [info ] [MainThread]: Installed from version 1.3.3
+[0m15:02:42.628617 [info ] [MainThread]: Up to date!
+[0m15:02:42.628871 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'package', 'label': '0f45dff8-7ac9-45c3-b881-c5abf368529b', 'property_': 'install', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70266acf7590>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70266abbe150>]}
+[0m15:02:42.629914 [debug] [MainThread]: Resource report: {"command_name": "deps", "command_success": true, "command_wall_clock_time": 0.53995544, "process_in_blocks": "0", "process_kernel_time": 0.129855, "process_mem_max_rss": "110820", "process_out_blocks": "2312", "process_user_time": 1.267591}
+[0m15:02:42.630219 [debug] [MainThread]: Command `dbt deps` succeeded at 15:02:42.630155 after 0.54 seconds
+[0m15:02:42.630403 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70266bcb5820>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70266ddcc890>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x70266b476a80>]}
+[0m15:02:42.630606 [debug] [MainThread]: Flushing usage events
+[0m15:02:43.065240 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m15:02:46.247999 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7601a0b8ed20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76019ebed700>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7601a0cec560>]}
+
+
+============================== 15:02:46.252146 | 93a49153-4a2a-4625-9e5d-ef917e380b83 ==============================
+[0m15:02:46.252146 [info ] [MainThread]: Running with dbt=1.11.10
+[0m15:02:46.252406 [debug] [MainThread]: running dbt with arguments {'warn_error': 'None', 'fail_fast': 'False', 'indirect_selection': 'eager', 'no_print': 'None', 'printer_width': '80', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_format': 'default', 'profiles_dir': '/tmp/tmpsxxgsriv', 'invocation_command': 'dbt compile --profiles-dir /tmp/tmpsxxgsriv --project-dir /tmp/tbdispatch_8148141166f145adaa7c432e1050ab5f/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold', 'quiet': 'False', 'cache_selected_only': 'False', 'use_colors': 'True', 'target_path': 'None', 'use_experimental_parser': 'False', 'debug': 'False', 'static_parser': 'True', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'write_json': 'True', 'version_check': 'True', 'log_cache_events': 'False', 'log_path': '/tmp/tbdispatch_8148141166f145adaa7c432e1050ab5f/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/logs', 'empty': 'False', 'introspect': 'True'}
+[0m15:02:46.414702 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m15:02:46.415014 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m15:02:46.415159 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m15:02:46.598097 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '93a49153-4a2a-4625-9e5d-ef917e380b83', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76019c45f0e0>]}
+[0m15:02:46.643459 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '93a49153-4a2a-4625-9e5d-ef917e380b83', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76019cc1cef0>]}
+[0m15:02:46.644064 [info ] [MainThread]: Registered adapter: snowflake=1.11.5
+[0m15:02:46.717621 [debug] [MainThread]: checksum: 2f247960199844e016e6a527f21364251736722c6212f4b11e96849fe0fc9e96, vars: {}, profile: , target: , version: 1.11.10
+[0m15:02:46.718115 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m15:02:46.718282 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '93a49153-4a2a-4625-9e5d-ef917e380b83', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76019b52e180>]}
+[0m15:02:47.859947 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '93a49153-4a2a-4625-9e5d-ef917e380b83', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7601991ac350>]}
+[0m15:02:47.931822 [debug] [MainThread]: Wrote artifact WritableManifest to /tmp/tbdispatch_8148141166f145adaa7c432e1050ab5f/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/manifest.json
+[0m15:02:47.933556 [debug] [MainThread]: Wrote artifact SemanticManifest to /tmp/tbdispatch_8148141166f145adaa7c432e1050ab5f/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/semantic_manifest.json
+[0m15:02:47.940239 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '93a49153-4a2a-4625-9e5d-ef917e380b83', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76019b2e6720>]}
+[0m15:02:47.940576 [info ] [MainThread]: Found 8 models, 43 data tests, 5 sources, 645 macros
+[0m15:02:47.940748 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '93a49153-4a2a-4625-9e5d-ef917e380b83', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76019917b500>]}
+[0m15:02:47.942920 [info ] [MainThread]: 
+[0m15:02:47.943233 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m15:02:47.943370 [info ] [MainThread]: 
+[0m15:02:47.943708 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m15:02:47.947351 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DEV_STAGING_marts'
+[0m15:02:47.976120 [debug] [ThreadPool]: Using snowflake connection "list_DEV_STAGING_marts"
+[0m15:02:47.976390 [debug] [ThreadPool]: On list_DEV_STAGING_marts: show objects in DEV.STAGING_marts
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.10", "profile_name": "jaffle_shop", "target_name": "dev", "connection_name": "list_DEV_STAGING_marts"} */;
+[0m15:02:47.976535 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m15:02:48.970545 [debug] [ThreadPool]: Snowflake adapter: Snowflake query id: 01c47f26-060b-fcfe-0008-fb83437c4312
+[0m15:02:48.970817 [debug] [ThreadPool]: Snowflake adapter: Snowflake error: 002043 (02000): SQL compilation error:
+Object does not exist, or operation cannot be performed.
+[0m15:02:48.971014 [debug] [ThreadPool]: Snowflake adapter: Error running SQL: macro list_relations_without_caching
+[0m15:02:48.971152 [debug] [ThreadPool]: Snowflake adapter: Rolling back transaction.
+[0m15:02:48.971473 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_DEV_STAGING_marts, now list_DEV_STAGING_staging)
+[0m15:02:48.973304 [debug] [ThreadPool]: Using snowflake connection "list_DEV_STAGING_staging"
+[0m15:02:48.973480 [debug] [ThreadPool]: On list_DEV_STAGING_staging: show objects in DEV.STAGING_staging
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.10", "profile_name": "jaffle_shop", "target_name": "dev", "connection_name": "list_DEV_STAGING_staging"} */;
+[0m15:02:49.200823 [debug] [ThreadPool]: Snowflake adapter: Snowflake query id: 01c47f26-060b-fcfe-0008-fb83437c4316
+[0m15:02:49.201151 [debug] [ThreadPool]: Snowflake adapter: Snowflake error: 002043 (02000): SQL compilation error:
+Object does not exist, or operation cannot be performed.
+[0m15:02:49.201423 [debug] [ThreadPool]: Snowflake adapter: Error running SQL: macro list_relations_without_caching
+[0m15:02:49.201638 [debug] [ThreadPool]: Snowflake adapter: Rolling back transaction.
+[0m15:02:49.202260 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '93a49153-4a2a-4625-9e5d-ef917e380b83', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76019b2e6840>]}
+[0m15:02:49.206110 [debug] [Thread-2 (]: Began running node model.jaffle_shop.stg_customers
+[0m15:02:49.206532 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_DEV_STAGING_staging, now model.jaffle_shop.stg_customers)
+[0m15:02:49.206809 [debug] [Thread-2 (]: Began compiling node model.jaffle_shop.stg_customers
+[0m15:02:49.216516 [debug] [Thread-2 (]: Writing injected SQL for node "model.jaffle_shop.stg_customers"
+[0m15:02:49.217200 [debug] [Thread-2 (]: Began executing node model.jaffle_shop.stg_customers
+[0m15:02:49.217812 [debug] [Thread-2 (]: Finished running node model.jaffle_shop.stg_customers
+[0m15:02:49.218113 [debug] [Thread-2 (]: Began running node model.jaffle_shop.stg_order_items
+[0m15:02:49.218387 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.jaffle_shop.stg_customers, now model.jaffle_shop.stg_order_items)
+[0m15:02:49.218750 [debug] [Thread-2 (]: Began compiling node model.jaffle_shop.stg_order_items
+[0m15:02:49.221674 [debug] [Thread-2 (]: Writing injected SQL for node "model.jaffle_shop.stg_order_items"
+[0m15:02:49.222119 [debug] [Thread-2 (]: Began executing node model.jaffle_shop.stg_order_items
+[0m15:02:49.222630 [debug] [Thread-2 (]: Finished running node model.jaffle_shop.stg_order_items
+[0m15:02:49.222882 [debug] [Thread-2 (]: Began running node model.jaffle_shop.stg_orders
+[0m15:02:49.223207 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.jaffle_shop.stg_order_items, now model.jaffle_shop.stg_orders)
+[0m15:02:49.223550 [debug] [Thread-2 (]: Began compiling node model.jaffle_shop.stg_orders
+[0m15:02:49.228156 [debug] [Thread-2 (]: Writing injected SQL for node "model.jaffle_shop.stg_orders"
+[0m15:02:49.228792 [debug] [Thread-2 (]: Began executing node model.jaffle_shop.stg_orders
+[0m15:02:49.229337 [debug] [Thread-2 (]: Finished running node model.jaffle_shop.stg_orders
+[0m15:02:49.229740 [debug] [Thread-2 (]: Began running node model.jaffle_shop.stg_products
+[0m15:02:49.230468 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.jaffle_shop.stg_orders, now model.jaffle_shop.stg_products)
+[0m15:02:49.230759 [debug] [Thread-2 (]: Began compiling node model.jaffle_shop.stg_products
+[0m15:02:49.234040 [debug] [Thread-2 (]: Writing injected SQL for node "model.jaffle_shop.stg_products"
+[0m15:02:49.234590 [debug] [Thread-2 (]: Began executing node model.jaffle_shop.stg_products
+[0m15:02:49.235089 [debug] [Thread-2 (]: Finished running node model.jaffle_shop.stg_products
+[0m15:02:49.235339 [debug] [Thread-2 (]: Began running node model.jaffle_shop.stg_supplies
+[0m15:02:49.235682 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.jaffle_shop.stg_products, now model.jaffle_shop.stg_supplies)
+[0m15:02:49.236052 [debug] [Thread-2 (]: Began compiling node model.jaffle_shop.stg_supplies
+[0m15:02:49.240337 [debug] [Thread-2 (]: Writing injected SQL for node "model.jaffle_shop.stg_supplies"
+[0m15:02:49.240795 [debug] [Thread-2 (]: Began executing node model.jaffle_shop.stg_supplies
+[0m15:02:49.241276 [debug] [Thread-2 (]: Finished running node model.jaffle_shop.stg_supplies
+[0m15:02:49.241570 [debug] [Thread-2 (]: Began running node test.jaffle_shop.not_null_stg_customers_customer_id.e2cfb1f9aa
+[0m15:02:49.242005 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.jaffle_shop.stg_supplies, now test.jaffle_shop.not_null_stg_customers_customer_id.e2cfb1f9aa)
+[0m15:02:49.242407 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.not_null_stg_customers_customer_id.e2cfb1f9aa
+[0m15:02:49.253847 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.not_null_stg_customers_customer_id.e2cfb1f9aa"
+[0m15:02:49.254602 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.not_null_stg_customers_customer_id.e2cfb1f9aa
+[0m15:02:49.255108 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.not_null_stg_customers_customer_id.e2cfb1f9aa
+[0m15:02:49.255357 [debug] [Thread-2 (]: Began running node test.jaffle_shop.not_null_stg_customers_customer_name.5c92a78a60
+[0m15:02:49.255677 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.not_null_stg_customers_customer_id.e2cfb1f9aa, now test.jaffle_shop.not_null_stg_customers_customer_name.5c92a78a60)
+[0m15:02:49.255904 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.not_null_stg_customers_customer_name.5c92a78a60
+[0m15:02:49.260157 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.not_null_stg_customers_customer_name.5c92a78a60"
+[0m15:02:49.260805 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.not_null_stg_customers_customer_name.5c92a78a60
+[0m15:02:49.261390 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.not_null_stg_customers_customer_name.5c92a78a60
+[0m15:02:49.261687 [debug] [Thread-2 (]: Began running node test.jaffle_shop.unique_stg_customers_customer_id.c7614daada
+[0m15:02:49.261957 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.not_null_stg_customers_customer_name.5c92a78a60, now test.jaffle_shop.unique_stg_customers_customer_id.c7614daada)
+[0m15:02:49.262202 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.unique_stg_customers_customer_id.c7614daada
+[0m15:02:49.268489 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.unique_stg_customers_customer_id.c7614daada"
+[0m15:02:49.269019 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.unique_stg_customers_customer_id.c7614daada
+[0m15:02:49.269509 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.unique_stg_customers_customer_id.c7614daada
+[0m15:02:49.269744 [debug] [Thread-2 (]: Began running node test.jaffle_shop.not_null_stg_order_items_order_id.2063801f96
+[0m15:02:49.269978 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.unique_stg_customers_customer_id.c7614daada, now test.jaffle_shop.not_null_stg_order_items_order_id.2063801f96)
+[0m15:02:49.270186 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.not_null_stg_order_items_order_id.2063801f96
+[0m15:02:49.273913 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.not_null_stg_order_items_order_id.2063801f96"
+[0m15:02:49.274536 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.not_null_stg_order_items_order_id.2063801f96
+[0m15:02:49.275169 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.not_null_stg_order_items_order_id.2063801f96
+[0m15:02:49.275496 [debug] [Thread-2 (]: Began running node test.jaffle_shop.not_null_stg_order_items_order_item_id.26a7e2bc35
+[0m15:02:49.275795 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.not_null_stg_order_items_order_id.2063801f96, now test.jaffle_shop.not_null_stg_order_items_order_item_id.26a7e2bc35)
+[0m15:02:49.276098 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.not_null_stg_order_items_order_item_id.26a7e2bc35
+[0m15:02:49.280231 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.not_null_stg_order_items_order_item_id.26a7e2bc35"
+[0m15:02:49.280852 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.not_null_stg_order_items_order_item_id.26a7e2bc35
+[0m15:02:49.281403 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.not_null_stg_order_items_order_item_id.26a7e2bc35
+[0m15:02:49.281746 [debug] [Thread-2 (]: Began running node test.jaffle_shop.not_null_stg_order_items_product_id.5154a8a6f6
+[0m15:02:49.282007 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.not_null_stg_order_items_order_item_id.26a7e2bc35, now test.jaffle_shop.not_null_stg_order_items_product_id.5154a8a6f6)
+[0m15:02:49.282221 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.not_null_stg_order_items_product_id.5154a8a6f6
+[0m15:02:49.285951 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.not_null_stg_order_items_product_id.5154a8a6f6"
+[0m15:02:49.286454 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.not_null_stg_order_items_product_id.5154a8a6f6
+[0m15:02:49.286922 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.not_null_stg_order_items_product_id.5154a8a6f6
+[0m15:02:49.287158 [debug] [Thread-2 (]: Began running node test.jaffle_shop.unique_stg_order_items_order_item_id.90e333a108
+[0m15:02:49.287415 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.not_null_stg_order_items_product_id.5154a8a6f6, now test.jaffle_shop.unique_stg_order_items_order_item_id.90e333a108)
+[0m15:02:49.287647 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.unique_stg_order_items_order_item_id.90e333a108
+[0m15:02:49.290914 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.unique_stg_order_items_order_item_id.90e333a108"
+[0m15:02:49.291431 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.unique_stg_order_items_order_item_id.90e333a108
+[0m15:02:49.291923 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.unique_stg_order_items_order_item_id.90e333a108
+[0m15:02:49.292159 [debug] [Thread-2 (]: Began running node test.jaffle_shop.not_null_stg_orders_order_id.81cfe2fe64
+[0m15:02:49.292461 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.unique_stg_order_items_order_item_id.90e333a108, now test.jaffle_shop.not_null_stg_orders_order_id.81cfe2fe64)
+[0m15:02:49.292693 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.not_null_stg_orders_order_id.81cfe2fe64
+[0m15:02:49.296351 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.not_null_stg_orders_order_id.81cfe2fe64"
+[0m15:02:49.296906 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.not_null_stg_orders_order_id.81cfe2fe64
+[0m15:02:49.297380 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.not_null_stg_orders_order_id.81cfe2fe64
+[0m15:02:49.297628 [debug] [Thread-2 (]: Began running node test.jaffle_shop.unique_stg_orders_order_id.e3b841c71a
+[0m15:02:49.297890 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.not_null_stg_orders_order_id.81cfe2fe64, now test.jaffle_shop.unique_stg_orders_order_id.e3b841c71a)
+[0m15:02:49.298110 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.unique_stg_orders_order_id.e3b841c71a
+[0m15:02:49.302739 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.unique_stg_orders_order_id.e3b841c71a"
+[0m15:02:49.303281 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.unique_stg_orders_order_id.e3b841c71a
+[0m15:02:49.303780 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.unique_stg_orders_order_id.e3b841c71a
+[0m15:02:49.304039 [debug] [Thread-2 (]: Began running node test.jaffle_shop.not_null_stg_products_is_drink_item.339e87c30d
+[0m15:02:49.304312 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.unique_stg_orders_order_id.e3b841c71a, now test.jaffle_shop.not_null_stg_products_is_drink_item.339e87c30d)
+[0m15:02:49.304537 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.not_null_stg_products_is_drink_item.339e87c30d
+[0m15:02:49.307899 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.not_null_stg_products_is_drink_item.339e87c30d"
+[0m15:02:49.308447 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.not_null_stg_products_is_drink_item.339e87c30d
+[0m15:02:49.308948 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.not_null_stg_products_is_drink_item.339e87c30d
+[0m15:02:49.309208 [debug] [Thread-2 (]: Began running node test.jaffle_shop.not_null_stg_products_is_food_item.8e5e6fcdb1
+[0m15:02:49.309532 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.not_null_stg_products_is_drink_item.339e87c30d, now test.jaffle_shop.not_null_stg_products_is_food_item.8e5e6fcdb1)
+[0m15:02:49.309771 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.not_null_stg_products_is_food_item.8e5e6fcdb1
+[0m15:02:49.314089 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.not_null_stg_products_is_food_item.8e5e6fcdb1"
+[0m15:02:49.314669 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.not_null_stg_products_is_food_item.8e5e6fcdb1
+[0m15:02:49.315261 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.not_null_stg_products_is_food_item.8e5e6fcdb1
+[0m15:02:49.315549 [debug] [Thread-2 (]: Began running node test.jaffle_shop.not_null_stg_products_product_id.6373b0acf3
+[0m15:02:49.315847 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.not_null_stg_products_is_food_item.8e5e6fcdb1, now test.jaffle_shop.not_null_stg_products_product_id.6373b0acf3)
+[0m15:02:49.316056 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.not_null_stg_products_product_id.6373b0acf3
+[0m15:02:49.319585 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.not_null_stg_products_product_id.6373b0acf3"
+[0m15:02:49.320002 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.not_null_stg_products_product_id.6373b0acf3
+[0m15:02:49.320442 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.not_null_stg_products_product_id.6373b0acf3
+[0m15:02:49.320665 [debug] [Thread-2 (]: Began running node test.jaffle_shop.not_null_stg_products_product_name.0b59e4b939
+[0m15:02:49.320921 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.not_null_stg_products_product_id.6373b0acf3, now test.jaffle_shop.not_null_stg_products_product_name.0b59e4b939)
+[0m15:02:49.321117 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.not_null_stg_products_product_name.0b59e4b939
+[0m15:02:49.324382 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.not_null_stg_products_product_name.0b59e4b939"
+[0m15:02:49.324891 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.not_null_stg_products_product_name.0b59e4b939
+[0m15:02:49.325456 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.not_null_stg_products_product_name.0b59e4b939
+[0m15:02:49.325732 [debug] [Thread-2 (]: Began running node test.jaffle_shop.not_null_stg_products_product_price.d96fdc5e1e
+[0m15:02:49.326096 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.not_null_stg_products_product_name.0b59e4b939, now test.jaffle_shop.not_null_stg_products_product_price.d96fdc5e1e)
+[0m15:02:49.326408 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.not_null_stg_products_product_price.d96fdc5e1e
+[0m15:02:49.331413 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.not_null_stg_products_product_price.d96fdc5e1e"
+[0m15:02:49.332060 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.not_null_stg_products_product_price.d96fdc5e1e
+[0m15:02:49.332542 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.not_null_stg_products_product_price.d96fdc5e1e
+[0m15:02:49.332775 [debug] [Thread-2 (]: Began running node test.jaffle_shop.not_null_stg_products_product_price_cents.5401dff63f
+[0m15:02:49.333041 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.not_null_stg_products_product_price.d96fdc5e1e, now test.jaffle_shop.not_null_stg_products_product_price_cents.5401dff63f)
+[0m15:02:49.333240 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.not_null_stg_products_product_price_cents.5401dff63f
+[0m15:02:49.336640 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.not_null_stg_products_product_price_cents.5401dff63f"
+[0m15:02:49.337042 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.not_null_stg_products_product_price_cents.5401dff63f
+[0m15:02:49.337498 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.not_null_stg_products_product_price_cents.5401dff63f
+[0m15:02:49.337719 [debug] [Thread-2 (]: Began running node test.jaffle_shop.not_null_stg_products_product_type.7dbdaaf4d8
+[0m15:02:49.337935 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.not_null_stg_products_product_price_cents.5401dff63f, now test.jaffle_shop.not_null_stg_products_product_type.7dbdaaf4d8)
+[0m15:02:49.338132 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.not_null_stg_products_product_type.7dbdaaf4d8
+[0m15:02:49.341640 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.not_null_stg_products_product_type.7dbdaaf4d8"
+[0m15:02:49.342137 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.not_null_stg_products_product_type.7dbdaaf4d8
+[0m15:02:49.342678 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.not_null_stg_products_product_type.7dbdaaf4d8
+[0m15:02:49.342950 [debug] [Thread-2 (]: Began running node test.jaffle_shop.unique_stg_products_product_id.7d950a1467
+[0m15:02:49.343262 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.not_null_stg_products_product_type.7dbdaaf4d8, now test.jaffle_shop.unique_stg_products_product_id.7d950a1467)
+[0m15:02:49.343507 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.unique_stg_products_product_id.7d950a1467
+[0m15:02:49.348958 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.unique_stg_products_product_id.7d950a1467"
+[0m15:02:49.349475 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.unique_stg_products_product_id.7d950a1467
+[0m15:02:49.349936 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.unique_stg_products_product_id.7d950a1467
+[0m15:02:49.350174 [debug] [Thread-2 (]: Began running node model.jaffle_shop.order_items
+[0m15:02:49.350456 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.unique_stg_products_product_id.7d950a1467, now model.jaffle_shop.order_items)
+[0m15:02:49.350660 [debug] [Thread-2 (]: Began compiling node model.jaffle_shop.order_items
+[0m15:02:49.353640 [debug] [Thread-2 (]: Writing injected SQL for node "model.jaffle_shop.order_items"
+[0m15:02:49.354028 [debug] [Thread-2 (]: Began executing node model.jaffle_shop.order_items
+[0m15:02:49.354461 [debug] [Thread-2 (]: Finished running node model.jaffle_shop.order_items
+[0m15:02:49.354687 [debug] [Thread-2 (]: Began running node test.jaffle_shop.not_null_stg_supplies_supply_cost.5de3da4f1d
+[0m15:02:49.354996 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.jaffle_shop.order_items, now test.jaffle_shop.not_null_stg_supplies_supply_cost.5de3da4f1d)
+[0m15:02:49.355194 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.not_null_stg_supplies_supply_cost.5de3da4f1d
+[0m15:02:49.358595 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.not_null_stg_supplies_supply_cost.5de3da4f1d"
+[0m15:02:49.359396 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.not_null_stg_supplies_supply_cost.5de3da4f1d
+[0m15:02:49.359950 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.not_null_stg_supplies_supply_cost.5de3da4f1d
+[0m15:02:49.360215 [debug] [Thread-2 (]: Began running node test.jaffle_shop.not_null_stg_supplies_supply_cost_cents.e6e5d807e9
+[0m15:02:49.360545 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.not_null_stg_supplies_supply_cost.5de3da4f1d, now test.jaffle_shop.not_null_stg_supplies_supply_cost_cents.e6e5d807e9)
+[0m15:02:49.360779 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.not_null_stg_supplies_supply_cost_cents.e6e5d807e9
+[0m15:02:49.364463 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.not_null_stg_supplies_supply_cost_cents.e6e5d807e9"
+[0m15:02:49.364963 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.not_null_stg_supplies_supply_cost_cents.e6e5d807e9
+[0m15:02:49.365446 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.not_null_stg_supplies_supply_cost_cents.e6e5d807e9
+[0m15:02:49.365677 [debug] [Thread-2 (]: Began running node test.jaffle_shop.not_null_stg_supplies_supply_id.2638ae6962
+[0m15:02:49.365889 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.not_null_stg_supplies_supply_cost_cents.e6e5d807e9, now test.jaffle_shop.not_null_stg_supplies_supply_id.2638ae6962)
+[0m15:02:49.366082 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.not_null_stg_supplies_supply_id.2638ae6962
+[0m15:02:49.369148 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.not_null_stg_supplies_supply_id.2638ae6962"
+[0m15:02:49.369562 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.not_null_stg_supplies_supply_id.2638ae6962
+[0m15:02:49.369952 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.not_null_stg_supplies_supply_id.2638ae6962
+[0m15:02:49.370174 [debug] [Thread-2 (]: Began running node test.jaffle_shop.not_null_stg_supplies_supply_uuid.515c6eda6d
+[0m15:02:49.370405 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.not_null_stg_supplies_supply_id.2638ae6962, now test.jaffle_shop.not_null_stg_supplies_supply_uuid.515c6eda6d)
+[0m15:02:49.370621 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.not_null_stg_supplies_supply_uuid.515c6eda6d
+[0m15:02:49.373384 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.not_null_stg_supplies_supply_uuid.515c6eda6d"
+[0m15:02:49.373735 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.not_null_stg_supplies_supply_uuid.515c6eda6d
+[0m15:02:49.374132 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.not_null_stg_supplies_supply_uuid.515c6eda6d
+[0m15:02:49.374337 [debug] [Thread-2 (]: Began running node test.jaffle_shop.unique_stg_supplies_supply_id.3a62761a66
+[0m15:02:49.374583 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.not_null_stg_supplies_supply_uuid.515c6eda6d, now test.jaffle_shop.unique_stg_supplies_supply_id.3a62761a66)
+[0m15:02:49.374763 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.unique_stg_supplies_supply_id.3a62761a66
+[0m15:02:49.377541 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.unique_stg_supplies_supply_id.3a62761a66"
+[0m15:02:49.377982 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.unique_stg_supplies_supply_id.3a62761a66
+[0m15:02:49.378376 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.unique_stg_supplies_supply_id.3a62761a66
+[0m15:02:49.378611 [debug] [Thread-2 (]: Began running node model.jaffle_shop.orders
+[0m15:02:49.378821 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.unique_stg_supplies_supply_id.3a62761a66, now model.jaffle_shop.orders)
+[0m15:02:49.379005 [debug] [Thread-2 (]: Began compiling node model.jaffle_shop.orders
+[0m15:02:49.381583 [debug] [Thread-2 (]: Writing injected SQL for node "model.jaffle_shop.orders"
+[0m15:02:49.382065 [debug] [Thread-2 (]: Began executing node model.jaffle_shop.orders
+[0m15:02:49.382493 [debug] [Thread-2 (]: Finished running node model.jaffle_shop.orders
+[0m15:02:49.382716 [debug] [Thread-2 (]: Began running node test.jaffle_shop.not_null_order_items_is_drink_item.6bb8231b5a
+[0m15:02:49.382925 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.jaffle_shop.orders, now test.jaffle_shop.not_null_order_items_is_drink_item.6bb8231b5a)
+[0m15:02:49.383110 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.not_null_order_items_is_drink_item.6bb8231b5a
+[0m15:02:49.386226 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.not_null_order_items_is_drink_item.6bb8231b5a"
+[0m15:02:49.387372 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.not_null_order_items_is_drink_item.6bb8231b5a
+[0m15:02:49.387946 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.not_null_order_items_is_drink_item.6bb8231b5a
+[0m15:02:49.388451 [debug] [Thread-2 (]: Began running node test.jaffle_shop.not_null_order_items_is_food_item.c5a4aa0725
+[0m15:02:49.388862 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.not_null_order_items_is_drink_item.6bb8231b5a, now test.jaffle_shop.not_null_order_items_is_food_item.c5a4aa0725)
+[0m15:02:49.389306 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.not_null_order_items_is_food_item.c5a4aa0725
+[0m15:02:49.394069 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.not_null_order_items_is_food_item.c5a4aa0725"
+[0m15:02:49.394535 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.not_null_order_items_is_food_item.c5a4aa0725
+[0m15:02:49.394967 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.not_null_order_items_is_food_item.c5a4aa0725
+[0m15:02:49.395187 [debug] [Thread-2 (]: Began running node test.jaffle_shop.not_null_order_items_order_id.0207cf2b74
+[0m15:02:49.395472 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.not_null_order_items_is_food_item.c5a4aa0725, now test.jaffle_shop.not_null_order_items_order_id.0207cf2b74)
+[0m15:02:49.395681 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.not_null_order_items_order_id.0207cf2b74
+[0m15:02:49.398743 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.not_null_order_items_order_id.0207cf2b74"
+[0m15:02:49.399134 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.not_null_order_items_order_id.0207cf2b74
+[0m15:02:49.399538 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.not_null_order_items_order_id.0207cf2b74
+[0m15:02:49.399745 [debug] [Thread-2 (]: Began running node test.jaffle_shop.not_null_order_items_order_item_id.c6fda366bd
+[0m15:02:49.399977 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.not_null_order_items_order_id.0207cf2b74, now test.jaffle_shop.not_null_order_items_order_item_id.c6fda366bd)
+[0m15:02:49.400158 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.not_null_order_items_order_item_id.c6fda366bd
+[0m15:02:49.403081 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.not_null_order_items_order_item_id.c6fda366bd"
+[0m15:02:49.403414 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.not_null_order_items_order_item_id.c6fda366bd
+[0m15:02:49.403818 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.not_null_order_items_order_item_id.c6fda366bd
+[0m15:02:49.404016 [debug] [Thread-2 (]: Began running node test.jaffle_shop.not_null_order_items_ordered_at.d1ca4b39c8
+[0m15:02:49.404231 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.not_null_order_items_order_item_id.c6fda366bd, now test.jaffle_shop.not_null_order_items_ordered_at.d1ca4b39c8)
+[0m15:02:49.404461 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.not_null_order_items_ordered_at.d1ca4b39c8
+[0m15:02:49.407158 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.not_null_order_items_ordered_at.d1ca4b39c8"
+[0m15:02:49.407513 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.not_null_order_items_ordered_at.d1ca4b39c8
+[0m15:02:49.407957 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.not_null_order_items_ordered_at.d1ca4b39c8
+[0m15:02:49.408202 [debug] [Thread-2 (]: Began running node test.jaffle_shop.not_null_order_items_product_id.d5e49d7c32
+[0m15:02:49.408483 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.not_null_order_items_ordered_at.d1ca4b39c8, now test.jaffle_shop.not_null_order_items_product_id.d5e49d7c32)
+[0m15:02:49.408692 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.not_null_order_items_product_id.d5e49d7c32
+[0m15:02:49.412368 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.not_null_order_items_product_id.d5e49d7c32"
+[0m15:02:49.412945 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.not_null_order_items_product_id.d5e49d7c32
+[0m15:02:49.413405 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.not_null_order_items_product_id.d5e49d7c32
+[0m15:02:49.413669 [debug] [Thread-2 (]: Began running node test.jaffle_shop.not_null_order_items_product_name.86cd0cf29d
+[0m15:02:49.413959 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.not_null_order_items_product_id.d5e49d7c32, now test.jaffle_shop.not_null_order_items_product_name.86cd0cf29d)
+[0m15:02:49.414190 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.not_null_order_items_product_name.86cd0cf29d
+[0m15:02:49.417793 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.not_null_order_items_product_name.86cd0cf29d"
+[0m15:02:49.418245 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.not_null_order_items_product_name.86cd0cf29d
+[0m15:02:49.418688 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.not_null_order_items_product_name.86cd0cf29d
+[0m15:02:49.418911 [debug] [Thread-2 (]: Began running node test.jaffle_shop.not_null_order_items_product_price.9e29b4995d
+[0m15:02:49.419161 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.not_null_order_items_product_name.86cd0cf29d, now test.jaffle_shop.not_null_order_items_product_price.9e29b4995d)
+[0m15:02:49.419357 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.not_null_order_items_product_price.9e29b4995d
+[0m15:02:49.422350 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.not_null_order_items_product_price.9e29b4995d"
+[0m15:02:49.422772 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.not_null_order_items_product_price.9e29b4995d
+[0m15:02:49.423179 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.not_null_order_items_product_price.9e29b4995d
+[0m15:02:49.423387 [debug] [Thread-2 (]: Began running node test.jaffle_shop.unique_order_items_order_item_id.7d0a7e900a
+[0m15:02:49.423656 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.not_null_order_items_product_price.9e29b4995d, now test.jaffle_shop.unique_order_items_order_item_id.7d0a7e900a)
+[0m15:02:49.423841 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.unique_order_items_order_item_id.7d0a7e900a
+[0m15:02:49.426969 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.unique_order_items_order_item_id.7d0a7e900a"
+[0m15:02:49.427368 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.unique_order_items_order_item_id.7d0a7e900a
+[0m15:02:49.427783 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.unique_order_items_order_item_id.7d0a7e900a
+[0m15:02:49.428032 [debug] [Thread-2 (]: Began running node model.jaffle_shop.customers
+[0m15:02:49.428246 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.unique_order_items_order_item_id.7d0a7e900a, now model.jaffle_shop.customers)
+[0m15:02:49.428499 [debug] [Thread-2 (]: Began compiling node model.jaffle_shop.customers
+[0m15:02:49.432049 [debug] [Thread-2 (]: Writing injected SQL for node "model.jaffle_shop.customers"
+[0m15:02:49.432498 [debug] [Thread-2 (]: Began executing node model.jaffle_shop.customers
+[0m15:02:49.432906 [debug] [Thread-2 (]: Finished running node model.jaffle_shop.customers
+[0m15:02:49.433104 [debug] [Thread-2 (]: Began running node test.jaffle_shop.not_null_orders_customer_id.c5f02694af
+[0m15:02:49.433363 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.jaffle_shop.customers, now test.jaffle_shop.not_null_orders_customer_id.c5f02694af)
+[0m15:02:49.433573 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.not_null_orders_customer_id.c5f02694af
+[0m15:02:49.436659 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.not_null_orders_customer_id.c5f02694af"
+[0m15:02:49.437217 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.not_null_orders_customer_id.c5f02694af
+[0m15:02:49.437653 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.not_null_orders_customer_id.c5f02694af
+[0m15:02:49.437863 [debug] [Thread-2 (]: Began running node test.jaffle_shop.not_null_orders_is_drink_order.22aa0ef8d4
+[0m15:02:49.438099 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.not_null_orders_customer_id.c5f02694af, now test.jaffle_shop.not_null_orders_is_drink_order.22aa0ef8d4)
+[0m15:02:49.438294 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.not_null_orders_is_drink_order.22aa0ef8d4
+[0m15:02:49.441504 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.not_null_orders_is_drink_order.22aa0ef8d4"
+[0m15:02:49.441953 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.not_null_orders_is_drink_order.22aa0ef8d4
+[0m15:02:49.442411 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.not_null_orders_is_drink_order.22aa0ef8d4
+[0m15:02:49.442665 [debug] [Thread-2 (]: Began running node test.jaffle_shop.not_null_orders_is_food_order.94c3dbcf13
+[0m15:02:49.442951 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.not_null_orders_is_drink_order.22aa0ef8d4, now test.jaffle_shop.not_null_orders_is_food_order.94c3dbcf13)
+[0m15:02:49.443169 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.not_null_orders_is_food_order.94c3dbcf13
+[0m15:02:49.446988 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.not_null_orders_is_food_order.94c3dbcf13"
+[0m15:02:49.447551 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.not_null_orders_is_food_order.94c3dbcf13
+[0m15:02:49.448006 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.not_null_orders_is_food_order.94c3dbcf13
+[0m15:02:49.448286 [debug] [Thread-2 (]: Began running node test.jaffle_shop.not_null_orders_location_id.ebcb14ab4f
+[0m15:02:49.448562 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.not_null_orders_is_food_order.94c3dbcf13, now test.jaffle_shop.not_null_orders_location_id.ebcb14ab4f)
+[0m15:02:49.449034 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.not_null_orders_location_id.ebcb14ab4f
+[0m15:02:49.452772 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.not_null_orders_location_id.ebcb14ab4f"
+[0m15:02:49.453136 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.not_null_orders_location_id.ebcb14ab4f
+[0m15:02:49.453530 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.not_null_orders_location_id.ebcb14ab4f
+[0m15:02:49.453726 [debug] [Thread-2 (]: Began running node test.jaffle_shop.not_null_orders_order_id.cf6c17daed
+[0m15:02:49.453962 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.not_null_orders_location_id.ebcb14ab4f, now test.jaffle_shop.not_null_orders_order_id.cf6c17daed)
+[0m15:02:49.454140 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.not_null_orders_order_id.cf6c17daed
+[0m15:02:49.456813 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.not_null_orders_order_id.cf6c17daed"
+[0m15:02:49.457183 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.not_null_orders_order_id.cf6c17daed
+[0m15:02:49.457572 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.not_null_orders_order_id.cf6c17daed
+[0m15:02:49.457773 [debug] [Thread-2 (]: Began running node test.jaffle_shop.not_null_orders_order_total.7301910750
+[0m15:02:49.458030 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.not_null_orders_order_id.cf6c17daed, now test.jaffle_shop.not_null_orders_order_total.7301910750)
+[0m15:02:49.458233 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.not_null_orders_order_total.7301910750
+[0m15:02:49.461601 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.not_null_orders_order_total.7301910750"
+[0m15:02:49.462125 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.not_null_orders_order_total.7301910750
+[0m15:02:49.462731 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.not_null_orders_order_total.7301910750
+[0m15:02:49.462955 [debug] [Thread-2 (]: Began running node test.jaffle_shop.not_null_orders_ordered_at.be5ad7ab15
+[0m15:02:49.463338 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.not_null_orders_order_total.7301910750, now test.jaffle_shop.not_null_orders_ordered_at.be5ad7ab15)
+[0m15:02:49.463736 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.not_null_orders_ordered_at.be5ad7ab15
+[0m15:02:49.466977 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.not_null_orders_ordered_at.be5ad7ab15"
+[0m15:02:49.467325 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.not_null_orders_ordered_at.be5ad7ab15
+[0m15:02:49.467712 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.not_null_orders_ordered_at.be5ad7ab15
+[0m15:02:49.467906 [debug] [Thread-2 (]: Began running node test.jaffle_shop.not_null_orders_subtotal.eb924d6bd1
+[0m15:02:49.468145 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.not_null_orders_ordered_at.be5ad7ab15, now test.jaffle_shop.not_null_orders_subtotal.eb924d6bd1)
+[0m15:02:49.468321 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.not_null_orders_subtotal.eb924d6bd1
+[0m15:02:49.470878 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.not_null_orders_subtotal.eb924d6bd1"
+[0m15:02:49.471175 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.not_null_orders_subtotal.eb924d6bd1
+[0m15:02:49.471534 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.not_null_orders_subtotal.eb924d6bd1
+[0m15:02:49.471717 [debug] [Thread-2 (]: Began running node test.jaffle_shop.not_null_orders_tax_paid.5a8cff1a7f
+[0m15:02:49.471929 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.not_null_orders_subtotal.eb924d6bd1, now test.jaffle_shop.not_null_orders_tax_paid.5a8cff1a7f)
+[0m15:02:49.472096 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.not_null_orders_tax_paid.5a8cff1a7f
+[0m15:02:49.476014 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.not_null_orders_tax_paid.5a8cff1a7f"
+[0m15:02:49.476359 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.not_null_orders_tax_paid.5a8cff1a7f
+[0m15:02:49.476749 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.not_null_orders_tax_paid.5a8cff1a7f
+[0m15:02:49.476947 [debug] [Thread-2 (]: Began running node test.jaffle_shop.unique_orders_order_id.fed79b3a6e
+[0m15:02:49.477182 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.not_null_orders_tax_paid.5a8cff1a7f, now test.jaffle_shop.unique_orders_order_id.fed79b3a6e)
+[0m15:02:49.477359 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.unique_orders_order_id.fed79b3a6e
+[0m15:02:49.480181 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.unique_orders_order_id.fed79b3a6e"
+[0m15:02:49.480659 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.unique_orders_order_id.fed79b3a6e
+[0m15:02:49.481081 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.unique_orders_order_id.fed79b3a6e
+[0m15:02:49.481306 [debug] [Thread-2 (]: Began running node test.jaffle_shop.not_null_customers_customer_id.5c9bf9911d
+[0m15:02:49.481515 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.unique_orders_order_id.fed79b3a6e, now test.jaffle_shop.not_null_customers_customer_id.5c9bf9911d)
+[0m15:02:49.481692 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.not_null_customers_customer_id.5c9bf9911d
+[0m15:02:49.484614 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.not_null_customers_customer_id.5c9bf9911d"
+[0m15:02:49.485080 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.not_null_customers_customer_id.5c9bf9911d
+[0m15:02:49.485491 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.not_null_customers_customer_id.5c9bf9911d
+[0m15:02:49.485694 [debug] [Thread-2 (]: Began running node test.jaffle_shop.unique_customers_customer_id.c5af1ff4b1
+[0m15:02:49.485885 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.not_null_customers_customer_id.5c9bf9911d, now test.jaffle_shop.unique_customers_customer_id.c5af1ff4b1)
+[0m15:02:49.486283 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.unique_customers_customer_id.c5af1ff4b1
+[0m15:02:49.489343 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.unique_customers_customer_id.c5af1ff4b1"
+[0m15:02:49.489750 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.unique_customers_customer_id.c5af1ff4b1
+[0m15:02:49.490138 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.unique_customers_customer_id.c5af1ff4b1
+[0m15:02:49.491214 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m15:02:49.491391 [debug] [MainThread]: Connection 'test.jaffle_shop.unique_customers_customer_id.c5af1ff4b1' was left open.
+[0m15:02:49.491557 [debug] [MainThread]: On test.jaffle_shop.unique_customers_customer_id.c5af1ff4b1: Close
+[0m15:02:49.892293 [debug] [MainThread]: Command end result
+[0m15:02:49.938917 [debug] [MainThread]: Wrote artifact WritableManifest to /tmp/tbdispatch_8148141166f145adaa7c432e1050ab5f/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/manifest.json
+[0m15:02:49.941327 [debug] [MainThread]: Wrote artifact SemanticManifest to /tmp/tbdispatch_8148141166f145adaa7c432e1050ab5f/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/semantic_manifest.json
+[0m15:02:49.949644 [debug] [MainThread]: Wrote artifact RunExecutionResult to /tmp/tbdispatch_8148141166f145adaa7c432e1050ab5f/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/run_results.json
+[0m15:02:49.950674 [debug] [MainThread]: Resource report: {"command_name": "compile", "command_success": true, "command_wall_clock_time": 3.7467308, "process_in_blocks": "0", "process_kernel_time": 0.267357, "process_mem_max_rss": "163616", "process_out_blocks": "5856", "process_user_time": 3.18325}
+[0m15:02:49.951050 [debug] [MainThread]: Command `dbt compile` succeeded at 15:02:49.950960 after 3.75 seconds
+[0m15:02:49.951326 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7601a27f6780>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7601983531a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x76019b6d80b0>]}
+[0m15:02:49.951626 [debug] [MainThread]: Flushing usage events
+[0m15:02:50.381824 [debug] [MainThread]: An error was encountered while trying to flush usage events

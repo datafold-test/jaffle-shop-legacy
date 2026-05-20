@@ -1,9 +1,9 @@
 with customers as (
-    select * from DEV.JAFFLE_DBT_DB_staging.stg_customers
+    select * from DEV.STAGING_staging.stg_customers
 ),
 
 orders as (
-    select * from DEV.JAFFLE_DBT_DB_marts.orders
+    select * from DEV.STAGING_marts.orders
 ),
 
 customer_orders_summary as (

@@ -3,38 +3,59 @@ version: 2
 models:
   - name: orders
     description: >
-      TEMPORARY PLACEHOLDER: This model will be replaced with a real implementation
-      that builds from stg_orders and order_items models. Currently points to legacy
-      ORDERS_SUMMARY table.
+      Mart table providing order-level metrics enriched with item-level summaries.
+      Joins stg_orders with order_items (enriched with product and supply details),
+      aggregates supply costs, item counts, and product prices at the order level,
+      and derives boolean flags indicating whether the order contains food or drink items.
     columns:
       - name: order_id
-        description: Unique order identifier (primary key).
-        data_tests:
+        description: Primary key. Unique identifier for the order.
+        tests:
           - not_null
           - unique
       - name: location_id
-        description: Store/location identifier.
+        description: Identifier for the store/location where the order was placed.
+        tests:
+          - not_null
       - name: customer_id
-        description: Customer identifier (foreign key to customers).
+        description: Identifier for the customer who placed the order.
+        tests:
+          - not_null
       - name: ordered_at
-        description: Timestamp when the order was placed.
+        description: Timestamp of when the order was placed, truncated to day granularity.
+        tests:
+          - not_null
       - name: subtotal
-        description: Order subtotal (before tax).
+        description: Order subtotal in dollars (from stg_orders).
+        tests:
+          - not_null
       - name: tax_paid
-        description: Tax amount paid on the order.
+        description: Tax amount in dollars (from stg_orders).
+        tests:
+          - not_null
       - name: order_total
-        description: Total amount paid including tax.
+        description: Total order amount in dollars (from stg_orders).
+        tests:
+          - not_null
       - name: order_cost
-        description: Sum of supply costs for order items.
+        description: Total supply cost for all items in the order, aggregated from order_items.
       - name: order_items_subtotal
-        description: Sum of product prices for items in the order.
+        description: Sum of all product prices in the order, aggregated from order_items.
       - name: count_order_items
-        description: Number of items in the order.
+        description: Total number of items (line items) in the order.
       - name: count_food_items
-        description: Number of food items in the order.
+        description: Count of food items in the order (items with is_food_item = true).
       - name: count_drink_items
-        description: Number of drink items in the order.
+        description: Count of drink items in the order (items with is_drink_item = true).
       - name: is_food_order
-        description: Boolean flag indicating if order contains at least one food item.
+        description: >
+          Boolean flag indicating whether the order contains at least one food item.
+          true if count_food_items > 0, false otherwise.
+        tests:
+          - not_null
       - name: is_drink_order
-        description: Boolean flag indicating if order contains at least one drink item.
+        description: >
+          Boolean flag indicating whether the order contains at least one drink item.
+          true if count_drink_items > 0, false otherwise.
+        tests:
+          - not_null
