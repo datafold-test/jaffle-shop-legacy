@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: order_items
+    description: >
+      Mart model that enriches each order item with product details and the
+      rolled-up supply cost for that product. Translated from the legacy
+      JAFFLE_LEGACY_DB.PUBLIC.ORDER_ITEMS_ENRICHED table produced by
+      legacy/20_order_items_enriched.sql.
+    columns:
+      - name: order_item_id
+        description: Unique identifier for the order item (primary key).
+        tests:
+          - not_null
+          - unique
+
+      - name: order_id
+        description: Identifier for the order this item belongs to.
+        tests:
+          - not_null
+
+      - name: ordered_at
+        description: Date the order was placed (truncated to day), from stg_orders.
+
+      - name: product_id
+        description: Product SKU for the item ordered.
+        tests:
+          - not_null
+
+      - name: product_name
+        description: Display name of the product ordered.
+
+      - name: product_price
+        description: Unit price of the product in dollars.
+
+      - name: is_food_item
+        description: True when the product is a food item (type = 'jaffle').
+
+      - name: is_drink_item
+        description: True when the product is a drink item (type = 'beverage').
+
+      - name: supply_cost
+        description: >
+          Total supply cost for this product in dollars, summed across all
+          supply items associated with the product SKU.

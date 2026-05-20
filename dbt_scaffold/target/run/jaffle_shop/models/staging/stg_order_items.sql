@@ -1,5 +1,5 @@
 
-  create or replace   view JAFFLE_SHOP.DATAFOLD_TMP_DATAFOLD_TMP.stg_order_items_af9983e1
+  create or replace   view DEV.DATAFOLD_TMP.stg_order_items
   
   
   

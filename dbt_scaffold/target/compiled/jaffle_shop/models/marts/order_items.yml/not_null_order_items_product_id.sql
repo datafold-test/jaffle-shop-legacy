@@ -5,7 +5,7 @@
 
 
 select product_id
-from DEV.DATAFOLD_TMP.stg_products
+from DEV.marts.order_items
 where product_id is null
 
 

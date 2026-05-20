@@ -5,7 +5,7 @@
 
 
 select product_type
-from JAFFLE_SHOP.DATAFOLD_TMP.stg_products_87ccd74e
+from DEV.DATAFOLD_TMP.stg_products
 where product_type is null
 
 

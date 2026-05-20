@@ -11,11 +11,14 @@
     
     
 
+select
+    order_item_id as unique_field,
+    count(*) as n_records
 
-
-select product_type
-from DEV.DATAFOLD_TMP.stg_products
-where product_type is null
+from DEV.DATAFOLD_TMP.order_items_2624066d
+where order_item_id is not null
+group by order_item_id
+having count(*) > 1
 
 
 

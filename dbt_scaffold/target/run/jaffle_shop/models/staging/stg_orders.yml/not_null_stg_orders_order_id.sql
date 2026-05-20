@@ -13,9 +13,9 @@
 
 
 
-select product_type
-from DEV.DATAFOLD_TMP.stg_products
-where product_type is null
+select order_id
+from DEV.DATAFOLD_TMP.stg_orders
+where order_id is null
 
 
 
