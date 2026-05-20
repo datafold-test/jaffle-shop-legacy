@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: >
+      Staging layer for customers. Renames the raw customers table columns
+      (ID → customer_id, NAME → customer_name) and applies standard data
+      warehouse naming conventions.
+    columns:
+      - name: customer_id
+        description: Unique customer identifier (primary key).
+        data_tests:
+          - not_null
+          - unique
+      - name: customer_name
+        description: Customer name.
+        data_tests:
+          - not_null
