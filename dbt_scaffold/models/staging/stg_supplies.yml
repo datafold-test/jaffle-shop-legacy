@@ -1,0 +1,56 @@
+version: 2
+
+models:
+  - name: stg_supplies
+    description: >
+      Staging model for the supplies catalog. Combines DDL and DML from legacy
+      sources (10_stg_supplies_ddl.sql and 10_stg_supplies_dml.sql).
+      
+      Key transformations:
+      - Generates surrogate key (supply_id) using MD5(CONCAT(id, '-', sku))
+      - Renames all columns to lowercase with supply_* prefix (or is_perishable_supply)
+      - Converts cost from cents (integer) to dollars (numeric 18,2) using cents_to_dollars macro
+      - Preserves both cents (audit) and dollar (business) columns for parity
+    
+    columns:
+      - name: supply_id
+        description: >
+          Surrogate key derived as MD5(CONCAT(ID, '-', SKU)) from raw_supplies.
+          Uniquely identifies each supply and is stable across runs.
+        data_tests:
+          - not_null
+          - unique
+
+      - name: supply_uuid
+        description: >
+          Original supply identifier (raw_supplies.ID). Serves as a natural key
+          linking back to the raw supply record.
+        data_tests:
+          - not_null
+
+      - name: supply_name
+        description: Human-readable name of the supply (ingredient/packaging).
+
+      - name: product_id
+        description: >
+          SKU linking this supply to a product (raw_supplies.SKU).
+          Foreign key to raw_products.SKU.
+
+      - name: supply_cost_cents
+        description: >
+          Cost of the supply in cents (integer). Audit column retained for reference.
+          Source: raw_supplies.COST (raw cents value).
+        data_tests:
+          - not_null
+
+      - name: supply_cost
+        description: >
+          Cost of the supply in dollars (numeric 18,2). Derived from supply_cost_cents
+          using the cents_to_dollars macro. This is the business-facing cost value.
+        data_tests:
+          - not_null
+
+      - name: is_perishable_supply
+        description: >
+          Boolean flag indicating whether this supply is perishable (has shelf life constraints).
+          Source: raw_supplies.PERISHABLE.

@@ -1,0 +1,46 @@
+version: 2
+
+models:
+  - name: order_items
+    description: >
+      Mart table providing order-item-level metrics enriched with product and supply details.
+      Joins stg_order_items with stg_orders, stg_products, and aggregated supply costs per product,
+      surfacing product attributes (name, price, item type flags) and total supply cost per item.
+    columns:
+      - name: order_item_id
+        description: Primary key. Unique identifier for the order item.
+        tests:
+          - not_null
+          - unique
+      - name: order_id
+        description: Foreign key. Identifier for the order containing this item.
+        tests:
+          - not_null
+      - name: ordered_at
+        description: Timestamp of when the order was placed, truncated to day granularity.
+        tests:
+          - not_null
+      - name: product_id
+        description: Foreign key. Identifier for the product in this order item.
+        tests:
+          - not_null
+      - name: product_name
+        description: Name of the product.
+        tests:
+          - not_null
+      - name: product_price
+        description: Price of the product in dollars.
+        tests:
+          - not_null
+      - name: is_food_item
+        description: Boolean flag indicating whether this product is categorized as a food item.
+        tests:
+          - not_null
+      - name: is_drink_item
+        description: Boolean flag indicating whether this product is categorized as a drink item.
+        tests:
+          - not_null
+      - name: supply_cost
+        description: >
+          Total supply cost for this product, aggregated across all supplies.
+          May be NULL if the product has no associated supplies.

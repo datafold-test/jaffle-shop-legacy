@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: customers
+    description: >
+      Mart layer for customer lifetime metrics. Joins stg_customers with the 
+      orders model to compute per-customer aggregates including lifetime spend, 
+      order counts, and order date ranges. Includes a repeat-buyer flag derived 
+      from the lifetime order count.
+    columns:
+      - name: customer_id
+        description: Unique customer identifier (primary key).
+        data_tests:
+          - not_null
+          - unique
+      - name: customer_name
+        description: Customer name.
+      - name: count_lifetime_orders
+        description: Total number of distinct orders placed by the customer.
+      - name: is_repeat_buyer
+        description: Boolean flag indicating whether the customer has placed more than one order.
+      - name: first_ordered_at
+        description: Timestamp of the customer's first order.
+      - name: last_ordered_at
+        description: Timestamp of the customer's most recent order.
+      - name: lifetime_spend_pretax
+        description: Sum of all order subtotals (pre-tax amounts) for the customer.
+      - name: lifetime_tax_paid
+        description: Sum of all tax amounts paid by the customer.
+      - name: lifetime_spend
+        description: Sum of all order totals (including tax) for the customer.

@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: stg_products
+    description: >
+      Staging layer for the product catalog. Renames columns, converts price
+      from cents to dollars, and derives boolean flags indicating product type
+      (food item or beverage).
+    columns:
+      - name: product_id
+        description: Unique product identifier (formerly SKU in raw source)
+        tests:
+          - not_null
+          - unique
+      - name: product_name
+        description: Human-readable product name
+        tests:
+          - not_null
+      - name: product_type
+        description: Product type (e.g., 'jaffle', 'beverage')
+        tests:
+          - not_null
+      - name: product_description
+        description: Detailed product description
+      - name: product_price_cents
+        description: Raw product price in cents (audit column)
+        tests:
+          - not_null
+      - name: product_price
+        description: Product price converted to dollars (2 decimal places)
+        tests:
+          - not_null
+      - name: is_food_item
+        description: Boolean flag indicating if product is a food item (type = 'jaffle')
+        tests:
+          - not_null
+      - name: is_drink_item
+        description: Boolean flag indicating if product is a beverage (type = 'beverage')
+        tests:
+          - not_null
