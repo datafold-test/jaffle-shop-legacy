@@ -1,6 +1,8 @@
 
+
   
     
+  
 
 create or replace transient table DEV.datafold_tmp.orders_caab7724
     
@@ -18,6 +20,7 @@ with order_items_summary as (
         sum(case when is_food_item  then 1 else 0 end)        as count_food_items,
         sum(case when is_drink_item then 1 else 0 end)        as count_drink_items
     from DEV.datafold_tmp.order_items
+
     group by order_id
 
 ),

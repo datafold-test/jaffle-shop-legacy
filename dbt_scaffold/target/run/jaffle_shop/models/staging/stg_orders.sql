@@ -1,5 +1,5 @@
 
-  create or replace   view DEV.DATAFOLD_TMP.stg_orders
+  create or replace   view DEV.DATAFOLD_TMP.stg_orders_2e88025c_upstream
   
   
   

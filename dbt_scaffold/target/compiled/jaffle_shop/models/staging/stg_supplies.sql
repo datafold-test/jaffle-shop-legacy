@@ -2,9 +2,7 @@
 
 with source as (
 
-    -- NOTE: For test build only, using JAFFLE_SHOP.RAW (equivalent to JAFFLE_LEGACY_DB.PUBLIC in production).
-    -- The final model uses JAFFLE_LEGACY_DB.PUBLIC.raw_supplies.
-    select * from JAFFLE_SHOP.RAW.RAW_SUPPLIES
+    select * from JAFFLE_SHOP.RAW.raw_supplies
 
 ),
 

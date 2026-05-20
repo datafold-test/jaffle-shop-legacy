@@ -1,5 +1,5 @@
 
-  create or replace   view DEV.DATAFOLD_TMP.stg_products
+  create or replace   view DEV.DATAFOLD_TMP.stg_products_2e88025c_upstream
   
   
   

@@ -1,24 +1,26 @@
+
+
 with order_items as (
 
-    select * from DEV.staging.stg_order_items
+    select * from DEV.DATAFOLD_TMP.stg_order_items_2e88025c_upstream
 
 ),
 
 orders as (
 
-    select * from DEV.staging.stg_orders
+    select * from DEV.DATAFOLD_TMP.stg_orders_2e88025c_upstream
 
 ),
 
 products as (
 
-    select * from DEV.staging.stg_products
+    select * from DEV.DATAFOLD_TMP.stg_products_2e88025c_upstream
 
 ),
 
 supplies as (
 
-    select * from DEV.staging.stg_supplies
+    select * from DEV.DATAFOLD_TMP.stg_supplies_2e88025c_upstream
 
 ),
 
