@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: orders
+    description: >
+      Mart table for orders. Rolls up order-item-level data onto the order grain,
+      adding per-order cost, subtotal, item counts, and food/drink flags.
+      Joins stg_orders with a per-order aggregate over the order_items mart.
+    columns:
+      - name: order_id
+        description: Unique identifier for the order (primary key).
+        tests:
+          - not_null
+          - unique
+      - name: location_id
+        description: Identifier for the store/location where the order was placed.
+      - name: customer_id
+        description: Identifier for the customer who placed the order.
+      - name: ordered_at
+        description: Date the order was placed (truncated to day).
+      - name: subtotal
+        description: Order subtotal in dollars.
+      - name: tax_paid
+        description: Tax paid on the order in dollars.
+      - name: order_total
+        description: Total order amount (subtotal + tax) in dollars.
+      - name: order_cost
+        description: Total supply cost for all items in the order (sum of supply_cost from order_items).
+      - name: order_items_subtotal
+        description: Sum of product prices for all items in the order.
+      - name: count_order_items
+        description: Number of items in the order.
+      - name: count_food_items
+        description: Number of food items in the order.
+      - name: count_drink_items
+        description: Number of drink items in the order.
+      - name: is_food_order
+        description: True if the order contains at least one food item.
+      - name: is_drink_order
+        description: True if the order contains at least one drink item.

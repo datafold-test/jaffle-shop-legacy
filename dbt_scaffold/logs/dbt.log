@@ -1,0 +1,1374 @@
+[0m19:29:44.265057 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75d4659d6d80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75d4634048f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75d463f6bf20>]}
+
+
+============================== 19:29:44.270681 | 2561a02e-5eb0-4935-b692-73111dd6a4fe ==============================
+[0m19:29:44.270681 [info ] [MainThread]: Running with dbt=1.11.10
+[0m19:29:44.271034 [debug] [MainThread]: running dbt with arguments {'partial_parse': 'True', 'cache_selected_only': 'False', 'log_cache_events': 'False', 'log_path': '/tmp/tbdispatch_d40f314c3fec4198abee1ba456896492/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/logs', 'empty': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'no_print': 'None', 'version_check': 'True', 'target_path': 'None', 'invocation_command': 'dbt build --profiles-dir /tmp/tmp5ym4xocc --project-dir /tmp/tbdispatch_d40f314c3fec4198abee1ba456896492/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold --select orders', 'profiles_dir': '/tmp/tmp5ym4xocc', 'introspect': 'True', 'use_colors': 'True', 'write_json': 'True', 'fail_fast': 'False', 'printer_width': '80', 'debug': 'False', 'use_experimental_parser': 'False', 'quiet': 'False', 'indirect_selection': 'eager', 'log_format': 'default', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True', 'warn_error': 'None'}
+[0m19:29:44.415264 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m19:29:44.415541 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m19:29:44.415682 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m19:29:44.581776 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '2561a02e-5eb0-4935-b692-73111dd6a4fe', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75d4613ad2b0>]}
+[0m19:29:44.622208 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '2561a02e-5eb0-4935-b692-73111dd6a4fe', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75d4634bddf0>]}
+[0m19:29:44.622748 [info ] [MainThread]: Registered adapter: snowflake=1.11.5
+[0m19:29:44.691523 [debug] [MainThread]: checksum: 2f247960199844e016e6a527f21364251736722c6212f4b11e96849fe0fc9e96, vars: {}, profile: , target: , version: 1.11.10
+[0m19:29:44.691919 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m19:29:44.692065 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '2561a02e-5eb0-4935-b692-73111dd6a4fe', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75d46053eba0>]}
+[0m19:29:45.755904 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '2561a02e-5eb0-4935-b692-73111dd6a4fe', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75d45a105b50>]}
+[0m19:29:45.813694 [debug] [MainThread]: Wrote artifact WritableManifest to /tmp/tbdispatch_d40f314c3fec4198abee1ba456896492/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/manifest.json
+[0m19:29:45.815243 [debug] [MainThread]: Wrote artifact SemanticManifest to /tmp/tbdispatch_d40f314c3fec4198abee1ba456896492/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/semantic_manifest.json
+[0m19:29:45.826830 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '2561a02e-5eb0-4935-b692-73111dd6a4fe', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75d4600eacf0>]}
+[0m19:29:45.827118 [info ] [MainThread]: Found 6 models, 15 data tests, 6 sources, 646 macros
+[0m19:29:45.828234 [info ] [MainThread]: 
+[0m19:29:45.828391 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m19:29:45.828513 [info ] [MainThread]: 
+[0m19:29:45.828736 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m19:29:45.829203 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DEV'
+[0m19:29:45.853143 [debug] [ThreadPool]: Using snowflake connection "list_DEV"
+[0m19:29:45.853469 [debug] [ThreadPool]: On list_DEV: show terse schemas in database DEV
+    limit 10000
+/* {"app": "dbt", "dbt_version": "1.11.10", "profile_name": "jaffle_shop", "target_name": "dev", "connection_name": "list_DEV"} */
+[0m19:29:45.853603 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m19:29:47.469729 [debug] [ThreadPool]: SQL status: SUCCESS 144 in 1.616 seconds
+[0m19:29:47.483510 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_DEV, now list_DEV_staging)
+[0m19:29:47.499049 [debug] [ThreadPool]: Using snowflake connection "list_DEV_staging"
+[0m19:29:47.499463 [debug] [ThreadPool]: On list_DEV_staging: show objects in DEV.staging
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.10", "profile_name": "jaffle_shop", "target_name": "dev", "connection_name": "list_DEV_staging"} */;
+[0m19:29:47.900538 [debug] [ThreadPool]: Snowflake adapter: Snowflake query id: 01c48031-060b-fd0a-0008-fb83437ccc3e
+[0m19:29:47.900933 [debug] [ThreadPool]: Snowflake adapter: Snowflake error: 002043 (02000): SQL compilation error:
+Object does not exist, or operation cannot be performed.
+[0m19:29:47.901304 [debug] [ThreadPool]: Snowflake adapter: Error running SQL: macro list_relations_without_caching
+[0m19:29:47.901562 [debug] [ThreadPool]: Snowflake adapter: Rolling back transaction.
+[0m19:29:47.902043 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_DEV_staging, now list_DEV_marts)
+[0m19:29:47.905114 [debug] [ThreadPool]: Using snowflake connection "list_DEV_marts"
+[0m19:29:47.905459 [debug] [ThreadPool]: On list_DEV_marts: show objects in DEV.marts
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.10", "profile_name": "jaffle_shop", "target_name": "dev", "connection_name": "list_DEV_marts"} */;
+[0m19:29:48.133318 [debug] [ThreadPool]: Snowflake adapter: Snowflake query id: 01c48031-060b-fd07-0008-fb83437ce346
+[0m19:29:48.133694 [debug] [ThreadPool]: Snowflake adapter: Snowflake error: 002043 (02000): SQL compilation error:
+Object does not exist, or operation cannot be performed.
+[0m19:29:48.133990 [debug] [ThreadPool]: Snowflake adapter: Error running SQL: macro list_relations_without_caching
+[0m19:29:48.134197 [debug] [ThreadPool]: Snowflake adapter: Rolling back transaction.
+[0m19:29:48.134620 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_DEV_marts, now list_DEV_datafold_tmp)
+[0m19:29:48.137664 [debug] [ThreadPool]: Using snowflake connection "list_DEV_datafold_tmp"
+[0m19:29:48.138002 [debug] [ThreadPool]: On list_DEV_datafold_tmp: show objects in DEV.datafold_tmp
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.10", "profile_name": "jaffle_shop", "target_name": "dev", "connection_name": "list_DEV_datafold_tmp"} */;
+[0m19:29:48.577805 [debug] [ThreadPool]: SQL status: SUCCESS 240 in 0.439 seconds
+[0m19:29:48.620239 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '2561a02e-5eb0-4935-b692-73111dd6a4fe', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75d45be50380>]}
+[0m19:29:48.624837 [debug] [Thread-2 (]: Began running node model.jaffle_shop.orders
+[0m19:29:48.625467 [info ] [Thread-2 (]: 1 of 3 START sql table model datafold_tmp.orders_caab7724 ...................... [RUN]
+[0m19:29:48.625909 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_DEV_datafold_tmp, now model.jaffle_shop.orders)
+[0m19:29:48.626215 [debug] [Thread-2 (]: Began compiling node model.jaffle_shop.orders
+[0m19:29:48.635512 [debug] [Thread-2 (]: Writing injected SQL for node "model.jaffle_shop.orders"
+[0m19:29:48.636226 [debug] [Thread-2 (]: Began executing node model.jaffle_shop.orders
+[0m19:29:48.678308 [debug] [Thread-2 (]: Writing runtime sql for node "model.jaffle_shop.orders"
+[0m19:29:48.680856 [debug] [Thread-2 (]: Using snowflake connection "model.jaffle_shop.orders"
+[0m19:29:48.681378 [debug] [Thread-2 (]: On model.jaffle_shop.orders: create or replace transient table DEV.datafold_tmp.orders_caab7724
+    
+    
+    
+    as (
+
+with order_items_summary as (
+
+    select
+        order_id,
+        sum(supply_cost)                                      as order_cost,
+        sum(product_price)                                    as order_items_subtotal,
+        count(order_item_id)                                  as count_order_items,
+        sum(case when is_food_item  then 1 else 0 end)        as count_food_items,
+        sum(case when is_drink_item then 1 else 0 end)        as count_drink_items
+    from DEV.marts.order_items
+    group by order_id
+
+),
+
+orders as (
+
+    select * from DEV.staging.stg_orders
+
+),
+
+final as (
+
+    select
+        o.order_id,
+        o.location_id,
+        o.customer_id,
+        o.ordered_at,
+        o.subtotal,
+        o.tax_paid,
+        o.order_total,
+        ois.order_cost,
+        ois.order_items_subtotal,
+        ois.count_order_items,
+        ois.count_food_items,
+        ois.count_drink_items,
+
+        -- a jaffle-shop convention: orders that contain at least one food item.
+        case when coalesce(ois.count_food_items, 0) > 0 then true else false end  as is_food_order,
+        case when coalesce(ois.count_drink_items, 0) > 0 then true else false end as is_drink_order
+
+    from orders o
+    left join order_items_summary ois on ois.order_id = o.order_id
+
+)
+
+select * from final
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.10", "profile_name": "jaffle_shop", "target_name": "dev", "node_id": "model.jaffle_shop.orders"} */;
+[0m19:29:48.926311 [debug] [Thread-2 (]: Snowflake adapter: Snowflake query id: 01c48031-060b-fd08-0008-fb83437cad06
+[0m19:29:48.926946 [debug] [Thread-2 (]: Snowflake adapter: Snowflake error: 002003 (02000): SQL compilation error:
+Schema 'DEV.MARTS' does not exist or not authorized.
+[0m19:29:48.932803 [debug] [Thread-2 (]: Database Error in model orders (models/marts/orders.sql)
+  002003 (02000): SQL compilation error:
+  Schema 'DEV.MARTS' does not exist or not authorized.
+  compiled code at target/run/jaffle_shop/models/marts/orders.sql
+[0m19:29:48.935969 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '2561a02e-5eb0-4935-b692-73111dd6a4fe', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75d459381ac0>]}
+[0m19:29:48.938189 [error] [Thread-2 (]: 1 of 3 ERROR creating sql table model datafold_tmp.orders_caab7724 ............. [[31mERROR[0m in 0.31s]
+[0m19:29:48.939273 [debug] [Thread-2 (]: Finished running node model.jaffle_shop.orders
+[0m19:29:48.939907 [debug] [Thread-5 (]: Marking all children of 'model.jaffle_shop.orders' to be skipped because of status 'error'.  Reason: Database Error in model orders (models/marts/orders.sql)
+  002003 (02000): SQL compilation error:
+  Schema 'DEV.MARTS' does not exist or not authorized.
+  compiled code at target/run/jaffle_shop/models/marts/orders.sql.
+[0m19:29:48.941222 [debug] [Thread-2 (]: Began running node test.jaffle_shop.not_null_orders_order_id.cf6c17daed
+[0m19:29:48.941655 [info ] [Thread-2 (]: 2 of 3 SKIP test not_null_orders_order_id ...................................... [[33mSKIP[0m]
+[0m19:29:48.942024 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.not_null_orders_order_id.cf6c17daed
+[0m19:29:48.942429 [debug] [Thread-2 (]: Began running node test.jaffle_shop.unique_orders_order_id.fed79b3a6e
+[0m19:29:48.942796 [debug] [Thread-5 (]: Marking all children of 'test.jaffle_shop.not_null_orders_order_id.cf6c17daed' to be skipped because of status 'skipped'. 
+[0m19:29:48.943234 [info ] [Thread-2 (]: 3 of 3 SKIP test unique_orders_order_id ........................................ [[33mSKIP[0m]
+[0m19:29:48.943902 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.unique_orders_order_id.fed79b3a6e
+[0m19:29:48.944346 [debug] [Thread-5 (]: Marking all children of 'test.jaffle_shop.unique_orders_order_id.fed79b3a6e' to be skipped because of status 'skipped'. 
+[0m19:29:48.945815 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m19:29:48.946205 [debug] [MainThread]: Connection 'model.jaffle_shop.orders' was left open.
+[0m19:29:48.946561 [debug] [MainThread]: On model.jaffle_shop.orders: Close
+[0m19:29:49.376030 [info ] [MainThread]: 
+[0m19:29:49.376490 [info ] [MainThread]: Finished running 1 table model, 2 data tests in 0 hours 0 minutes and 3.55 seconds (3.55s).
+[0m19:29:49.377206 [debug] [MainThread]: Command end result
+[0m19:29:49.426254 [debug] [MainThread]: Wrote artifact WritableManifest to /tmp/tbdispatch_d40f314c3fec4198abee1ba456896492/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/manifest.json
+[0m19:29:49.428580 [debug] [MainThread]: Wrote artifact SemanticManifest to /tmp/tbdispatch_d40f314c3fec4198abee1ba456896492/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/semantic_manifest.json
+[0m19:29:49.435421 [debug] [MainThread]: Wrote artifact RunExecutionResult to /tmp/tbdispatch_d40f314c3fec4198abee1ba456896492/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/run_results.json
+[0m19:29:49.435890 [info ] [MainThread]: 
+[0m19:29:49.436249 [info ] [MainThread]: [31mCompleted with 1 error, 0 partial successes, and 0 warnings:[0m
+[0m19:29:49.436558 [info ] [MainThread]: 
+[0m19:29:49.436895 [error] [MainThread]: [31mFailure in model orders (models/marts/orders.sql)[0m
+[0m19:29:49.437176 [error] [MainThread]:   Database Error in model orders (models/marts/orders.sql)
+  002003 (02000): SQL compilation error:
+  Schema 'DEV.MARTS' does not exist or not authorized.
+  compiled code at target/run/jaffle_shop/models/marts/orders.sql
+[0m19:29:49.437367 [info ] [MainThread]: 
+[0m19:29:49.437652 [info ] [MainThread]:   compiled code at target/compiled/jaffle_shop/models/marts/orders.sql
+[0m19:29:49.437845 [info ] [MainThread]: 
+[0m19:29:49.438070 [info ] [MainThread]: Done. PASS=0 WARN=0 ERROR=1 SKIP=2 NO-OP=0 TOTAL=3
+[0m19:29:49.438951 [debug] [MainThread]: Resource report: {"command_name": "build", "command_success": false, "command_wall_clock_time": 5.2087445, "process_in_blocks": "0", "process_kernel_time": 0.247151, "process_mem_max_rss": "164320", "process_out_blocks": "4856", "process_user_time": 2.925791}
+[0m19:29:49.439356 [debug] [MainThread]: Command `dbt build` failed at 19:29:49.439258 after 5.21 seconds
+[0m19:29:49.439662 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75d463de3020>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75d462cf48f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x75d465788f50>]}
+[0m19:29:49.439939 [debug] [MainThread]: Flushing usage events
+[0m19:29:50.257414 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m19:30:42.706874 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74dade2d3bc0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74dade2d1910>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74daddef13a0>]}
+
+
+============================== 19:30:42.712356 | 088ba6ae-582a-4e7d-9d4b-8122d32a73dd ==============================
+[0m19:30:42.712356 [info ] [MainThread]: Running with dbt=1.11.10
+[0m19:30:42.712632 [debug] [MainThread]: running dbt with arguments {'log_cache_events': 'False', 'static_parser': 'True', 'quiet': 'False', 'cache_selected_only': 'False', 'printer_width': '80', 'use_experimental_parser': 'False', 'target_path': 'None', 'log_path': '/tmp/tbdispatch_d40f314c3fec4198abee1ba456896492/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/logs', 'warn_error': 'None', 'version_check': 'True', 'write_json': 'True', 'debug': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_format': 'default', 'use_colors': 'True', 'introspect': 'True', 'no_print': 'None', 'fail_fast': 'False', 'send_anonymous_usage_stats': 'True', 'invocation_command': 'dbt build --profiles-dir /tmp/tmp6b8_28n_ --project-dir /tmp/tbdispatch_d40f314c3fec4198abee1ba456896492/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold --select +orders', 'partial_parse': 'True', 'empty': 'False', 'indirect_selection': 'eager', 'profiles_dir': '/tmp/tmp6b8_28n_'}
+[0m19:30:42.853148 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m19:30:42.853443 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m19:30:42.853588 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m19:30:43.020139 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '088ba6ae-582a-4e7d-9d4b-8122d32a73dd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74dadc5b8140>]}
+[0m19:30:43.060784 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '088ba6ae-582a-4e7d-9d4b-8122d32a73dd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74dadcaaf230>]}
+[0m19:30:43.061590 [info ] [MainThread]: Registered adapter: snowflake=1.11.5
+[0m19:30:43.128335 [debug] [MainThread]: checksum: 2f247960199844e016e6a527f21364251736722c6212f4b11e96849fe0fc9e96, vars: {}, profile: , target: , version: 1.11.10
+[0m19:30:43.207586 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+[0m19:30:43.208002 [debug] [MainThread]: Partial parsing: updated file: jaffle_shop://models/marts/order_items.sql
+[0m19:30:43.395666 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '088ba6ae-582a-4e7d-9d4b-8122d32a73dd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74dad8edf470>]}
+[0m19:30:43.451617 [debug] [MainThread]: Wrote artifact WritableManifest to /tmp/tbdispatch_d40f314c3fec4198abee1ba456896492/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/manifest.json
+[0m19:30:43.452819 [debug] [MainThread]: Wrote artifact SemanticManifest to /tmp/tbdispatch_d40f314c3fec4198abee1ba456896492/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/semantic_manifest.json
+[0m19:30:43.463994 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '088ba6ae-582a-4e7d-9d4b-8122d32a73dd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74dad8eda6c0>]}
+[0m19:30:43.464241 [info ] [MainThread]: Found 6 models, 15 data tests, 6 sources, 646 macros
+[0m19:30:43.465658 [info ] [MainThread]: 
+[0m19:30:43.465833 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m19:30:43.465955 [info ] [MainThread]: 
+[0m19:30:43.466238 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m19:30:43.469213 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DEV'
+[0m19:30:43.494598 [debug] [ThreadPool]: Using snowflake connection "list_DEV"
+[0m19:30:43.494824 [debug] [ThreadPool]: On list_DEV: show terse schemas in database DEV
+    limit 10000
+/* {"app": "dbt", "dbt_version": "1.11.10", "profile_name": "jaffle_shop", "target_name": "dev", "connection_name": "list_DEV"} */
+[0m19:30:43.494942 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m19:30:44.826124 [debug] [ThreadPool]: SQL status: SUCCESS 144 in 1.331 seconds
+[0m19:30:44.834718 [debug] [ThreadPool]: Using snowflake connection "list_DEV"
+[0m19:30:44.835247 [debug] [ThreadPool]: On list_DEV: show terse schemas in database DEV
+    limit 10000
+/* {"app": "dbt", "dbt_version": "1.11.10", "profile_name": "jaffle_shop", "target_name": "dev", "connection_name": "list_DEV"} */
+[0m19:30:45.104924 [debug] [ThreadPool]: SQL status: SUCCESS 144 in 0.269 seconds
+[0m19:30:45.109456 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_DEV, now create_DEV_staging)
+[0m19:30:45.109944 [debug] [ThreadPool]: Creating schema "database: "DEV"
+schema: "staging"
+"
+[0m19:30:45.115517 [debug] [ThreadPool]: Using snowflake connection "create_DEV_staging"
+[0m19:30:45.115820 [debug] [ThreadPool]: On create_DEV_staging: create schema if not exists DEV.staging
+/* {"app": "dbt", "dbt_version": "1.11.10", "profile_name": "jaffle_shop", "target_name": "dev", "connection_name": "create_DEV_staging"} */
+[0m19:30:45.385919 [debug] [ThreadPool]: Snowflake adapter: Snowflake query id: 01c48032-060b-fcfe-0008-fb83437cdc32
+[0m19:30:45.386358 [debug] [ThreadPool]: Snowflake adapter: Snowflake error: 003001 (42501): SQL access control error:
+Insufficient privileges to operate on database 'DEV'. Your primary role DATAFOLDROLE must have CREATE SCHEMA granted on DATABASE DEV.
+[0m19:30:45.386710 [debug] [ThreadPool]: Snowflake adapter: Error running SQL: macro create_schema
+[0m19:30:45.386946 [debug] [ThreadPool]: Snowflake adapter: Rolling back transaction.
+[0m19:30:45.387869 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m19:30:45.388266 [debug] [MainThread]: Connection 'create_DEV_staging' was left open.
+[0m19:30:45.388565 [debug] [MainThread]: On create_DEV_staging: Close
+[0m19:30:45.869178 [info ] [MainThread]: 
+[0m19:30:45.869678 [info ] [MainThread]: Finished running  in 0 hours 0 minutes and 2.40 seconds (2.40s).
+[0m19:30:45.870098 [error] [MainThread]: Encountered an error:
+Database Error
+  003001 (42501): SQL access control error:
+  Insufficient privileges to operate on database 'DEV'. Your primary role DATAFOLDROLE must have CREATE SCHEMA granted on DATABASE DEV.
+[0m19:30:45.870987 [debug] [MainThread]: Resource report: {"command_name": "build", "command_success": false, "command_wall_clock_time": 3.1989899, "process_in_blocks": "16", "process_kernel_time": 0.252509, "process_mem_max_rss": "161088", "process_out_blocks": "3256", "process_user_time": 2.048018}
+[0m19:30:45.871386 [debug] [MainThread]: Command `dbt build` failed at 19:30:45.871291 after 3.20 seconds
+[0m19:30:45.871678 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74daddef1190>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74dadaeda7e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74dadc5f23f0>]}
+[0m19:30:45.871977 [debug] [MainThread]: Flushing usage events
+[0m19:30:46.672964 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m19:31:04.395729 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79b70077fbf0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79b7009804a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79b703817e00>]}
+
+
+============================== 19:31:04.400348 | 6f6bc338-d5cf-4150-a568-04d458a18629 ==============================
+[0m19:31:04.400348 [info ] [MainThread]: Running with dbt=1.11.10
+[0m19:31:04.400630 [debug] [MainThread]: running dbt with arguments {'fail_fast': 'False', 'static_parser': 'True', 'log_format': 'default', 'partial_parse': 'True', 'empty': 'False', 'indirect_selection': 'eager', 'introspect': 'True', 'debug': 'False', 'warn_error': 'None', 'log_cache_events': 'False', 'send_anonymous_usage_stats': 'True', 'use_experimental_parser': 'False', 'quiet': 'False', 'use_colors': 'True', 'log_path': '/tmp/tbdispatch_d40f314c3fec4198abee1ba456896492/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/logs', 'printer_width': '80', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'write_json': 'True', 'profiles_dir': '/tmp/tmpbyce6d29', 'target_path': 'None', 'no_print': 'None', 'invocation_command': 'dbt build --profiles-dir /tmp/tmpbyce6d29 --project-dir /tmp/tbdispatch_d40f314c3fec4198abee1ba456896492/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold --select orders', 'cache_selected_only': 'False'}
+[0m19:31:04.559503 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m19:31:04.559839 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m19:31:04.559989 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m19:31:04.738770 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '6f6bc338-d5cf-4150-a568-04d458a18629', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79b6ff40c740>]}
+[0m19:31:04.779396 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '6f6bc338-d5cf-4150-a568-04d458a18629', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79b6ff9dd640>]}
+[0m19:31:04.779974 [info ] [MainThread]: Registered adapter: snowflake=1.11.5
+[0m19:31:04.848223 [debug] [MainThread]: checksum: 2f247960199844e016e6a527f21364251736722c6212f4b11e96849fe0fc9e96, vars: {}, profile: , target: , version: 1.11.10
+[0m19:31:04.925810 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m19:31:04.926065 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m19:31:04.926186 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m19:31:04.954252 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '6f6bc338-d5cf-4150-a568-04d458a18629', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79b6fe035f10>]}
+[0m19:31:05.015387 [debug] [MainThread]: Wrote artifact WritableManifest to /tmp/tbdispatch_d40f314c3fec4198abee1ba456896492/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/manifest.json
+[0m19:31:05.016903 [debug] [MainThread]: Wrote artifact SemanticManifest to /tmp/tbdispatch_d40f314c3fec4198abee1ba456896492/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/semantic_manifest.json
+[0m19:31:05.029981 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '6f6bc338-d5cf-4150-a568-04d458a18629', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79b6fdce1be0>]}
+[0m19:31:05.030350 [info ] [MainThread]: Found 6 models, 15 data tests, 6 sources, 646 macros
+[0m19:31:05.031541 [info ] [MainThread]: 
+[0m19:31:05.031704 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m19:31:05.031812 [info ] [MainThread]: 
+[0m19:31:05.032053 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m19:31:05.032542 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DEV'
+[0m19:31:05.058653 [debug] [ThreadPool]: Using snowflake connection "list_DEV"
+[0m19:31:05.058909 [debug] [ThreadPool]: On list_DEV: show terse schemas in database DEV
+    limit 10000
+/* {"app": "dbt", "dbt_version": "1.11.10", "profile_name": "jaffle_shop", "target_name": "dev", "connection_name": "list_DEV"} */
+[0m19:31:05.059052 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m19:31:06.663337 [debug] [ThreadPool]: SQL status: SUCCESS 144 in 1.604 seconds
+[0m19:31:06.674127 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_DEV, now list_DEV_staging)
+[0m19:31:06.689620 [debug] [ThreadPool]: Using snowflake connection "list_DEV_staging"
+[0m19:31:06.690093 [debug] [ThreadPool]: On list_DEV_staging: show objects in DEV.staging
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.10", "profile_name": "jaffle_shop", "target_name": "dev", "connection_name": "list_DEV_staging"} */;
+[0m19:31:06.923268 [debug] [ThreadPool]: Snowflake adapter: Snowflake query id: 01c48033-060b-fd08-0008-fb83437cad26
+[0m19:31:06.923675 [debug] [ThreadPool]: Snowflake adapter: Snowflake error: 002043 (02000): SQL compilation error:
+Object does not exist, or operation cannot be performed.
+[0m19:31:06.924008 [debug] [ThreadPool]: Snowflake adapter: Error running SQL: macro list_relations_without_caching
+[0m19:31:06.924231 [debug] [ThreadPool]: Snowflake adapter: Rolling back transaction.
+[0m19:31:06.924716 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_DEV_staging, now list_DEV_datafold_tmp)
+[0m19:31:06.928039 [debug] [ThreadPool]: Using snowflake connection "list_DEV_datafold_tmp"
+[0m19:31:06.928404 [debug] [ThreadPool]: On list_DEV_datafold_tmp: show objects in DEV.datafold_tmp
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.10", "profile_name": "jaffle_shop", "target_name": "dev", "connection_name": "list_DEV_datafold_tmp"} */;
+[0m19:31:07.305675 [debug] [ThreadPool]: SQL status: SUCCESS 240 in 0.377 seconds
+[0m19:31:07.352623 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '6f6bc338-d5cf-4150-a568-04d458a18629', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79b6fe189370>]}
+[0m19:31:07.357913 [debug] [Thread-2 (]: Began running node model.jaffle_shop.orders
+[0m19:31:07.358708 [info ] [Thread-2 (]: 1 of 3 START sql table model datafold_tmp.orders_caab7724 ...................... [RUN]
+[0m19:31:07.359205 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_DEV_datafold_tmp, now model.jaffle_shop.orders)
+[0m19:31:07.359553 [debug] [Thread-2 (]: Began compiling node model.jaffle_shop.orders
+[0m19:31:07.370247 [debug] [Thread-2 (]: Writing injected SQL for node "model.jaffle_shop.orders"
+[0m19:31:07.371007 [debug] [Thread-2 (]: Began executing node model.jaffle_shop.orders
+[0m19:31:07.411963 [debug] [Thread-2 (]: Writing runtime sql for node "model.jaffle_shop.orders"
+[0m19:31:07.414153 [debug] [Thread-2 (]: Using snowflake connection "model.jaffle_shop.orders"
+[0m19:31:07.414573 [debug] [Thread-2 (]: On model.jaffle_shop.orders: create or replace transient table DEV.datafold_tmp.orders_caab7724
+    
+    
+    
+    as (
+
+with order_items_summary as (
+
+    select
+        order_id,
+        sum(supply_cost)                                      as order_cost,
+        sum(product_price)                                    as order_items_subtotal,
+        count(order_item_id)                                  as count_order_items,
+        sum(case when is_food_item  then 1 else 0 end)        as count_food_items,
+        sum(case when is_drink_item then 1 else 0 end)        as count_drink_items
+    from DEV.datafold_tmp.order_items_caab7724
+    group by order_id
+
+),
+
+orders as (
+
+    select * from DEV.staging.stg_orders
+
+),
+
+final as (
+
+    select
+        o.order_id,
+        o.location_id,
+        o.customer_id,
+        o.ordered_at,
+        o.subtotal,
+        o.tax_paid,
+        o.order_total,
+        ois.order_cost,
+        ois.order_items_subtotal,
+        ois.count_order_items,
+        ois.count_food_items,
+        ois.count_drink_items,
+
+        -- a jaffle-shop convention: orders that contain at least one food item.
+        case when coalesce(ois.count_food_items, 0) > 0 then true else false end  as is_food_order,
+        case when coalesce(ois.count_drink_items, 0) > 0 then true else false end as is_drink_order
+
+    from orders o
+    left join order_items_summary ois on ois.order_id = o.order_id
+
+)
+
+select * from final
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.10", "profile_name": "jaffle_shop", "target_name": "dev", "node_id": "model.jaffle_shop.orders"} */;
+[0m19:31:07.764220 [debug] [Thread-2 (]: Snowflake adapter: Snowflake query id: 01c48033-060b-fd0a-0008-fb83437ccc66
+[0m19:31:07.764783 [debug] [Thread-2 (]: Snowflake adapter: Snowflake error: 002003 (02000): SQL compilation error:
+Schema 'DEV.STAGING' does not exist or not authorized.
+[0m19:31:07.769275 [debug] [Thread-2 (]: Database Error in model orders (models/marts/orders.sql)
+  002003 (02000): SQL compilation error:
+  Schema 'DEV.STAGING' does not exist or not authorized.
+  compiled code at target/run/jaffle_shop/models/marts/orders.sql
+[0m19:31:07.771169 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '6f6bc338-d5cf-4150-a568-04d458a18629', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79b6fd7d33b0>]}
+[0m19:31:07.771876 [error] [Thread-2 (]: 1 of 3 ERROR creating sql table model datafold_tmp.orders_caab7724 ............. [[31mERROR[0m in 0.41s]
+[0m19:31:07.772418 [debug] [Thread-2 (]: Finished running node model.jaffle_shop.orders
+[0m19:31:07.772976 [debug] [Thread-5 (]: Marking all children of 'model.jaffle_shop.orders' to be skipped because of status 'error'.  Reason: Database Error in model orders (models/marts/orders.sql)
+  002003 (02000): SQL compilation error:
+  Schema 'DEV.STAGING' does not exist or not authorized.
+  compiled code at target/run/jaffle_shop/models/marts/orders.sql.
+[0m19:31:07.774213 [debug] [Thread-2 (]: Began running node test.jaffle_shop.not_null_orders_order_id.cf6c17daed
+[0m19:31:07.774610 [info ] [Thread-2 (]: 2 of 3 SKIP test not_null_orders_order_id ...................................... [[33mSKIP[0m]
+[0m19:31:07.774963 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.not_null_orders_order_id.cf6c17daed
+[0m19:31:07.775263 [debug] [Thread-2 (]: Began running node test.jaffle_shop.unique_orders_order_id.fed79b3a6e
+[0m19:31:07.775549 [debug] [Thread-5 (]: Marking all children of 'test.jaffle_shop.not_null_orders_order_id.cf6c17daed' to be skipped because of status 'skipped'. 
+[0m19:31:07.775966 [info ] [Thread-2 (]: 3 of 3 SKIP test unique_orders_order_id ........................................ [[33mSKIP[0m]
+[0m19:31:07.776517 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.unique_orders_order_id.fed79b3a6e
+[0m19:31:07.776819 [debug] [Thread-5 (]: Marking all children of 'test.jaffle_shop.unique_orders_order_id.fed79b3a6e' to be skipped because of status 'skipped'. 
+[0m19:31:07.778036 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m19:31:07.778345 [debug] [MainThread]: Connection 'model.jaffle_shop.orders' was left open.
+[0m19:31:07.778646 [debug] [MainThread]: On model.jaffle_shop.orders: Close
+[0m19:31:08.217820 [info ] [MainThread]: 
+[0m19:31:08.218255 [info ] [MainThread]: Finished running 1 table model, 2 data tests in 0 hours 0 minutes and 3.19 seconds (3.19s).
+[0m19:31:08.219250 [debug] [MainThread]: Command end result
+[0m19:31:08.266677 [debug] [MainThread]: Wrote artifact WritableManifest to /tmp/tbdispatch_d40f314c3fec4198abee1ba456896492/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/manifest.json
+[0m19:31:08.269497 [debug] [MainThread]: Wrote artifact SemanticManifest to /tmp/tbdispatch_d40f314c3fec4198abee1ba456896492/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/semantic_manifest.json
+[0m19:31:08.276222 [debug] [MainThread]: Wrote artifact RunExecutionResult to /tmp/tbdispatch_d40f314c3fec4198abee1ba456896492/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/run_results.json
+[0m19:31:08.276603 [info ] [MainThread]: 
+[0m19:31:08.276971 [info ] [MainThread]: [31mCompleted with 1 error, 0 partial successes, and 0 warnings:[0m
+[0m19:31:08.277262 [info ] [MainThread]: 
+[0m19:31:08.277595 [error] [MainThread]: [31mFailure in model orders (models/marts/orders.sql)[0m
+[0m19:31:08.277885 [error] [MainThread]:   Database Error in model orders (models/marts/orders.sql)
+  002003 (02000): SQL compilation error:
+  Schema 'DEV.STAGING' does not exist or not authorized.
+  compiled code at target/run/jaffle_shop/models/marts/orders.sql
+[0m19:31:08.278077 [info ] [MainThread]: 
+[0m19:31:08.278324 [info ] [MainThread]:   compiled code at target/compiled/jaffle_shop/models/marts/orders.sql
+[0m19:31:08.278536 [info ] [MainThread]: 
+[0m19:31:08.278764 [info ] [MainThread]: Done. PASS=0 WARN=0 ERROR=1 SKIP=2 NO-OP=0 TOTAL=3
+[0m19:31:08.279699 [debug] [MainThread]: Resource report: {"command_name": "build", "command_success": false, "command_wall_clock_time": 3.9220443, "process_in_blocks": "0", "process_kernel_time": 0.24, "process_mem_max_rss": "159976", "process_out_blocks": "3312", "process_user_time": 1.955006}
+[0m19:31:08.280138 [debug] [MainThread]: Command `dbt build` failed at 19:31:08.280030 after 3.92 seconds
+[0m19:31:08.280463 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79b702c57530>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79b700dba240>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x79b700db8320>]}
+[0m19:31:08.280784 [debug] [MainThread]: Flushing usage events
+[0m19:31:08.916417 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m19:31:55.793137 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e46ef55acc0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e46ed1018e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e46ecff7d40>]}
+
+
+============================== 19:31:55.799582 | 5e8c1417-c388-4c7e-844a-334b4463af77 ==============================
+[0m19:31:55.799582 [info ] [MainThread]: Running with dbt=1.11.10
+[0m19:31:55.799846 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'send_anonymous_usage_stats': 'True', 'cache_selected_only': 'False', 'indirect_selection': 'eager', 'profiles_dir': '/tmp/tmp_w7e6c3i', 'log_format': 'default', 'quiet': 'False', 'use_colors': 'True', 'target_path': 'None', 'printer_width': '80', 'log_cache_events': 'False', 'empty': 'False', 'introspect': 'True', 'no_print': 'None', 'debug': 'False', 'write_json': 'True', 'partial_parse': 'True', 'invocation_command': 'dbt build --profiles-dir /tmp/tmp_w7e6c3i --project-dir /tmp/tbdispatch_d40f314c3fec4198abee1ba456896492/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold --select orders', 'warn_error': 'None', 'log_path': '/tmp/tbdispatch_d40f314c3fec4198abee1ba456896492/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/logs', 'fail_fast': 'False', 'use_experimental_parser': 'False', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])'}
+[0m19:31:55.952354 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m19:31:55.952716 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m19:31:55.952852 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m19:31:56.121937 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '5e8c1417-c388-4c7e-844a-334b4463af77', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e46ea001940>]}
+[0m19:31:56.160972 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '5e8c1417-c388-4c7e-844a-334b4463af77', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e46ead30bc0>]}
+[0m19:31:56.161506 [info ] [MainThread]: Registered adapter: snowflake=1.11.5
+[0m19:31:56.228797 [debug] [MainThread]: checksum: 2f247960199844e016e6a527f21364251736722c6212f4b11e96849fe0fc9e96, vars: {}, profile: , target: , version: 1.11.10
+[0m19:31:56.305739 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+[0m19:31:56.306321 [debug] [MainThread]: Partial parsing: updated file: jaffle_shop://models/staging/stg_orders.sql
+[0m19:31:56.563002 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '5e8c1417-c388-4c7e-844a-334b4463af77', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e46e99ab860>]}
+[0m19:31:56.618610 [debug] [MainThread]: Wrote artifact WritableManifest to /tmp/tbdispatch_d40f314c3fec4198abee1ba456896492/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/manifest.json
+[0m19:31:56.619764 [debug] [MainThread]: Wrote artifact SemanticManifest to /tmp/tbdispatch_d40f314c3fec4198abee1ba456896492/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/semantic_manifest.json
+[0m19:31:56.630884 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '5e8c1417-c388-4c7e-844a-334b4463af77', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e46e9704fe0>]}
+[0m19:31:56.631118 [info ] [MainThread]: Found 6 models, 15 data tests, 6 sources, 646 macros
+[0m19:31:56.632180 [info ] [MainThread]: 
+[0m19:31:56.632340 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m19:31:56.632454 [info ] [MainThread]: 
+[0m19:31:56.632676 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m19:31:56.633254 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DEV'
+[0m19:31:56.654921 [debug] [ThreadPool]: Using snowflake connection "list_DEV"
+[0m19:31:56.655141 [debug] [ThreadPool]: On list_DEV: show terse schemas in database DEV
+    limit 10000
+/* {"app": "dbt", "dbt_version": "1.11.10", "profile_name": "jaffle_shop", "target_name": "dev", "connection_name": "list_DEV"} */
+[0m19:31:56.655260 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m19:31:57.992255 [debug] [ThreadPool]: SQL status: SUCCESS 144 in 1.337 seconds
+[0m19:31:58.002031 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_DEV, now list_DEV_datafold_tmp)
+[0m19:31:58.016136 [debug] [ThreadPool]: Using snowflake connection "list_DEV_datafold_tmp"
+[0m19:31:58.016487 [debug] [ThreadPool]: On list_DEV_datafold_tmp: show objects in DEV.datafold_tmp
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.10", "profile_name": "jaffle_shop", "target_name": "dev", "connection_name": "list_DEV_datafold_tmp"} */;
+[0m19:31:58.501697 [debug] [ThreadPool]: SQL status: SUCCESS 240 in 0.485 seconds
+[0m19:31:58.609271 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_DEV_datafold_tmp, now list_DEV_staging)
+[0m19:31:58.617141 [debug] [ThreadPool]: Using snowflake connection "list_DEV_staging"
+[0m19:31:58.622558 [debug] [ThreadPool]: On list_DEV_staging: show objects in DEV.staging
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.10", "profile_name": "jaffle_shop", "target_name": "dev", "connection_name": "list_DEV_staging"} */;
+[0m19:31:59.032772 [debug] [ThreadPool]: Snowflake adapter: Snowflake query id: 01c48033-060b-fd0a-0008-fb83437ccc72
+[0m19:31:59.033352 [debug] [ThreadPool]: Snowflake adapter: Snowflake error: 002043 (02000): SQL compilation error:
+Object does not exist, or operation cannot be performed.
+[0m19:31:59.033932 [debug] [ThreadPool]: Snowflake adapter: Error running SQL: macro list_relations_without_caching
+[0m19:31:59.034335 [debug] [ThreadPool]: Snowflake adapter: Rolling back transaction.
+[0m19:31:59.035390 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '5e8c1417-c388-4c7e-844a-334b4463af77', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e46ef30ce60>]}
+[0m19:31:59.041227 [debug] [Thread-2 (]: Began running node model.jaffle_shop.orders
+[0m19:31:59.041769 [info ] [Thread-2 (]: 1 of 3 START sql table model datafold_tmp.orders_caab7724 ...................... [RUN]
+[0m19:31:59.042195 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_DEV_staging, now model.jaffle_shop.orders)
+[0m19:31:59.042513 [debug] [Thread-2 (]: Began compiling node model.jaffle_shop.orders
+[0m19:31:59.051804 [debug] [Thread-2 (]: Writing injected SQL for node "model.jaffle_shop.orders"
+[0m19:31:59.052671 [debug] [Thread-2 (]: Began executing node model.jaffle_shop.orders
+[0m19:31:59.101329 [debug] [Thread-2 (]: Writing runtime sql for node "model.jaffle_shop.orders"
+[0m19:31:59.104364 [debug] [Thread-2 (]: Using snowflake connection "model.jaffle_shop.orders"
+[0m19:31:59.105004 [debug] [Thread-2 (]: On model.jaffle_shop.orders: create or replace transient table DEV.datafold_tmp.orders_caab7724
+    
+    
+    
+    as (
+
+with order_items_summary as (
+
+    select
+        order_id,
+        sum(supply_cost)                                      as order_cost,
+        sum(product_price)                                    as order_items_subtotal,
+        count(order_item_id)                                  as count_order_items,
+        sum(case when is_food_item  then 1 else 0 end)        as count_food_items,
+        sum(case when is_drink_item then 1 else 0 end)        as count_drink_items
+    from DEV.datafold_tmp.order_items_caab7724
+    group by order_id
+
+),
+
+orders as (
+
+    select * from DEV.datafold_tmp.stg_orders
+
+),
+
+final as (
+
+    select
+        o.order_id,
+        o.location_id,
+        o.customer_id,
+        o.ordered_at,
+        o.subtotal,
+        o.tax_paid,
+        o.order_total,
+        ois.order_cost,
+        ois.order_items_subtotal,
+        ois.count_order_items,
+        ois.count_food_items,
+        ois.count_drink_items,
+
+        -- a jaffle-shop convention: orders that contain at least one food item.
+        case when coalesce(ois.count_food_items, 0) > 0 then true else false end  as is_food_order,
+        case when coalesce(ois.count_drink_items, 0) > 0 then true else false end as is_drink_order
+
+    from orders o
+    left join order_items_summary ois on ois.order_id = o.order_id
+
+)
+
+select * from final
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.10", "profile_name": "jaffle_shop", "target_name": "dev", "node_id": "model.jaffle_shop.orders"} */;
+[0m19:32:04.299344 [debug] [Thread-2 (]: SQL status: SUCCESS 8 in 5.194 seconds
+[0m19:32:04.314061 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '5e8c1417-c388-4c7e-844a-334b4463af77', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e46e9286d80>]}
+[0m19:32:04.314505 [info ] [Thread-2 (]: 1 of 3 OK created sql table model datafold_tmp.orders_caab7724 ................. [[32mSUCCESS 8[0m in 5.27s]
+[0m19:32:04.314797 [debug] [Thread-2 (]: Finished running node model.jaffle_shop.orders
+[0m19:32:04.315443 [debug] [Thread-2 (]: Began running node test.jaffle_shop.not_null_orders_order_id.cf6c17daed
+[0m19:32:04.315614 [info ] [Thread-2 (]: 2 of 3 START test not_null_orders_order_id ..................................... [RUN]
+[0m19:32:04.315818 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.jaffle_shop.orders, now test.jaffle_shop.not_null_orders_order_id.cf6c17daed)
+[0m19:32:04.315961 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.not_null_orders_order_id.cf6c17daed
+[0m19:32:04.323236 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.not_null_orders_order_id.cf6c17daed"
+[0m19:32:04.323755 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.not_null_orders_order_id.cf6c17daed
+[0m19:32:04.337001 [debug] [Thread-2 (]: Writing runtime sql for node "test.jaffle_shop.not_null_orders_order_id.cf6c17daed"
+[0m19:32:04.337733 [debug] [Thread-2 (]: Using snowflake connection "test.jaffle_shop.not_null_orders_order_id.cf6c17daed"
+[0m19:32:04.337914 [debug] [Thread-2 (]: On test.jaffle_shop.not_null_orders_order_id.cf6c17daed: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select order_id
+from DEV.datafold_tmp.orders_caab7724
+where order_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.10", "profile_name": "jaffle_shop", "target_name": "dev", "node_id": "test.jaffle_shop.not_null_orders_order_id.cf6c17daed"} */
+[0m19:32:05.175560 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.837 seconds
+[0m19:32:05.179987 [info ] [Thread-2 (]: 2 of 3 PASS not_null_orders_order_id ........................................... [[32mPASS[0m in 0.86s]
+[0m19:32:05.181134 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.not_null_orders_order_id.cf6c17daed
+[0m19:32:05.181787 [debug] [Thread-2 (]: Began running node test.jaffle_shop.unique_orders_order_id.fed79b3a6e
+[0m19:32:05.182280 [info ] [Thread-2 (]: 3 of 3 START test unique_orders_order_id ....................................... [RUN]
+[0m19:32:05.182684 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.not_null_orders_order_id.cf6c17daed, now test.jaffle_shop.unique_orders_order_id.fed79b3a6e)
+[0m19:32:05.182969 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.unique_orders_order_id.fed79b3a6e
+[0m19:32:05.193430 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.unique_orders_order_id.fed79b3a6e"
+[0m19:32:05.194346 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.unique_orders_order_id.fed79b3a6e
+[0m19:32:05.197286 [debug] [Thread-2 (]: Writing runtime sql for node "test.jaffle_shop.unique_orders_order_id.fed79b3a6e"
+[0m19:32:05.198265 [debug] [Thread-2 (]: Using snowflake connection "test.jaffle_shop.unique_orders_order_id.fed79b3a6e"
+[0m19:32:05.198626 [debug] [Thread-2 (]: On test.jaffle_shop.unique_orders_order_id.fed79b3a6e: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    order_id as unique_field,
+    count(*) as n_records
+
+from DEV.datafold_tmp.orders_caab7724
+where order_id is not null
+group by order_id
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.10", "profile_name": "jaffle_shop", "target_name": "dev", "node_id": "test.jaffle_shop.unique_orders_order_id.fed79b3a6e"} */
+[0m19:32:05.475528 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.276 seconds
+[0m19:32:05.478767 [info ] [Thread-2 (]: 3 of 3 PASS unique_orders_order_id ............................................. [[32mPASS[0m in 0.30s]
+[0m19:32:05.479823 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.unique_orders_order_id.fed79b3a6e
+[0m19:32:05.481318 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m19:32:05.481729 [debug] [MainThread]: Connection 'test.jaffle_shop.unique_orders_order_id.fed79b3a6e' was left open.
+[0m19:32:05.482111 [debug] [MainThread]: On test.jaffle_shop.unique_orders_order_id.fed79b3a6e: Close
+[0m19:32:06.520165 [info ] [MainThread]: 
+[0m19:32:06.520426 [info ] [MainThread]: Finished running 1 table model, 2 data tests in 0 hours 0 minutes and 9.89 seconds (9.89s).
+[0m19:32:06.520934 [debug] [MainThread]: Command end result
+[0m19:32:06.543004 [debug] [MainThread]: Wrote artifact WritableManifest to /tmp/tbdispatch_d40f314c3fec4198abee1ba456896492/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/manifest.json
+[0m19:32:06.544522 [debug] [MainThread]: Wrote artifact SemanticManifest to /tmp/tbdispatch_d40f314c3fec4198abee1ba456896492/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/semantic_manifest.json
+[0m19:32:06.547776 [debug] [MainThread]: Wrote artifact RunExecutionResult to /tmp/tbdispatch_d40f314c3fec4198abee1ba456896492/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/run_results.json
+[0m19:32:06.547940 [info ] [MainThread]: 
+[0m19:32:06.548097 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m19:32:06.548207 [info ] [MainThread]: 
+[0m19:32:06.548331 [info ] [MainThread]: Done. PASS=3 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=3
+[0m19:32:06.548903 [debug] [MainThread]: Resource report: {"command_name": "build", "command_success": true, "command_wall_clock_time": 10.792532, "process_in_blocks": "8", "process_kernel_time": 0.282502, "process_mem_max_rss": "163976", "process_out_blocks": "4904", "process_user_time": 2.432717}
+[0m19:32:06.549137 [debug] [MainThread]: Command `dbt build` succeeded at 19:32:06.549088 after 10.79 seconds
+[0m19:32:06.549293 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e46ed6c2360>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e46e97fd790>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e46e9bef830>]}
+[0m19:32:06.549452 [debug] [MainThread]: Flushing usage events
+[0m19:32:07.203741 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m19:49:21.200243 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7bb6252c3920>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7bb624d324b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7bb62449fc80>]}
+
+
+============================== 19:49:21.204468 | 706f17af-6f32-462b-91bc-d87bd35c53ee ==============================
+[0m19:49:21.204468 [info ] [MainThread]: Running with dbt=1.11.10
+[0m19:49:21.204727 [debug] [MainThread]: running dbt with arguments {'debug': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'introspect': 'True', 'profiles_dir': '/tmp/tmp_ohfcn84', 'use_colors': 'True', 'version_check': 'True', 'static_parser': 'True', 'warn_error': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'write_json': 'True', 'send_anonymous_usage_stats': 'True', 'empty': 'False', 'invocation_command': 'dbt run --profiles-dir /tmp/tmp_ohfcn84 --project-dir /tmp/tbdispatch_d8adce6185eb474f965f1b408fb66043/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold --select orders --full-refresh', 'indirect_selection': 'eager', 'log_path': '/tmp/tbdispatch_d8adce6185eb474f965f1b408fb66043/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/logs', 'use_experimental_parser': 'False', 'log_cache_events': 'False', 'no_print': 'None', 'printer_width': '80', 'log_format': 'default', 'fail_fast': 'False', 'target_path': 'None'}
+[0m19:49:21.349018 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m19:49:21.349297 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m19:49:21.349439 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m19:49:21.509699 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '706f17af-6f32-462b-91bc-d87bd35c53ee', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7bb622c47d70>]}
+[0m19:49:21.552049 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '706f17af-6f32-462b-91bc-d87bd35c53ee', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7bb6230bbef0>]}
+[0m19:49:21.552567 [info ] [MainThread]: Registered adapter: snowflake=1.11.5
+[0m19:49:21.619194 [debug] [MainThread]: checksum: 2f247960199844e016e6a527f21364251736722c6212f4b11e96849fe0fc9e96, vars: {}, profile: , target: , version: 1.11.10
+[0m19:49:21.694903 [debug] [MainThread]: Partial parsing enabled: 1 files deleted, 0 files added, 2 files changed.
+[0m19:49:21.695656 [debug] [MainThread]: Partial parsing: updated file: jaffle_shop://models/staging/stg_orders.sql
+[0m19:49:21.695850 [debug] [MainThread]: Partial parsing: updated file: jaffle_shop://models/marts/order_items.sql
+[0m19:49:21.989839 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '706f17af-6f32-462b-91bc-d87bd35c53ee', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7bb62182bbf0>]}
+[0m19:49:22.047590 [debug] [MainThread]: Wrote artifact WritableManifest to /tmp/tbdispatch_d8adce6185eb474f965f1b408fb66043/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/manifest.json
+[0m19:49:22.049256 [debug] [MainThread]: Wrote artifact SemanticManifest to /tmp/tbdispatch_d8adce6185eb474f965f1b408fb66043/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/semantic_manifest.json
+[0m19:49:22.055710 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '706f17af-6f32-462b-91bc-d87bd35c53ee', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7bb621ef1160>]}
+[0m19:49:22.056014 [info ] [MainThread]: Found 6 models, 15 data tests, 5 sources, 646 macros
+[0m19:49:22.056165 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '706f17af-6f32-462b-91bc-d87bd35c53ee', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7bb626375850>]}
+[0m19:49:22.057125 [info ] [MainThread]: 
+[0m19:49:22.057292 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m19:49:22.057403 [info ] [MainThread]: 
+[0m19:49:22.057648 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m19:49:22.058413 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DEV'
+[0m19:49:22.080980 [debug] [ThreadPool]: Using snowflake connection "list_DEV"
+[0m19:49:22.081233 [debug] [ThreadPool]: On list_DEV: show terse schemas in database DEV
+    limit 10000
+/* {"app": "dbt", "dbt_version": "1.11.10", "profile_name": "jaffle_shop", "target_name": "dev", "connection_name": "list_DEV"} */
+[0m19:49:22.081377 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m19:49:23.641583 [debug] [ThreadPool]: SQL status: SUCCESS 144 in 1.560 seconds
+[0m19:49:23.651494 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_DEV, now list_DEV_staging)
+[0m19:49:23.665555 [debug] [ThreadPool]: Using snowflake connection "list_DEV_staging"
+[0m19:49:23.665877 [debug] [ThreadPool]: On list_DEV_staging: show objects in DEV.staging
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.10", "profile_name": "jaffle_shop", "target_name": "dev", "connection_name": "list_DEV_staging"} */;
+[0m19:49:23.886585 [debug] [ThreadPool]: Snowflake adapter: Snowflake query id: 01c48045-060b-fcfe-0008-fb83437cdd8a
+[0m19:49:23.887211 [debug] [ThreadPool]: Snowflake adapter: Snowflake error: 002043 (02000): SQL compilation error:
+Object does not exist, or operation cannot be performed.
+[0m19:49:23.887815 [debug] [ThreadPool]: Snowflake adapter: Error running SQL: macro list_relations_without_caching
+[0m19:49:23.888209 [debug] [ThreadPool]: Snowflake adapter: Rolling back transaction.
+[0m19:49:23.889058 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_DEV_staging, now list_DEV_datafold_tmp)
+[0m19:49:23.893697 [debug] [ThreadPool]: Using snowflake connection "list_DEV_datafold_tmp"
+[0m19:49:23.894357 [debug] [ThreadPool]: On list_DEV_datafold_tmp: show objects in DEV.datafold_tmp
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.10", "profile_name": "jaffle_shop", "target_name": "dev", "connection_name": "list_DEV_datafold_tmp"} */;
+[0m19:49:24.370313 [debug] [ThreadPool]: SQL status: SUCCESS 243 in 0.475 seconds
+[0m19:49:24.391921 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_DEV_datafold_tmp, now list_DEV_marts)
+[0m19:49:24.408469 [debug] [ThreadPool]: Using snowflake connection "list_DEV_marts"
+[0m19:49:24.414186 [debug] [ThreadPool]: On list_DEV_marts: show objects in DEV.marts
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.10", "profile_name": "jaffle_shop", "target_name": "dev", "connection_name": "list_DEV_marts"} */;
+[0m19:49:24.890459 [debug] [ThreadPool]: Snowflake adapter: Snowflake query id: 01c48045-060b-fd08-0008-fb83437cae86
+[0m19:49:24.890844 [debug] [ThreadPool]: Snowflake adapter: Snowflake error: 002043 (02000): SQL compilation error:
+Object does not exist, or operation cannot be performed.
+[0m19:49:24.891171 [debug] [ThreadPool]: Snowflake adapter: Error running SQL: macro list_relations_without_caching
+[0m19:49:24.891406 [debug] [ThreadPool]: Snowflake adapter: Rolling back transaction.
+[0m19:49:24.891990 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '706f17af-6f32-462b-91bc-d87bd35c53ee', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7bb5faca3950>]}
+[0m19:49:24.896233 [debug] [Thread-2 (]: Began running node model.jaffle_shop.orders
+[0m19:49:24.896836 [info ] [Thread-2 (]: 1 of 1 START sql table model datafold_tmp.orders_caab7724 ...................... [RUN]
+[0m19:49:24.897248 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_DEV_marts, now model.jaffle_shop.orders)
+[0m19:49:24.897574 [debug] [Thread-2 (]: Began compiling node model.jaffle_shop.orders
+[0m19:49:24.907653 [debug] [Thread-2 (]: Writing injected SQL for node "model.jaffle_shop.orders"
+[0m19:49:24.908421 [debug] [Thread-2 (]: Began executing node model.jaffle_shop.orders
+[0m19:49:24.951989 [debug] [Thread-2 (]: Writing runtime sql for node "model.jaffle_shop.orders"
+[0m19:49:24.954219 [debug] [Thread-2 (]: Using snowflake connection "model.jaffle_shop.orders"
+[0m19:49:24.954677 [debug] [Thread-2 (]: On model.jaffle_shop.orders: create or replace transient table DEV.datafold_tmp.orders_caab7724
+    
+    
+    
+    as (
+
+with order_items_summary as (
+
+    select
+        order_id,
+        sum(supply_cost)                                      as order_cost,
+        sum(product_price)                                    as order_items_subtotal,
+        count(order_item_id)                                  as count_order_items,
+        sum(case when is_food_item  then 1 else 0 end)        as count_food_items,
+        sum(case when is_drink_item then 1 else 0 end)        as count_drink_items
+    from DEV.marts.order_items
+    group by order_id
+
+),
+
+orders as (
+
+    select * from DEV.staging.stg_orders
+
+),
+
+final as (
+
+    select
+        o.order_id,
+        o.location_id,
+        o.customer_id,
+        o.ordered_at,
+        o.subtotal,
+        o.tax_paid,
+        o.order_total,
+        ois.order_cost,
+        ois.order_items_subtotal,
+        ois.count_order_items,
+        ois.count_food_items,
+        ois.count_drink_items,
+
+        -- a jaffle-shop convention: orders that contain at least one food item.
+        case when coalesce(ois.count_food_items, 0) > 0 then true else false end  as is_food_order,
+        case when coalesce(ois.count_drink_items, 0) > 0 then true else false end as is_drink_order
+
+    from orders o
+    left join order_items_summary ois on ois.order_id = o.order_id
+
+)
+
+select * from final
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.10", "profile_name": "jaffle_shop", "target_name": "dev", "node_id": "model.jaffle_shop.orders"} */;
+[0m19:49:25.206608 [debug] [Thread-2 (]: Snowflake adapter: Snowflake query id: 01c48045-060b-fcfe-0008-fb83437cdd92
+[0m19:49:25.207149 [debug] [Thread-2 (]: Snowflake adapter: Snowflake error: 002003 (02000): SQL compilation error:
+Schema 'DEV.MARTS' does not exist or not authorized.
+[0m19:49:25.210762 [debug] [Thread-2 (]: Database Error in model orders (models/marts/orders.sql)
+  002003 (02000): SQL compilation error:
+  Schema 'DEV.MARTS' does not exist or not authorized.
+  compiled code at target/run/jaffle_shop/models/marts/orders.sql
+[0m19:49:25.212754 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '706f17af-6f32-462b-91bc-d87bd35c53ee', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7bb6254de000>]}
+[0m19:49:25.213517 [error] [Thread-2 (]: 1 of 1 ERROR creating sql table model datafold_tmp.orders_caab7724 ............. [[31mERROR[0m in 0.31s]
+[0m19:49:25.214219 [debug] [Thread-2 (]: Finished running node model.jaffle_shop.orders
+[0m19:49:25.215086 [debug] [Thread-5 (]: Marking all children of 'model.jaffle_shop.orders' to be skipped because of status 'error'.  Reason: Database Error in model orders (models/marts/orders.sql)
+  002003 (02000): SQL compilation error:
+  Schema 'DEV.MARTS' does not exist or not authorized.
+  compiled code at target/run/jaffle_shop/models/marts/orders.sql.
+[0m19:49:25.217877 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m19:49:25.218215 [debug] [MainThread]: Connection 'model.jaffle_shop.orders' was left open.
+[0m19:49:25.218595 [debug] [MainThread]: On model.jaffle_shop.orders: Close
+[0m19:49:25.691514 [info ] [MainThread]: 
+[0m19:49:25.691930 [info ] [MainThread]: Finished running 1 table model in 0 hours 0 minutes and 3.63 seconds (3.63s).
+[0m19:49:25.692683 [debug] [MainThread]: Command end result
+[0m19:49:25.741099 [debug] [MainThread]: Wrote artifact WritableManifest to /tmp/tbdispatch_d8adce6185eb474f965f1b408fb66043/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/manifest.json
+[0m19:49:25.743537 [debug] [MainThread]: Wrote artifact SemanticManifest to /tmp/tbdispatch_d8adce6185eb474f965f1b408fb66043/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/semantic_manifest.json
+[0m19:49:25.750071 [debug] [MainThread]: Wrote artifact RunExecutionResult to /tmp/tbdispatch_d8adce6185eb474f965f1b408fb66043/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/run_results.json
+[0m19:49:25.750405 [info ] [MainThread]: 
+[0m19:49:25.750764 [info ] [MainThread]: [31mCompleted with 1 error, 0 partial successes, and 0 warnings:[0m
+[0m19:49:25.751013 [info ] [MainThread]: 
+[0m19:49:25.751306 [error] [MainThread]: [31mFailure in model orders (models/marts/orders.sql)[0m
+[0m19:49:25.751730 [error] [MainThread]:   Database Error in model orders (models/marts/orders.sql)
+  002003 (02000): SQL compilation error:
+  Schema 'DEV.MARTS' does not exist or not authorized.
+  compiled code at target/run/jaffle_shop/models/marts/orders.sql
+[0m19:49:25.752100 [info ] [MainThread]: 
+[0m19:49:25.752465 [info ] [MainThread]:   compiled code at target/compiled/jaffle_shop/models/marts/orders.sql
+[0m19:49:25.752742 [info ] [MainThread]: 
+[0m19:49:25.753039 [info ] [MainThread]: Done. PASS=0 WARN=0 ERROR=1 SKIP=0 NO-OP=0 TOTAL=1
+[0m19:49:25.754005 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 4.5870366, "process_in_blocks": "0", "process_kernel_time": 0.300842, "process_mem_max_rss": "163984", "process_out_blocks": "4848", "process_user_time": 2.544671}
+[0m19:49:25.754425 [debug] [MainThread]: Command `dbt run` failed at 19:49:25.754324 after 4.59 seconds
+[0m19:49:25.754758 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7bb6251000e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7bb624d76c30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7bb620138470>]}
+[0m19:49:25.755077 [debug] [MainThread]: Flushing usage events
+[0m19:49:26.755110 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m19:49:47.382949 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f79705201d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f796c761100>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f796c762a20>]}
+
+
+============================== 19:49:47.387323 | d7a55b3f-9887-4027-947a-65b53fc33cdd ==============================
+[0m19:49:47.387323 [info ] [MainThread]: Running with dbt=1.11.10
+[0m19:49:47.387577 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'quiet': 'False', 'cache_selected_only': 'False', 'fail_fast': 'False', 'invocation_command': 'dbt run --profiles-dir /tmp/tmpiu5_fcv7 --project-dir /tmp/tbdispatch_d8adce6185eb474f965f1b408fb66043/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold --select orders --full-refresh', 'use_colors': 'True', 'target_path': 'None', 'debug': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_cache_events': 'False', 'printer_width': '80', 'partial_parse': 'True', 'static_parser': 'True', 'introspect': 'True', 'profiles_dir': '/tmp/tmpiu5_fcv7', 'log_path': '/tmp/tbdispatch_d8adce6185eb474f965f1b408fb66043/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/logs', 'warn_error': 'None', 'write_json': 'True', 'log_format': 'default', 'use_experimental_parser': 'False', 'indirect_selection': 'eager', 'empty': 'False', 'send_anonymous_usage_stats': 'True'}
+[0m19:49:47.538068 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m19:49:47.538369 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m19:49:47.538517 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m19:49:47.704724 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'd7a55b3f-9887-4027-947a-65b53fc33cdd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f796e977290>]}
+[0m19:49:47.745142 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'd7a55b3f-9887-4027-947a-65b53fc33cdd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f796c993f80>]}
+[0m19:49:47.745778 [info ] [MainThread]: Registered adapter: snowflake=1.11.5
+[0m19:49:47.822791 [debug] [MainThread]: checksum: 2f247960199844e016e6a527f21364251736722c6212f4b11e96849fe0fc9e96, vars: {}, profile: , target: , version: 1.11.10
+[0m19:49:47.920138 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+[0m19:49:47.920746 [debug] [MainThread]: Partial parsing: updated file: jaffle_shop://models/marts/order_items.sql
+[0m19:49:48.100546 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'd7a55b3f-9887-4027-947a-65b53fc33cdd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f79681d3e30>]}
+[0m19:49:48.161327 [debug] [MainThread]: Wrote artifact WritableManifest to /tmp/tbdispatch_d8adce6185eb474f965f1b408fb66043/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/manifest.json
+[0m19:49:48.162575 [debug] [MainThread]: Wrote artifact SemanticManifest to /tmp/tbdispatch_d8adce6185eb474f965f1b408fb66043/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/semantic_manifest.json
+[0m19:49:48.167942 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'd7a55b3f-9887-4027-947a-65b53fc33cdd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f79681caf00>]}
+[0m19:49:48.168177 [info ] [MainThread]: Found 6 models, 15 data tests, 5 sources, 646 macros
+[0m19:49:48.168319 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'd7a55b3f-9887-4027-947a-65b53fc33cdd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f79681932c0>]}
+[0m19:49:48.169241 [info ] [MainThread]: 
+[0m19:49:48.169399 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m19:49:48.169524 [info ] [MainThread]: 
+[0m19:49:48.169750 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m19:49:48.170246 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DEV'
+[0m19:49:48.193170 [debug] [ThreadPool]: Using snowflake connection "list_DEV"
+[0m19:49:48.193362 [debug] [ThreadPool]: On list_DEV: show terse schemas in database DEV
+    limit 10000
+/* {"app": "dbt", "dbt_version": "1.11.10", "profile_name": "jaffle_shop", "target_name": "dev", "connection_name": "list_DEV"} */
+[0m19:49:48.193489 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m19:49:49.749835 [debug] [ThreadPool]: SQL status: SUCCESS 144 in 1.556 seconds
+[0m19:49:49.759558 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_DEV, now list_DEV_staging)
+[0m19:49:49.781205 [debug] [ThreadPool]: Using snowflake connection "list_DEV_staging"
+[0m19:49:49.781786 [debug] [ThreadPool]: On list_DEV_staging: show objects in DEV.staging
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.10", "profile_name": "jaffle_shop", "target_name": "dev", "connection_name": "list_DEV_staging"} */;
+[0m19:49:50.023846 [debug] [ThreadPool]: Snowflake adapter: Snowflake query id: 01c48045-060b-fcfe-0008-fb83437cdd9a
+[0m19:49:50.024469 [debug] [ThreadPool]: Snowflake adapter: Snowflake error: 002043 (02000): SQL compilation error:
+Object does not exist, or operation cannot be performed.
+[0m19:49:50.025034 [debug] [ThreadPool]: Snowflake adapter: Error running SQL: macro list_relations_without_caching
+[0m19:49:50.025449 [debug] [ThreadPool]: Snowflake adapter: Rolling back transaction.
+[0m19:49:50.026218 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_DEV_staging, now list_DEV_datafold_tmp)
+[0m19:49:50.031089 [debug] [ThreadPool]: Using snowflake connection "list_DEV_datafold_tmp"
+[0m19:49:50.031640 [debug] [ThreadPool]: On list_DEV_datafold_tmp: show objects in DEV.datafold_tmp
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.10", "profile_name": "jaffle_shop", "target_name": "dev", "connection_name": "list_DEV_datafold_tmp"} */;
+[0m19:49:50.540796 [debug] [ThreadPool]: SQL status: SUCCESS 243 in 0.509 seconds
+[0m19:49:50.603383 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'd7a55b3f-9887-4027-947a-65b53fc33cdd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7969700050>]}
+[0m19:49:50.607514 [debug] [Thread-2 (]: Began running node model.jaffle_shop.orders
+[0m19:49:50.608060 [info ] [Thread-2 (]: 1 of 1 START sql table model datafold_tmp.orders_caab7724 ...................... [RUN]
+[0m19:49:50.608478 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_DEV_datafold_tmp, now model.jaffle_shop.orders)
+[0m19:49:50.608782 [debug] [Thread-2 (]: Began compiling node model.jaffle_shop.orders
+[0m19:49:50.617498 [debug] [Thread-2 (]: Writing injected SQL for node "model.jaffle_shop.orders"
+[0m19:49:50.618069 [debug] [Thread-2 (]: Began executing node model.jaffle_shop.orders
+[0m19:49:50.660770 [debug] [Thread-2 (]: Writing runtime sql for node "model.jaffle_shop.orders"
+[0m19:49:50.663732 [debug] [Thread-2 (]: Using snowflake connection "model.jaffle_shop.orders"
+[0m19:49:50.664411 [debug] [Thread-2 (]: On model.jaffle_shop.orders: create or replace transient table DEV.datafold_tmp.orders_caab7724
+    
+    
+    
+    as (
+
+with order_items_summary as (
+
+    select
+        order_id,
+        sum(supply_cost)                                      as order_cost,
+        sum(product_price)                                    as order_items_subtotal,
+        count(order_item_id)                                  as count_order_items,
+        sum(case when is_food_item  then 1 else 0 end)        as count_food_items,
+        sum(case when is_drink_item then 1 else 0 end)        as count_drink_items
+    from DEV.datafold_tmp.order_items
+    group by order_id
+
+),
+
+orders as (
+
+    select * from DEV.staging.stg_orders
+
+),
+
+final as (
+
+    select
+        o.order_id,
+        o.location_id,
+        o.customer_id,
+        o.ordered_at,
+        o.subtotal,
+        o.tax_paid,
+        o.order_total,
+        ois.order_cost,
+        ois.order_items_subtotal,
+        ois.count_order_items,
+        ois.count_food_items,
+        ois.count_drink_items,
+
+        -- a jaffle-shop convention: orders that contain at least one food item.
+        case when coalesce(ois.count_food_items, 0) > 0 then true else false end  as is_food_order,
+        case when coalesce(ois.count_drink_items, 0) > 0 then true else false end as is_drink_order
+
+    from orders o
+    left join order_items_summary ois on ois.order_id = o.order_id
+
+)
+
+select * from final
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.10", "profile_name": "jaffle_shop", "target_name": "dev", "node_id": "model.jaffle_shop.orders"} */;
+[0m19:49:51.068340 [debug] [Thread-2 (]: Snowflake adapter: Snowflake query id: 01c48045-060b-fd0a-0008-fb83437ccdc2
+[0m19:49:51.068932 [debug] [Thread-2 (]: Snowflake adapter: Snowflake error: 002003 (42S02): SQL compilation error:
+Object 'DEV.DATAFOLD_TMP.ORDER_ITEMS' does not exist or not authorized.
+[0m19:49:51.073179 [debug] [Thread-2 (]: Database Error in model orders (models/marts/orders.sql)
+  002003 (42S02): SQL compilation error:
+  Object 'DEV.DATAFOLD_TMP.ORDER_ITEMS' does not exist or not authorized.
+  compiled code at target/run/jaffle_shop/models/marts/orders.sql
+[0m19:49:51.075552 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'd7a55b3f-9887-4027-947a-65b53fc33cdd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f794a24c950>]}
+[0m19:49:51.076430 [error] [Thread-2 (]: 1 of 1 ERROR creating sql table model datafold_tmp.orders_caab7724 ............. [[31mERROR[0m in 0.47s]
+[0m19:49:51.077184 [debug] [Thread-2 (]: Finished running node model.jaffle_shop.orders
+[0m19:49:51.077823 [debug] [Thread-5 (]: Marking all children of 'model.jaffle_shop.orders' to be skipped because of status 'error'.  Reason: Database Error in model orders (models/marts/orders.sql)
+  002003 (42S02): SQL compilation error:
+  Object 'DEV.DATAFOLD_TMP.ORDER_ITEMS' does not exist or not authorized.
+  compiled code at target/run/jaffle_shop/models/marts/orders.sql.
+[0m19:49:51.080364 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m19:49:51.080738 [debug] [MainThread]: Connection 'model.jaffle_shop.orders' was left open.
+[0m19:49:51.081063 [debug] [MainThread]: On model.jaffle_shop.orders: Close
+[0m19:49:51.603238 [info ] [MainThread]: 
+[0m19:49:51.603668 [info ] [MainThread]: Finished running 1 table model in 0 hours 0 minutes and 3.43 seconds (3.43s).
+[0m19:49:51.604282 [debug] [MainThread]: Command end result
+[0m19:49:51.716218 [debug] [MainThread]: Wrote artifact WritableManifest to /tmp/tbdispatch_d8adce6185eb474f965f1b408fb66043/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/manifest.json
+[0m19:49:51.717697 [debug] [MainThread]: Wrote artifact SemanticManifest to /tmp/tbdispatch_d8adce6185eb474f965f1b408fb66043/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/semantic_manifest.json
+[0m19:49:51.721736 [debug] [MainThread]: Wrote artifact RunExecutionResult to /tmp/tbdispatch_d8adce6185eb474f965f1b408fb66043/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/run_results.json
+[0m19:49:51.721941 [info ] [MainThread]: 
+[0m19:49:51.722150 [info ] [MainThread]: [31mCompleted with 1 error, 0 partial successes, and 0 warnings:[0m
+[0m19:49:51.722307 [info ] [MainThread]: 
+[0m19:49:51.722508 [error] [MainThread]: [31mFailure in model orders (models/marts/orders.sql)[0m
+[0m19:49:51.722687 [error] [MainThread]:   Database Error in model orders (models/marts/orders.sql)
+  002003 (42S02): SQL compilation error:
+  Object 'DEV.DATAFOLD_TMP.ORDER_ITEMS' does not exist or not authorized.
+  compiled code at target/run/jaffle_shop/models/marts/orders.sql
+[0m19:49:51.722810 [info ] [MainThread]: 
+[0m19:49:51.722963 [info ] [MainThread]:   compiled code at target/compiled/jaffle_shop/models/marts/orders.sql
+[0m19:49:51.723078 [info ] [MainThread]: 
+[0m19:49:51.723217 [info ] [MainThread]: Done. PASS=0 WARN=0 ERROR=1 SKIP=0 NO-OP=0 TOTAL=1
+[0m19:49:51.723809 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 4.3742394, "process_in_blocks": "0", "process_kernel_time": 0.283843, "process_mem_max_rss": "162596", "process_out_blocks": "4848", "process_user_time": 2.364696}
+[0m19:49:51.724078 [debug] [MainThread]: Command `dbt run` failed at 19:49:51.724015 after 4.37 seconds
+[0m19:49:51.724285 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f79488f6b40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f79488f7f20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f79488f6cf0>]}
+[0m19:49:51.724486 [debug] [MainThread]: Flushing usage events
+[0m19:49:52.700239 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m19:49:59.012614 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8595c36b10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8593d6f8f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8593d6fad0>]}
+
+
+============================== 19:49:59.017352 | b3c830aa-569e-43fd-88b3-9a6a91cbe669 ==============================
+[0m19:49:59.017352 [info ] [MainThread]: Running with dbt=1.11.10
+[0m19:49:59.017639 [debug] [MainThread]: running dbt with arguments {'quiet': 'False', 'debug': 'False', 'invocation_command': 'dbt run --profiles-dir /tmp/tmpnkfmi3ks --project-dir /tmp/tbdispatch_d8adce6185eb474f965f1b408fb66043/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold --select +orders --full-refresh', 'warn_error': 'None', 'partial_parse': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'static_parser': 'True', 'log_cache_events': 'False', 'introspect': 'True', 'log_path': '/tmp/tbdispatch_d8adce6185eb474f965f1b408fb66043/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/logs', 'version_check': 'True', 'profiles_dir': '/tmp/tmpnkfmi3ks', 'use_experimental_parser': 'False', 'printer_width': '80', 'fail_fast': 'False', 'no_print': 'None', 'log_format': 'default', 'cache_selected_only': 'False', 'write_json': 'True', 'use_colors': 'True', 'send_anonymous_usage_stats': 'True', 'indirect_selection': 'eager', 'empty': 'False', 'target_path': 'None'}
+[0m19:49:59.157622 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m19:49:59.157891 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m19:49:59.158034 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m19:49:59.321276 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'b3c830aa-569e-43fd-88b3-9a6a91cbe669', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8595b25760>]}
+[0m19:49:59.358579 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'b3c830aa-569e-43fd-88b3-9a6a91cbe669', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8594438200>]}
+[0m19:49:59.359012 [info ] [MainThread]: Registered adapter: snowflake=1.11.5
+[0m19:49:59.424290 [debug] [MainThread]: checksum: 2f247960199844e016e6a527f21364251736722c6212f4b11e96849fe0fc9e96, vars: {}, profile: , target: , version: 1.11.10
+[0m19:49:59.496241 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m19:49:59.496466 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m19:49:59.496581 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m19:49:59.522345 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'b3c830aa-569e-43fd-88b3-9a6a91cbe669', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8592d38770>]}
+[0m19:49:59.578590 [debug] [MainThread]: Wrote artifact WritableManifest to /tmp/tbdispatch_d8adce6185eb474f965f1b408fb66043/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/manifest.json
+[0m19:49:59.579873 [debug] [MainThread]: Wrote artifact SemanticManifest to /tmp/tbdispatch_d8adce6185eb474f965f1b408fb66043/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/semantic_manifest.json
+[0m19:49:59.584878 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'b3c830aa-569e-43fd-88b3-9a6a91cbe669', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f85901b0a10>]}
+[0m19:49:59.585105 [info ] [MainThread]: Found 6 models, 15 data tests, 5 sources, 646 macros
+[0m19:49:59.585243 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'b3c830aa-569e-43fd-88b3-9a6a91cbe669', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f85901b0140>]}
+[0m19:49:59.586261 [info ] [MainThread]: 
+[0m19:49:59.586446 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m19:49:59.586584 [info ] [MainThread]: 
+[0m19:49:59.586830 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m19:49:59.589543 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DEV'
+[0m19:49:59.612306 [debug] [ThreadPool]: Using snowflake connection "list_DEV"
+[0m19:49:59.612518 [debug] [ThreadPool]: On list_DEV: show terse schemas in database DEV
+    limit 10000
+/* {"app": "dbt", "dbt_version": "1.11.10", "profile_name": "jaffle_shop", "target_name": "dev", "connection_name": "list_DEV"} */
+[0m19:49:59.612645 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m19:50:00.990919 [debug] [ThreadPool]: SQL status: SUCCESS 144 in 1.378 seconds
+[0m19:50:01.002779 [debug] [ThreadPool]: Using snowflake connection "list_DEV"
+[0m19:50:01.003536 [debug] [ThreadPool]: On list_DEV: show terse schemas in database DEV
+    limit 10000
+/* {"app": "dbt", "dbt_version": "1.11.10", "profile_name": "jaffle_shop", "target_name": "dev", "connection_name": "list_DEV"} */
+[0m19:50:01.490035 [debug] [ThreadPool]: SQL status: SUCCESS 144 in 0.486 seconds
+[0m19:50:01.497663 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_DEV, now create_DEV_staging)
+[0m19:50:01.498428 [debug] [ThreadPool]: Creating schema "database: "DEV"
+schema: "staging"
+"
+[0m19:50:01.507616 [debug] [ThreadPool]: Using snowflake connection "create_DEV_staging"
+[0m19:50:01.508142 [debug] [ThreadPool]: On create_DEV_staging: create schema if not exists DEV.staging
+/* {"app": "dbt", "dbt_version": "1.11.10", "profile_name": "jaffle_shop", "target_name": "dev", "connection_name": "create_DEV_staging"} */
+[0m19:50:01.761783 [debug] [ThreadPool]: Snowflake adapter: Snowflake query id: 01c48046-060b-fcfe-0008-fb83437cddaa
+[0m19:50:01.762403 [debug] [ThreadPool]: Snowflake adapter: Snowflake error: 003001 (42501): SQL access control error:
+Insufficient privileges to operate on database 'DEV'. Your primary role DATAFOLDROLE must have CREATE SCHEMA granted on DATABASE DEV.
+[0m19:50:01.763052 [debug] [ThreadPool]: Snowflake adapter: Error running SQL: macro create_schema
+[0m19:50:01.763607 [debug] [ThreadPool]: Snowflake adapter: Rolling back transaction.
+[0m19:50:01.764832 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m19:50:01.765341 [debug] [MainThread]: Connection 'create_DEV_staging' was left open.
+[0m19:50:01.765779 [debug] [MainThread]: On create_DEV_staging: Close
+[0m19:50:02.281148 [info ] [MainThread]: 
+[0m19:50:02.281815 [info ] [MainThread]: Finished running  in 0 hours 0 minutes and 2.69 seconds (2.69s).
+[0m19:50:02.282298 [error] [MainThread]: Encountered an error:
+Database Error
+  003001 (42501): SQL access control error:
+  Insufficient privileges to operate on database 'DEV'. Your primary role DATAFOLDROLE must have CREATE SCHEMA granted on DATABASE DEV.
+[0m19:50:02.283278 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 3.3043528, "process_in_blocks": "0", "process_kernel_time": 0.282972, "process_mem_max_rss": "156480", "process_out_blocks": "1696", "process_user_time": 1.878817}
+[0m19:50:02.283758 [debug] [MainThread]: Command `dbt run` failed at 19:50:02.283652 after 3.31 seconds
+[0m19:50:02.284060 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f85932b3d70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f8590444260>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f858bcc75c0>]}
+[0m19:50:02.284359 [debug] [MainThread]: Flushing usage events
+[0m19:50:03.077321 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m19:50:34.218031 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74b1ae332e70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74b1ab44f080>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74b1ac172e70>]}
+
+
+============================== 19:50:34.222005 | 43ccd3bd-da30-439e-9927-4b0b4d956cec ==============================
+[0m19:50:34.222005 [info ] [MainThread]: Running with dbt=1.11.10
+[0m19:50:34.222254 [debug] [MainThread]: running dbt with arguments {'debug': 'False', 'warn_error': 'None', 'quiet': 'False', 'log_path': '/tmp/tbdispatch_d8adce6185eb474f965f1b408fb66043/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/logs', 'profiles_dir': '/tmp/tmppyowrtiu', 'cache_selected_only': 'False', 'target_path': 'None', 'send_anonymous_usage_stats': 'True', 'version_check': 'True', 'static_parser': 'True', 'printer_width': '80', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_cache_events': 'False', 'log_format': 'default', 'indirect_selection': 'eager', 'write_json': 'True', 'no_print': 'None', 'fail_fast': 'False', 'empty': 'False', 'partial_parse': 'True', 'use_colors': 'True', 'invocation_command': 'dbt build --profiles-dir /tmp/tmppyowrtiu --project-dir /tmp/tbdispatch_d8adce6185eb474f965f1b408fb66043/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold --select orders --full-refresh', 'use_experimental_parser': 'False', 'introspect': 'True'}
+[0m19:50:34.367116 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m19:50:34.367392 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m19:50:34.367540 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m19:50:34.526837 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '43ccd3bd-da30-439e-9927-4b0b4d956cec', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74b1aa6ee960>]}
+[0m19:50:34.564509 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '43ccd3bd-da30-439e-9927-4b0b4d956cec', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74b1ac862a50>]}
+[0m19:50:34.564918 [info ] [MainThread]: Registered adapter: snowflake=1.11.5
+[0m19:50:34.630720 [debug] [MainThread]: checksum: 2f247960199844e016e6a527f21364251736722c6212f4b11e96849fe0fc9e96, vars: {}, profile: , target: , version: 1.11.10
+[0m19:50:34.704252 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m19:50:34.704481 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m19:50:34.704595 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m19:50:34.733844 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '43ccd3bd-da30-439e-9927-4b0b4d956cec', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74b1abd66e40>]}
+[0m19:50:34.794571 [debug] [MainThread]: Wrote artifact WritableManifest to /tmp/tbdispatch_d8adce6185eb474f965f1b408fb66043/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/manifest.json
+[0m19:50:34.795763 [debug] [MainThread]: Wrote artifact SemanticManifest to /tmp/tbdispatch_d8adce6185eb474f965f1b408fb66043/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/semantic_manifest.json
+[0m19:50:34.809426 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '43ccd3bd-da30-439e-9927-4b0b4d956cec', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74b1a8945fd0>]}
+[0m19:50:34.810093 [info ] [MainThread]: Found 6 models, 15 data tests, 5 sources, 646 macros
+[0m19:50:34.811866 [info ] [MainThread]: 
+[0m19:50:34.812082 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m19:50:34.812203 [info ] [MainThread]: 
+[0m19:50:34.812518 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m19:50:34.813155 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DEV'
+[0m19:50:34.841019 [debug] [ThreadPool]: Using snowflake connection "list_DEV"
+[0m19:50:34.841268 [debug] [ThreadPool]: On list_DEV: show terse schemas in database DEV
+    limit 10000
+/* {"app": "dbt", "dbt_version": "1.11.10", "profile_name": "jaffle_shop", "target_name": "dev", "connection_name": "list_DEV"} */
+[0m19:50:34.841392 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m19:50:36.298038 [debug] [ThreadPool]: SQL status: SUCCESS 144 in 1.457 seconds
+[0m19:50:36.310784 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_DEV, now list_DEV_datafold_tmp)
+[0m19:50:36.328144 [debug] [ThreadPool]: Using snowflake connection "list_DEV_datafold_tmp"
+[0m19:50:36.328525 [debug] [ThreadPool]: On list_DEV_datafold_tmp: show objects in DEV.datafold_tmp
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.10", "profile_name": "jaffle_shop", "target_name": "dev", "connection_name": "list_DEV_datafold_tmp"} */;
+[0m19:50:36.751103 [debug] [ThreadPool]: SQL status: SUCCESS 244 in 0.422 seconds
+[0m19:50:36.775627 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_DEV_datafold_tmp, now list_DEV_staging)
+[0m19:50:36.783808 [debug] [ThreadPool]: Using snowflake connection "list_DEV_staging"
+[0m19:50:36.789207 [debug] [ThreadPool]: On list_DEV_staging: show objects in DEV.staging
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.10", "profile_name": "jaffle_shop", "target_name": "dev", "connection_name": "list_DEV_staging"} */;
+[0m19:50:37.044176 [debug] [ThreadPool]: Snowflake adapter: Snowflake query id: 01c48046-060b-fd0a-0008-fb83437ccdce
+[0m19:50:37.044802 [debug] [ThreadPool]: Snowflake adapter: Snowflake error: 002043 (02000): SQL compilation error:
+Object does not exist, or operation cannot be performed.
+[0m19:50:37.045368 [debug] [ThreadPool]: Snowflake adapter: Error running SQL: macro list_relations_without_caching
+[0m19:50:37.045796 [debug] [ThreadPool]: Snowflake adapter: Rolling back transaction.
+[0m19:50:37.046753 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '43ccd3bd-da30-439e-9927-4b0b4d956cec', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74b1a8557c50>]}
+[0m19:50:37.051382 [debug] [Thread-2 (]: Began running node model.jaffle_shop.orders
+[0m19:50:37.051970 [info ] [Thread-2 (]: 1 of 3 START sql table model datafold_tmp.orders_caab7724 ...................... [RUN]
+[0m19:50:37.052366 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_DEV_staging, now model.jaffle_shop.orders)
+[0m19:50:37.052689 [debug] [Thread-2 (]: Began compiling node model.jaffle_shop.orders
+[0m19:50:37.067058 [debug] [Thread-2 (]: Writing injected SQL for node "model.jaffle_shop.orders"
+[0m19:50:37.068069 [debug] [Thread-2 (]: Began executing node model.jaffle_shop.orders
+[0m19:50:37.131757 [debug] [Thread-2 (]: Writing runtime sql for node "model.jaffle_shop.orders"
+[0m19:50:37.134971 [debug] [Thread-2 (]: Using snowflake connection "model.jaffle_shop.orders"
+[0m19:50:37.135668 [debug] [Thread-2 (]: On model.jaffle_shop.orders: create or replace transient table DEV.datafold_tmp.orders_caab7724
+    
+    
+    
+    as (
+
+with order_items_summary as (
+
+    select
+        order_id,
+        sum(supply_cost)                                      as order_cost,
+        sum(product_price)                                    as order_items_subtotal,
+        count(order_item_id)                                  as count_order_items,
+        sum(case when is_food_item  then 1 else 0 end)        as count_food_items,
+        sum(case when is_drink_item then 1 else 0 end)        as count_drink_items
+    from DEV.datafold_tmp.order_items
+    group by order_id
+
+),
+
+orders as (
+
+    select * from DEV.staging.stg_orders
+
+),
+
+final as (
+
+    select
+        o.order_id,
+        o.location_id,
+        o.customer_id,
+        o.ordered_at,
+        o.subtotal,
+        o.tax_paid,
+        o.order_total,
+        ois.order_cost,
+        ois.order_items_subtotal,
+        ois.count_order_items,
+        ois.count_food_items,
+        ois.count_drink_items,
+
+        -- a jaffle-shop convention: orders that contain at least one food item.
+        case when coalesce(ois.count_food_items, 0) > 0 then true else false end  as is_food_order,
+        case when coalesce(ois.count_drink_items, 0) > 0 then true else false end as is_drink_order
+
+    from orders o
+    left join order_items_summary ois on ois.order_id = o.order_id
+
+)
+
+select * from final
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.10", "profile_name": "jaffle_shop", "target_name": "dev", "node_id": "model.jaffle_shop.orders"} */;
+[0m19:50:37.610659 [debug] [Thread-2 (]: Snowflake adapter: Snowflake query id: 01c48046-060b-fd08-0008-fb83437caeb2
+[0m19:50:37.611421 [debug] [Thread-2 (]: Snowflake adapter: Snowflake error: 002003 (02000): SQL compilation error:
+Schema 'DEV.STAGING' does not exist or not authorized.
+[0m19:50:37.616679 [debug] [Thread-2 (]: Database Error in model orders (models/marts/orders.sql)
+  002003 (02000): SQL compilation error:
+  Schema 'DEV.STAGING' does not exist or not authorized.
+  compiled code at target/run/jaffle_shop/models/marts/orders.sql
+[0m19:50:37.619569 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '43ccd3bd-da30-439e-9927-4b0b4d956cec', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74b1a8ecaa20>]}
+[0m19:50:37.620681 [error] [Thread-2 (]: 1 of 3 ERROR creating sql table model datafold_tmp.orders_caab7724 ............. [[31mERROR[0m in 0.56s]
+[0m19:50:37.621751 [debug] [Thread-2 (]: Finished running node model.jaffle_shop.orders
+[0m19:50:37.622728 [debug] [Thread-5 (]: Marking all children of 'model.jaffle_shop.orders' to be skipped because of status 'error'.  Reason: Database Error in model orders (models/marts/orders.sql)
+  002003 (02000): SQL compilation error:
+  Schema 'DEV.STAGING' does not exist or not authorized.
+  compiled code at target/run/jaffle_shop/models/marts/orders.sql.
+[0m19:50:37.624608 [debug] [Thread-2 (]: Began running node test.jaffle_shop.not_null_orders_order_id.cf6c17daed
+[0m19:50:37.625277 [info ] [Thread-2 (]: 2 of 3 SKIP test not_null_orders_order_id ...................................... [[33mSKIP[0m]
+[0m19:50:37.625902 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.not_null_orders_order_id.cf6c17daed
+[0m19:50:37.626426 [debug] [Thread-2 (]: Began running node test.jaffle_shop.unique_orders_order_id.fed79b3a6e
+[0m19:50:37.626947 [info ] [Thread-2 (]: 3 of 3 SKIP test unique_orders_order_id ........................................ [[33mSKIP[0m]
+[0m19:50:37.627496 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.unique_orders_order_id.fed79b3a6e
+[0m19:50:37.628008 [debug] [Thread-5 (]: Marking all children of 'test.jaffle_shop.not_null_orders_order_id.cf6c17daed' to be skipped because of status 'skipped'. 
+[0m19:50:37.628839 [debug] [Thread-5 (]: Marking all children of 'test.jaffle_shop.unique_orders_order_id.fed79b3a6e' to be skipped because of status 'skipped'. 
+[0m19:50:37.630843 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m19:50:37.631325 [debug] [MainThread]: Connection 'model.jaffle_shop.orders' was left open.
+[0m19:50:37.631828 [debug] [MainThread]: On model.jaffle_shop.orders: Close
+[0m19:50:38.087428 [info ] [MainThread]: 
+[0m19:50:38.088189 [info ] [MainThread]: Finished running 1 table model, 2 data tests in 0 hours 0 minutes and 3.27 seconds (3.27s).
+[0m19:50:38.089730 [debug] [MainThread]: Command end result
+[0m19:50:38.153676 [debug] [MainThread]: Wrote artifact WritableManifest to /tmp/tbdispatch_d8adce6185eb474f965f1b408fb66043/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/manifest.json
+[0m19:50:38.156546 [debug] [MainThread]: Wrote artifact SemanticManifest to /tmp/tbdispatch_d8adce6185eb474f965f1b408fb66043/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/semantic_manifest.json
+[0m19:50:38.165284 [debug] [MainThread]: Wrote artifact RunExecutionResult to /tmp/tbdispatch_d8adce6185eb474f965f1b408fb66043/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/run_results.json
+[0m19:50:38.165653 [info ] [MainThread]: 
+[0m19:50:38.165978 [info ] [MainThread]: [31mCompleted with 1 error, 0 partial successes, and 0 warnings:[0m
+[0m19:50:38.166231 [info ] [MainThread]: 
+[0m19:50:38.166543 [error] [MainThread]: [31mFailure in model orders (models/marts/orders.sql)[0m
+[0m19:50:38.166827 [error] [MainThread]:   Database Error in model orders (models/marts/orders.sql)
+  002003 (02000): SQL compilation error:
+  Schema 'DEV.STAGING' does not exist or not authorized.
+  compiled code at target/run/jaffle_shop/models/marts/orders.sql
+[0m19:50:38.167022 [info ] [MainThread]: 
+[0m19:50:38.167308 [info ] [MainThread]:   compiled code at target/compiled/jaffle_shop/models/marts/orders.sql
+[0m19:50:38.167524 [info ] [MainThread]: 
+[0m19:50:38.167749 [info ] [MainThread]: Done. PASS=0 WARN=0 ERROR=1 SKIP=2 NO-OP=0 TOTAL=3
+[0m19:50:38.168860 [debug] [MainThread]: Resource report: {"command_name": "build", "command_success": false, "command_wall_clock_time": 3.9848905, "process_in_blocks": "0", "process_kernel_time": 0.29074, "process_mem_max_rss": "160536", "process_out_blocks": "3320", "process_user_time": 2.168065}
+[0m19:50:38.169406 [debug] [MainThread]: Command `dbt build` failed at 19:50:38.169279 after 3.99 seconds
+[0m19:50:38.169848 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74b1ad1ecf80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74b1a84f4d40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74b1a823bbf0>]}
+[0m19:50:38.170259 [debug] [MainThread]: Flushing usage events
+[0m19:50:39.148499 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m19:51:28.427931 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7182612f1550>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71825fe7c770>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71825d75dac0>]}
+
+
+============================== 19:51:28.432000 | 8dfafed0-4d34-4b68-a694-bfaa05a1fdd4 ==============================
+[0m19:51:28.432000 [info ] [MainThread]: Running with dbt=1.11.10
+[0m19:51:28.432252 [debug] [MainThread]: running dbt with arguments {'introspect': 'True', 'target_path': 'None', 'version_check': 'True', 'invocation_command': 'dbt build --profiles-dir /tmp/tmpl78ptbuj --project-dir /tmp/tbdispatch_d8adce6185eb474f965f1b408fb66043/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold --select orders --full-refresh', 'static_parser': 'True', 'write_json': 'True', 'fail_fast': 'False', 'log_cache_events': 'False', 'debug': 'False', 'log_format': 'default', 'no_print': 'None', 'log_path': '/tmp/tbdispatch_d8adce6185eb474f965f1b408fb66043/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/logs', 'send_anonymous_usage_stats': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'empty': 'False', 'partial_parse': 'True', 'warn_error': 'None', 'use_experimental_parser': 'False', 'cache_selected_only': 'False', 'profiles_dir': '/tmp/tmpl78ptbuj', 'indirect_selection': 'eager', 'quiet': 'False', 'use_colors': 'True'}
+[0m19:51:28.574930 [debug] [MainThread]: Snowflake adapter: Setting snowflake.connector to ERROR (file logging only)
+[0m19:51:28.575221 [debug] [MainThread]: Snowflake adapter: Setting botocore to ERROR (file logging only)
+[0m19:51:28.575360 [debug] [MainThread]: Snowflake adapter: Setting boto3 to ERROR (file logging only)
+[0m19:51:28.743959 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '8dfafed0-4d34-4b68-a694-bfaa05a1fdd4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71825d79b3e0>]}
+[0m19:51:28.783560 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '8dfafed0-4d34-4b68-a694-bfaa05a1fdd4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71825d7d3c80>]}
+[0m19:51:28.784166 [info ] [MainThread]: Registered adapter: snowflake=1.11.5
+[0m19:51:28.852546 [debug] [MainThread]: checksum: 2f247960199844e016e6a527f21364251736722c6212f4b11e96849fe0fc9e96, vars: {}, profile: , target: , version: 1.11.10
+[0m19:51:28.931839 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+[0m19:51:28.932247 [debug] [MainThread]: Partial parsing: updated file: jaffle_shop://models/staging/stg_orders.sql
+[0m19:51:29.189768 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '8dfafed0-4d34-4b68-a694-bfaa05a1fdd4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71825a003a70>]}
+[0m19:51:29.244901 [debug] [MainThread]: Wrote artifact WritableManifest to /tmp/tbdispatch_d8adce6185eb474f965f1b408fb66043/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/manifest.json
+[0m19:51:29.246072 [debug] [MainThread]: Wrote artifact SemanticManifest to /tmp/tbdispatch_d8adce6185eb474f965f1b408fb66043/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/semantic_manifest.json
+[0m19:51:29.258834 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '8dfafed0-4d34-4b68-a694-bfaa05a1fdd4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71825a0f2270>]}
+[0m19:51:29.259332 [info ] [MainThread]: Found 6 models, 15 data tests, 5 sources, 646 macros
+[0m19:51:29.260735 [info ] [MainThread]: 
+[0m19:51:29.260934 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m19:51:29.261042 [info ] [MainThread]: 
+[0m19:51:29.261286 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m19:51:29.261765 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_DEV'
+[0m19:51:29.284358 [debug] [ThreadPool]: Using snowflake connection "list_DEV"
+[0m19:51:29.284583 [debug] [ThreadPool]: On list_DEV: show terse schemas in database DEV
+    limit 10000
+/* {"app": "dbt", "dbt_version": "1.11.10", "profile_name": "jaffle_shop", "target_name": "dev", "connection_name": "list_DEV"} */
+[0m19:51:29.284700 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m19:51:30.822922 [debug] [ThreadPool]: SQL status: SUCCESS 144 in 1.538 seconds
+[0m19:51:30.829986 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_DEV, now list_DEV_datafold_tmp)
+[0m19:51:30.839673 [debug] [ThreadPool]: Using snowflake connection "list_DEV_datafold_tmp"
+[0m19:51:30.839940 [debug] [ThreadPool]: On list_DEV_datafold_tmp: show objects in DEV.datafold_tmp
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.10", "profile_name": "jaffle_shop", "target_name": "dev", "connection_name": "list_DEV_datafold_tmp"} */;
+[0m19:51:31.395929 [debug] [ThreadPool]: SQL status: SUCCESS 244 in 0.556 seconds
+[0m19:51:31.403596 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_DEV_datafold_tmp, now list_DEV_staging)
+[0m19:51:31.489394 [debug] [ThreadPool]: Using snowflake connection "list_DEV_staging"
+[0m19:51:31.494795 [debug] [ThreadPool]: On list_DEV_staging: show objects in DEV.staging
+    limit 10000
+    
+
+/* {"app": "dbt", "dbt_version": "1.11.10", "profile_name": "jaffle_shop", "target_name": "dev", "connection_name": "list_DEV_staging"} */;
+[0m19:51:31.854294 [debug] [ThreadPool]: Snowflake adapter: Snowflake query id: 01c48047-060b-fd08-0008-fb83437caeca
+[0m19:51:31.854549 [debug] [ThreadPool]: Snowflake adapter: Snowflake error: 002043 (02000): SQL compilation error:
+Object does not exist, or operation cannot be performed.
+[0m19:51:31.854732 [debug] [ThreadPool]: Snowflake adapter: Error running SQL: macro list_relations_without_caching
+[0m19:51:31.854851 [debug] [ThreadPool]: Snowflake adapter: Rolling back transaction.
+[0m19:51:31.855229 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '8dfafed0-4d34-4b68-a694-bfaa05a1fdd4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71825a04e4e0>]}
+[0m19:51:31.857626 [debug] [Thread-2 (]: Began running node model.jaffle_shop.orders
+[0m19:51:31.858197 [info ] [Thread-2 (]: 1 of 3 START sql table model datafold_tmp.orders_caab7724 ...................... [RUN]
+[0m19:51:31.858673 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_DEV_staging, now model.jaffle_shop.orders)
+[0m19:51:31.858833 [debug] [Thread-2 (]: Began compiling node model.jaffle_shop.orders
+[0m19:51:31.863454 [debug] [Thread-2 (]: Writing injected SQL for node "model.jaffle_shop.orders"
+[0m19:51:31.863857 [debug] [Thread-2 (]: Began executing node model.jaffle_shop.orders
+[0m19:51:31.882579 [debug] [Thread-2 (]: Writing runtime sql for node "model.jaffle_shop.orders"
+[0m19:51:31.883582 [debug] [Thread-2 (]: Using snowflake connection "model.jaffle_shop.orders"
+[0m19:51:31.883777 [debug] [Thread-2 (]: On model.jaffle_shop.orders: create or replace transient table DEV.datafold_tmp.orders_caab7724
+    
+    
+    
+    as (
+
+with order_items_summary as (
+
+    select
+        order_id,
+        sum(supply_cost)                                      as order_cost,
+        sum(product_price)                                    as order_items_subtotal,
+        count(order_item_id)                                  as count_order_items,
+        sum(case when is_food_item  then 1 else 0 end)        as count_food_items,
+        sum(case when is_drink_item then 1 else 0 end)        as count_drink_items
+    from DEV.datafold_tmp.order_items
+    group by order_id
+
+),
+
+orders as (
+
+    select * from DEV.datafold_tmp.stg_orders
+
+),
+
+final as (
+
+    select
+        o.order_id,
+        o.location_id,
+        o.customer_id,
+        o.ordered_at,
+        o.subtotal,
+        o.tax_paid,
+        o.order_total,
+        ois.order_cost,
+        ois.order_items_subtotal,
+        ois.count_order_items,
+        ois.count_food_items,
+        ois.count_drink_items,
+
+        -- a jaffle-shop convention: orders that contain at least one food item.
+        case when coalesce(ois.count_food_items, 0) > 0 then true else false end  as is_food_order,
+        case when coalesce(ois.count_drink_items, 0) > 0 then true else false end as is_drink_order
+
+    from orders o
+    left join order_items_summary ois on ois.order_id = o.order_id
+
+)
+
+select * from final
+    )
+
+/* {"app": "dbt", "dbt_version": "1.11.10", "profile_name": "jaffle_shop", "target_name": "dev", "node_id": "model.jaffle_shop.orders"} */;
+[0m19:51:33.235459 [debug] [Thread-2 (]: SQL status: SUCCESS 8 in 1.351 seconds
+[0m19:51:33.250583 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '8dfafed0-4d34-4b68-a694-bfaa05a1fdd4', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71825a2281d0>]}
+[0m19:51:33.250962 [info ] [Thread-2 (]: 1 of 3 OK created sql table model datafold_tmp.orders_caab7724 ................. [[32mSUCCESS 8[0m in 1.39s]
+[0m19:51:33.251253 [debug] [Thread-2 (]: Finished running node model.jaffle_shop.orders
+[0m19:51:33.251982 [debug] [Thread-2 (]: Began running node test.jaffle_shop.not_null_orders_order_id.cf6c17daed
+[0m19:51:33.252141 [info ] [Thread-2 (]: 2 of 3 START test not_null_orders_order_id ..................................... [RUN]
+[0m19:51:33.252315 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.jaffle_shop.orders, now test.jaffle_shop.not_null_orders_order_id.cf6c17daed)
+[0m19:51:33.252458 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.not_null_orders_order_id.cf6c17daed
+[0m19:51:33.259018 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.not_null_orders_order_id.cf6c17daed"
+[0m19:51:33.259337 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.not_null_orders_order_id.cf6c17daed
+[0m19:51:33.271538 [debug] [Thread-2 (]: Writing runtime sql for node "test.jaffle_shop.not_null_orders_order_id.cf6c17daed"
+[0m19:51:33.272064 [debug] [Thread-2 (]: Using snowflake connection "test.jaffle_shop.not_null_orders_order_id.cf6c17daed"
+[0m19:51:33.272231 [debug] [Thread-2 (]: On test.jaffle_shop.not_null_orders_order_id.cf6c17daed: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select order_id
+from DEV.datafold_tmp.orders_caab7724
+where order_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.10", "profile_name": "jaffle_shop", "target_name": "dev", "node_id": "test.jaffle_shop.not_null_orders_order_id.cf6c17daed"} */
+[0m19:51:33.693800 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.421 seconds
+[0m19:51:33.697585 [info ] [Thread-2 (]: 2 of 3 PASS not_null_orders_order_id ........................................... [[32mPASS[0m in 0.45s]
+[0m19:51:33.697897 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.not_null_orders_order_id.cf6c17daed
+[0m19:51:33.698342 [debug] [Thread-2 (]: Began running node test.jaffle_shop.unique_orders_order_id.fed79b3a6e
+[0m19:51:33.698777 [info ] [Thread-2 (]: 3 of 3 START test unique_orders_order_id ....................................... [RUN]
+[0m19:51:33.699227 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.jaffle_shop.not_null_orders_order_id.cf6c17daed, now test.jaffle_shop.unique_orders_order_id.fed79b3a6e)
+[0m19:51:33.699620 [debug] [Thread-2 (]: Began compiling node test.jaffle_shop.unique_orders_order_id.fed79b3a6e
+[0m19:51:33.703481 [debug] [Thread-2 (]: Writing injected SQL for node "test.jaffle_shop.unique_orders_order_id.fed79b3a6e"
+[0m19:51:33.703814 [debug] [Thread-2 (]: Began executing node test.jaffle_shop.unique_orders_order_id.fed79b3a6e
+[0m19:51:33.705192 [debug] [Thread-2 (]: Writing runtime sql for node "test.jaffle_shop.unique_orders_order_id.fed79b3a6e"
+[0m19:51:33.705697 [debug] [Thread-2 (]: Using snowflake connection "test.jaffle_shop.unique_orders_order_id.fed79b3a6e"
+[0m19:51:33.705863 [debug] [Thread-2 (]: On test.jaffle_shop.unique_orders_order_id.fed79b3a6e: select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+select
+    order_id as unique_field,
+    count(*) as n_records
+
+from DEV.datafold_tmp.orders_caab7724
+where order_id is not null
+group by order_id
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+/* {"app": "dbt", "dbt_version": "1.11.10", "profile_name": "jaffle_shop", "target_name": "dev", "node_id": "test.jaffle_shop.unique_orders_order_id.fed79b3a6e"} */
+[0m19:51:34.158084 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.452 seconds
+[0m19:51:34.159510 [info ] [Thread-2 (]: 3 of 3 PASS unique_orders_order_id ............................................. [[32mPASS[0m in 0.46s]
+[0m19:51:34.159816 [debug] [Thread-2 (]: Finished running node test.jaffle_shop.unique_orders_order_id.fed79b3a6e
+[0m19:51:34.161171 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m19:51:34.161554 [debug] [MainThread]: Connection 'test.jaffle_shop.unique_orders_order_id.fed79b3a6e' was left open.
+[0m19:51:34.161725 [debug] [MainThread]: On test.jaffle_shop.unique_orders_order_id.fed79b3a6e: Close
+[0m19:51:34.614615 [info ] [MainThread]: 
+[0m19:51:34.615156 [info ] [MainThread]: Finished running 1 table model, 2 data tests in 0 hours 0 minutes and 5.35 seconds (5.35s).
+[0m19:51:34.616232 [debug] [MainThread]: Command end result
+[0m19:51:34.659883 [debug] [MainThread]: Wrote artifact WritableManifest to /tmp/tbdispatch_d8adce6185eb474f965f1b408fb66043/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/manifest.json
+[0m19:51:34.663284 [debug] [MainThread]: Wrote artifact SemanticManifest to /tmp/tbdispatch_d8adce6185eb474f965f1b408fb66043/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/semantic_manifest.json
+[0m19:51:34.669723 [debug] [MainThread]: Wrote artifact RunExecutionResult to /tmp/tbdispatch_d8adce6185eb474f965f1b408fb66043/repos/datafold_test_jaffle_shop_legacy/dbt_scaffold/target/run_results.json
+[0m19:51:34.670111 [info ] [MainThread]: 
+[0m19:51:34.670557 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m19:51:34.670828 [info ] [MainThread]: 
+[0m19:51:34.671077 [info ] [MainThread]: Done. PASS=3 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=3
+[0m19:51:34.671976 [debug] [MainThread]: Resource report: {"command_name": "build", "command_success": true, "command_wall_clock_time": 6.280073, "process_in_blocks": "0", "process_kernel_time": 0.304505, "process_mem_max_rss": "163860", "process_out_blocks": "4912", "process_user_time": 2.356172}
+[0m19:51:34.672391 [debug] [MainThread]: Command `dbt build` succeeded at 19:51:34.672294 after 6.28 seconds
+[0m19:51:34.672697 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71825dd655e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71825ded0e60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x71825ded01a0>]}
+[0m19:51:34.672986 [debug] [MainThread]: Flushing usage events
+[0m19:51:35.303126 [debug] [MainThread]: An error was encountered while trying to flush usage events
