@@ -1,0 +1,11 @@
+
+    
+    
+
+
+
+select product_price_cents
+from DEV.DEV.DATAFOLD_TMP_staging.stg_products
+where product_price_cents is null
+
+
