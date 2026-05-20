@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: stg_orders
+    description: >
+      Staging layer for orders. Applies column renames to match analytics naming conventions,
+      converts monetary amounts from cents to dollars (while preserving the raw cent values
+      for audit purposes), and truncates the order timestamp to day granularity.
+    columns:
+      - name: order_id
+        description: Primary key. Unique identifier for the order.
+        tests:
+          - not_null
+          - unique
+      - name: location_id
+        description: Identifier for the store/location where the order was placed.
+      - name: customer_id
+        description: Identifier for the customer who placed the order.
+      - name: subtotal_cents
+        description: >
+          Audit column. Raw subtotal amount in cents, before dollar conversion.
+          Kept for data lineage and audit trail purposes.
+      - name: tax_paid_cents
+        description: >
+          Audit column. Raw tax amount in cents, before dollar conversion.
+          Kept for data lineage and audit trail purposes.
+      - name: order_total_cents
+        description: >
+          Audit column. Raw order total amount in cents, before dollar conversion.
+          Kept for data lineage and audit trail purposes.
+      - name: subtotal
+        description: Order subtotal in dollars (derived from subtotal_cents).
+      - name: tax_paid
+        description: Tax amount in dollars (derived from tax_paid_cents).
+      - name: order_total
+        description: Total order amount in dollars (derived from order_total_cents).
+      - name: ordered_at
+        description: Timestamp of when the order was placed, truncated to day granularity.
