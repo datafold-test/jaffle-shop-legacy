@@ -1,6 +1,7 @@
 with source as (
     select * from {{ source('jaffle_raw', 'raw_products') }}
 ),
+
 renamed as (
     select
         sku as product_id,
@@ -16,4 +17,5 @@ renamed as (
         case when type = 'beverage' then true else false end as is_drink_item
     from source
 )
+
 select * from renamed
