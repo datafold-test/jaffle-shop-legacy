@@ -1,9 +1,9 @@
 with orders as (
-    select * from DEV.STAGING_staging.stg_orders
+    select * from DEV.staging_staging.stg_orders
 ),
 
 order_items as (
-    select * from DEV.STAGING_marts.order_items
+    select * from DEV.staging_marts.order_items
 ),
 
 order_items_summary as (
