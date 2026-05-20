@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: orders
+    description: >
+      TEMPORARY PLACEHOLDER: This model will be replaced with a real implementation
+      that builds from stg_orders and order_items models. Currently points to legacy
+      ORDERS_SUMMARY table.
+    columns:
+      - name: order_id
+        description: Unique order identifier (primary key).
+        data_tests:
+          - not_null
+          - unique
+      - name: location_id
+        description: Store/location identifier.
+      - name: customer_id
+        description: Customer identifier (foreign key to customers).
+      - name: ordered_at
+        description: Timestamp when the order was placed.
+      - name: subtotal
+        description: Order subtotal (before tax).
+      - name: tax_paid
+        description: Tax amount paid on the order.
+      - name: order_total
+        description: Total amount paid including tax.
+      - name: order_cost
+        description: Sum of supply costs for order items.
+      - name: order_items_subtotal
+        description: Sum of product prices for items in the order.
+      - name: count_order_items
+        description: Number of items in the order.
+      - name: count_food_items
+        description: Number of food items in the order.
+      - name: count_drink_items
+        description: Number of drink items in the order.
+      - name: is_food_order
+        description: Boolean flag indicating if order contains at least one food item.
+      - name: is_drink_order
+        description: Boolean flag indicating if order contains at least one drink item.
