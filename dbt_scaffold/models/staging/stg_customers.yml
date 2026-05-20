@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: >
+      Staging model for customers. Renames raw fields to canonical identifiers
+      for use in the analytics layer.
+    columns:
+      - name: customer_id
+        description: Unique identifier for each customer, sourced from raw_customers.id.
+        tests:
+          - not_null
+          - unique
+      - name: customer_name
+        description: Full name of the customer, sourced from raw_customers.name.
