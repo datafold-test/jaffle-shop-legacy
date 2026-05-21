@@ -1,0 +1,62 @@
+version: 2
+
+models:
+  - name: orders
+    description: >
+      Mart model for orders. Joins stg_orders with a per-order roll-up of
+      order_items (count items / food / drink, sum supply_cost as order_cost,
+      sum product_price as order_items_subtotal), and adds boolean flags
+      is_food_order / is_drink_order. Translated from legacy ORDERS_SUMMARY.
+    columns:
+      - name: order_id
+        description: Primary key — unique identifier for each order.
+        tests:
+          - not_null
+          - unique
+
+      - name: location_id
+        description: Store/location identifier where the order was placed.
+        tests:
+          - not_null
+
+      - name: customer_id
+        description: Customer identifier who placed the order.
+        tests:
+          - not_null
+
+      - name: ordered_at
+        description: Date the order was placed, truncated to day.
+
+      - name: subtotal
+        description: Order subtotal in dollars (from stg_orders, cents_to_dollars applied upstream).
+
+      - name: tax_paid
+        description: Tax paid in dollars (from stg_orders, cents_to_dollars applied upstream).
+
+      - name: order_total
+        description: Total order amount in dollars including tax (from stg_orders).
+
+      - name: order_cost
+        description: Sum of supply costs across all items in the order (in dollars).
+
+      - name: order_items_subtotal
+        description: Sum of product prices across all items in the order (in dollars).
+
+      - name: count_order_items
+        description: Total number of order items in the order.
+
+      - name: count_food_items
+        description: Number of food items in the order.
+
+      - name: count_drink_items
+        description: Number of drink items in the order.
+
+      - name: is_food_order
+        description: >
+          True if the order contains at least one food item (coalesce(count_food_items, 0) > 0).
+          False for orders with no food items or orders with no matching order items.
+
+      - name: is_drink_order
+        description: >
+          True if the order contains at least one drink item (coalesce(count_drink_items, 0) > 0).
+          False for orders with no drink items or orders with no matching order items.

@@ -1,0 +1,45 @@
+version: 2
+
+models:
+  - name: stg_orders
+    description: >
+      Staging model for orders. Renames POS columns to the analytics naming
+      convention, preserves raw cent columns for auditing, adds dollar-converted
+      variants, and date-truncates ordered_at to day.
+    columns:
+      - name: order_id
+        description: Primary key — unique identifier for each order (renamed from id).
+        tests:
+          - not_null
+          - unique
+
+      - name: location_id
+        description: Store/location identifier (renamed from store_id).
+        tests:
+          - not_null
+
+      - name: customer_id
+        description: Customer identifier (renamed from customer).
+        tests:
+          - not_null
+
+      - name: subtotal_cents
+        description: Order subtotal in cents (raw value preserved for auditing).
+
+      - name: tax_paid_cents
+        description: Tax paid in cents (raw value preserved for auditing).
+
+      - name: order_total_cents
+        description: Order total in cents (raw value preserved for auditing).
+
+      - name: subtotal
+        description: Order subtotal in dollars (cents_to_dollars conversion of subtotal).
+
+      - name: tax_paid
+        description: Tax paid in dollars (cents_to_dollars conversion of tax_paid).
+
+      - name: order_total
+        description: Order total in dollars (cents_to_dollars conversion of order_total).
+
+      - name: ordered_at
+        description: Date the order was placed, truncated to day.

@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: stg_supplies
+    description: >
+      Staged supplies data derived from raw_supplies. Each row represents one
+      supply item associated with a product (SKU). The supply_id is a surrogate
+      key derived as MD5(concat(id, '-', sku)).
+    columns:
+      - name: supply_id
+        description: >
+          Surrogate key — MD5 hash of the concatenation of the raw id and sku,
+          separated by a hyphen. Preserves the legacy derivation exactly.
+        tests:
+          - not_null
+          - unique
+
+      - name: supply_uuid
+        description: The raw UUID identifier of the supply record.
+        tests:
+          - not_null
+
+      - name: supply_name
+        description: Display name of the supply item.
+
+      - name: product_id
+        description: The SKU that links the supply to its product.
+
+      - name: supply_cost_cents
+        description: >
+          Raw cost of the supply in cents (integer). Preserved as an audit
+          trail alongside the dollar-denominated supply_cost.
+
+      - name: supply_cost
+        description: >
+          Cost of the supply converted to dollars (supply_cost_cents / 100),
+          rounded to 2 decimal places.
+
+      - name: is_perishable_supply
+        description: Boolean flag indicating whether the supply is perishable.
