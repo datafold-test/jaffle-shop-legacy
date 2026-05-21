@@ -20,15 +20,15 @@ target warehouse table on the right is what `dbt build` materializes.
 
 | Legacy script | Legacy warehouse table | dbt file | Target warehouse table |
 |---|---|---|---|
-| `legacy/01_raw_*.sql` (DDL only) | `JAFFLE_LEGACY_DB.PUBLIC.RAW_*` (source — declared in `__sources.yml`) | *(none — sources, not models)* | *(none — source-only)* |
-| `legacy/10_stg_customers.sql` | `JAFFLE_LEGACY_DB.PUBLIC.STG_CUSTOMERS` | `models/staging/stg_customers.sql` | `JAFFLE_DBT_DB.STAGING.STG_CUSTOMERS` |
-| `legacy/10_stg_orders.sql` | `JAFFLE_LEGACY_DB.PUBLIC.STG_ORDERS` | `models/staging/stg_orders.sql` | `JAFFLE_DBT_DB.STAGING.STG_ORDERS` |
-| `legacy/10_stg_order_items.sql` | `JAFFLE_LEGACY_DB.PUBLIC.STG_ORDER_ITEMS` | `models/staging/stg_order_items.sql` | `JAFFLE_DBT_DB.STAGING.STG_ORDER_ITEMS` |
-| `legacy/10_stg_products.sql` | `JAFFLE_LEGACY_DB.PUBLIC.STG_PRODUCTS` | `models/staging/stg_products.sql` | `JAFFLE_DBT_DB.STAGING.STG_PRODUCTS` |
-| `legacy/10_stg_supplies_ddl.sql` + `legacy/10_stg_supplies_dml.sql` (DDL+DML pair) | `JAFFLE_LEGACY_DB.PUBLIC.STG_SUPPLIES` | `models/staging/stg_supplies.sql` (single model) | `JAFFLE_DBT_DB.STAGING.STG_SUPPLIES` |
-| `legacy/20_order_items_enriched.sql` | `JAFFLE_LEGACY_DB.PUBLIC.ORDER_ITEMS_ENRICHED` | `models/marts/order_items.sql` | `JAFFLE_DBT_DB.MARTS.ORDER_ITEMS` |
-| `legacy/20_orders_summary.sql` | `JAFFLE_LEGACY_DB.PUBLIC.ORDERS_SUMMARY` | `models/marts/orders.sql` | `JAFFLE_DBT_DB.MARTS.ORDERS` |
-| `legacy/20_customers_summary.sql` | `JAFFLE_LEGACY_DB.PUBLIC.CUSTOMERS_SUMMARY` | `models/marts/customers.sql` | `JAFFLE_DBT_DB.MARTS.CUSTOMERS` |
+| `legacy/01_raw_*.sql` (DDL only) | `JAFFLE_SHOP.RAW.RAW_*` (source — declared in `__sources.yml`) | *(none — sources, not models)* | *(none — source-only)* |
+| `legacy/10_stg_customers.sql` | `JAFFLE_SHOP.STAGING.STG_CUSTOMERS` | `models/staging/stg_customers.sql` | `JAFFLE_SHOP.STAGING.STG_CUSTOMERS` |
+| `legacy/10_stg_orders.sql` | `JAFFLE_SHOP.STAGING.STG_ORDERS` | `models/staging/stg_orders.sql` | `JAFFLE_SHOP.STAGING.STG_ORDERS` |
+| `legacy/10_stg_order_items.sql` | `JAFFLE_SHOP.STAGING.STG_ORDER_ITEMS` | `models/staging/stg_order_items.sql` | `JAFFLE_SHOP.STAGING.STG_ORDER_ITEMS` |
+| `legacy/10_stg_products.sql` | `JAFFLE_SHOP.STAGING.STG_PRODUCTS` | `models/staging/stg_products.sql` | `JAFFLE_SHOP.STAGING.STG_PRODUCTS` |
+| `legacy/10_stg_supplies_ddl.sql` + `legacy/10_stg_supplies_dml.sql` (DDL+DML pair) | `JAFFLE_SHOP.STAGING.STG_SUPPLIES` | `models/staging/stg_supplies.sql` (single model) | `JAFFLE_SHOP.STAGING.STG_SUPPLIES` |
+| `legacy/20_order_items_enriched.sql` | `JAFFLE_SHOP.MARTS.ORDER_ITEMS` | `models/marts/order_items.sql` | `JAFFLE_SHOP.MARTS.ORDER_ITEMS` |
+| `legacy/20_orders_summary.sql` | `JAFFLE_SHOP.MARTS.ORDERS` | `models/marts/orders.sql` | `JAFFLE_SHOP.MARTS.ORDERS` |
+| `legacy/20_customers_summary.sql` | `JAFFLE_SHOP.MARTS.CUSTOMERS` | `models/marts/customers.sql` | `JAFFLE_SHOP.MARTS.CUSTOMERS` |
 
 Notes on the table:
 

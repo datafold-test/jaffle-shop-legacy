@@ -7,7 +7,7 @@ project on the same Snowflake account.
 ## What's in this repo
 
 - `legacy/` — the legacy Snowflake project: 14 SQL files that materialize
-  the current production tables under `JAFFLE_LEGACY_DB.PUBLIC.*`. This
+  the current production tables under `JAFFLE_SHOP.{STAGING,MARTS}.*`. This
   directory is the source-of-truth for what runs today; the files are
   inputs to the translation, not outputs. See [`legacy/AGENTS.md`](./legacy/AGENTS.md)
   for naming conventions and per-file metadata.
@@ -16,8 +16,8 @@ project on the same Snowflake account.
   `dbt_project.yml`, `profiles.yml`, `packages.yml`, the
   `cents_to_dollars` macro, and `models/staging/__sources.yml`.
   Translated models land under `models/staging/` (views) and
-  `models/marts/` (tables) and materialize into `JAFFLE_DBT_DB.STAGING.*`
-  and `JAFFLE_DBT_DB.MARTS.*`. See [`dbt_scaffold/AGENTS.md`](./dbt_scaffold/AGENTS.md)
+  `models/marts/` (tables) and materialize into `JAFFLE_SHOP.STAGING.*`
+  and `JAFFLE_SHOP.MARTS.*`. See [`dbt_scaffold/AGENTS.md`](./dbt_scaffold/AGENTS.md)
   for project structure and the conventions translated SQL must follow.
 
 ## Working in this repo

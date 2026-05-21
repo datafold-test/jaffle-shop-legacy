@@ -1,7 +1,7 @@
 # `dbt_scaffold/` — Target dbt project
 
 This is the dbt project the translated SQL lands in. Materializes to
-`JAFFLE_DBT_DB` on the same Snowflake account as the legacy warehouse.
+`JAFFLE_SHOP` (schemas `STAGING` and `MARTS`) on the same Snowflake account as the legacy warehouse.
 
 ## Layout
 
@@ -16,10 +16,10 @@ dbt_scaffold/
 └── models/
     ├── staging/
     │   ├── __sources.yml    # pre-wired; declares `source('jaffle_raw', '...')` entries
-    │   ├── stg_<entity>.sql # staging models (materialize as views in JAFFLE_DBT_DB.STAGING)
+    │   ├── stg_<entity>.sql # staging models (materialize as views in JAFFLE_SHOP.STAGING)
     │   └── stg_<entity>.yml # column docs + tests
     └── marts/
-        ├── <entity>.sql     # mart models (materialize as tables in JAFFLE_DBT_DB.MARTS)
+        ├── <entity>.sql     # mart models (materialize as tables in JAFFLE_SHOP.MARTS)
         └── <entity>.yml     # column docs + tests
 ```
 
@@ -43,7 +43,7 @@ Code in this project follows these patterns:
 - **dbt references everywhere**:
   - Inter-model: `{{ ref('stg_x') }}` or `{{ ref('order_items') }}`.
   - Raw source tables: `{{ source('jaffle_raw', 'raw_orders') }}` — never
-    hard-code `JAFFLE_LEGACY_DB.PUBLIC.RAW_*`.
+    hard-code `JAFFLE_SHOP.RAW.RAW_*`.
 - **Schema split**: legacy `PUBLIC` → dbt `STAGING` (views) and `MARTS`
   (tables). Cross-schema joins always go through `ref()`/`source()`.
 - **One model per legacy table** (with one exception: `STG_SUPPLIES`
