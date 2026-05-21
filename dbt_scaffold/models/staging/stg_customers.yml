@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: >
+      Staged customer records. Renames raw columns to their canonical
+      analytics names (id → customer_id, name → customer_name).
+    columns:
+      - name: customer_id
+        description: Unique identifier for each customer (sourced from raw_customers.id).
+        tests:
+          - not_null
+          - unique
+      - name: customer_name
+        description: Full name of the customer (sourced from raw_customers.name).
+        tests:
+          - not_null
