@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: stg_order_items
+    description: >
+      Staging model for order items. Renames raw columns from RAW_ITEMS to
+      clean business names and preserves FK relationships to orders and products.
+    columns:
+      - name: order_item_id
+        description: Primary key — unique identifier for each order item (renamed from ID).
+        tests:
+          - not_null
+          - unique
+
+      - name: order_id
+        description: Foreign key to the orders table (STG_ORDERS / RAW_ORDERS).
+        tests:
+          - not_null
+
+      - name: product_id
+        description: Foreign key to the products table (STG_PRODUCTS / RAW_PRODUCTS). Renamed from SKU.
+        tests:
+          - not_null
