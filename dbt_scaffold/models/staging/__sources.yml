@@ -5,7 +5,7 @@ sources:
     database: JAFFLE_SHOP
     schema: RAW
     description: >
-      Raw e-commerce tables sitting in the legacy Snowflake database.
+      Raw e-commerce tables sitting in the Jaffle Shop Snowflake database.
       These are the inputs the dbt project transforms into stg_/mart models.
     tables:
       - name: raw_customers
