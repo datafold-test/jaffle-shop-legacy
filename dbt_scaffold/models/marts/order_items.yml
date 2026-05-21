@@ -1,0 +1,53 @@
+version: 2
+
+models:
+  - name: order_items
+    description: >
+      Mart table enriching each order item with product information and the
+      aggregated supply cost for that SKU. Translates legacy
+      ORDER_ITEMS_ENRICHED (drop the _ENRICHED suffix per TRANSLATION_MAP.md).
+      One row per order item; product price and supply cost are in dollars.
+    columns:
+      - name: order_item_id
+        description: >
+          Unique identifier for each order item (sourced from stg_order_items).
+        tests:
+          - not_null
+          - unique
+
+      - name: order_id
+        description: Foreign key to the parent order (sourced from stg_order_items).
+        tests:
+          - not_null
+
+      - name: ordered_at
+        description: >
+          Date the order was placed, truncated to day (sourced from stg_orders).
+
+      - name: product_id
+        description: >
+          SKU identifier of the product ordered (sourced from stg_order_items).
+        tests:
+          - not_null
+
+      - name: product_name
+        description: Display name of the product (sourced from stg_products).
+
+      - name: product_price
+        description: >
+          Retail price of the product in dollars (sourced from stg_products,
+          already converted from cents).
+
+      - name: is_food_item
+        description: >
+          Boolean flag: true if the product type is 'jaffle' (food item).
+
+      - name: is_drink_item
+        description: >
+          Boolean flag: true if the product type is 'beverage' (drink item).
+
+      - name: supply_cost
+        description: >
+          Total cost of all supplies required to produce this product (SUM of
+          supply_cost across all supplies for the product_id), in dollars.
+          NULL when no supply records exist for the product.
