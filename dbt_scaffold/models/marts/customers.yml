@@ -1,0 +1,58 @@
+version: 2
+
+models:
+  - name: customers
+    description: >
+      Mart table providing per-customer lifetime metrics: total orders placed,
+      first and last order timestamps, lifetime spend pre-tax, lifetime tax paid,
+      and total lifetime spend. Also includes an is_repeat_buyer flag for customers
+      with more than one order. Translates legacy CUSTOMERS_SUMMARY (drop the
+      _SUMMARY suffix per TRANSLATION_MAP.md). One row per customer.
+    columns:
+      - name: customer_id
+        description: >
+          Unique identifier for each customer (sourced from stg_customers).
+        tests:
+          - not_null
+          - unique
+
+      - name: customer_name
+        description: >
+          Full name of the customer (sourced from stg_customers).
+        tests:
+          - not_null
+
+      - name: count_lifetime_orders
+        description: >
+          Total number of distinct orders placed by the customer across their
+          lifetime. Defaults to 0 for customers with no orders.
+
+      - name: is_repeat_buyer
+        description: >
+          Boolean flag: true if the customer has placed more than one order,
+          false otherwise. Defaults to false for customers with no orders.
+
+      - name: first_ordered_at
+        description: >
+          Timestamp of the customer's first (earliest) order. NULL for customers
+          with no orders (deliberately not coalesced).
+
+      - name: last_ordered_at
+        description: >
+          Timestamp of the customer's most recent order. NULL for customers
+          with no orders (deliberately not coalesced).
+
+      - name: lifetime_spend_pretax
+        description: >
+          Sum of subtotal (pre-tax) across all of the customer's orders, in
+          dollars. Defaults to 0 for customers with no orders.
+
+      - name: lifetime_tax_paid
+        description: >
+          Sum of tax_paid across all of the customer's orders, in dollars.
+          Defaults to 0 for customers with no orders.
+
+      - name: lifetime_spend
+        description: >
+          Sum of order_total (including tax) across all of the customer's
+          orders, in dollars. Defaults to 0 for customers with no orders.
