@@ -6,7 +6,7 @@
 -- Translates to: models/staging/stg_supplies.sql (single dbt model in the
 -- target; dbt doesn't separate DDL from DML — the model SQL is the source
 -- of both).
-CREATE TABLE JAFFLE_LEGACY_DB.PUBLIC.STG_SUPPLIES (
+CREATE TABLE JAFFLE_SHOP.LEGACY_PUBLIC.STG_SUPPLIES (
     SUPPLY_ID            VARCHAR(32) NOT NULL,
     SUPPLY_UUID          VARCHAR(36) NOT NULL,
     SUPPLY_NAME          VARCHAR(200),

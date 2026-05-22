@@ -1,7 +1,7 @@
 -- Raw supplies catalog (ingredients / packaging tied to a product SKU).
--- Lands in JAFFLE_LEGACY_DB.PUBLIC.RAW_SUPPLIES.
+-- Lands in JAFFLE_SHOP.RAW.RAW_SUPPLIES.
 -- DO NOT TRANSLATE: source table only.
-CREATE OR REPLACE TABLE JAFFLE_LEGACY_DB.PUBLIC.RAW_SUPPLIES (
+CREATE OR REPLACE TABLE JAFFLE_SHOP.RAW.RAW_SUPPLIES (
     ID          VARCHAR(20)  NOT NULL,
     NAME        VARCHAR(200) NOT NULL,
     COST        INTEGER      NOT NULL,   -- cents

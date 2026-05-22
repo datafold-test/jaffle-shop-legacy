@@ -2,11 +2,12 @@ version: 2
 
 sources:
   - name: jaffle_raw
-    database: JAFFLE_LEGACY_DB
-    schema: PUBLIC
+    database: JAFFLE_SHOP
+    schema: RAW
     description: >
-      Raw e-commerce tables sitting in the legacy Snowflake database.
-      These are the inputs the dbt project transforms into stg_/mart models.
+      Raw e-commerce tables shared between the legacy project and the
+      translated dbt project. Fivetran-managed; both pipelines transform
+      these into their own downstream tables.
     tables:
       - name: raw_customers
       - name: raw_orders

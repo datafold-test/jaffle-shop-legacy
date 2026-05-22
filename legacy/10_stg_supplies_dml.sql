@@ -5,7 +5,7 @@
 -- Translates to: models/staging/stg_supplies.sql (the dbt model SQL is the
 -- source of both the create and the populate — same target model file as
 -- the DDL pair).
-INSERT INTO JAFFLE_LEGACY_DB.PUBLIC.STG_SUPPLIES (
+INSERT INTO JAFFLE_SHOP.LEGACY_PUBLIC.STG_SUPPLIES (
     SUPPLY_ID, SUPPLY_UUID, SUPPLY_NAME, PRODUCT_ID,
     SUPPLY_COST_CENTS, SUPPLY_COST, IS_PERISHABLE_SUPPLY
 )
@@ -17,4 +17,4 @@ SELECT
     COST                                AS SUPPLY_COST_CENTS,
     CAST(COST AS NUMERIC(18, 2)) / 100  AS SUPPLY_COST,
     PERISHABLE                          AS IS_PERISHABLE_SUPPLY
-FROM JAFFLE_LEGACY_DB.PUBLIC.RAW_SUPPLIES;
+FROM JAFFLE_SHOP.RAW.RAW_SUPPLIES;

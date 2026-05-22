@@ -5,7 +5,7 @@
 --   - source: source('jaffle_raw', 'raw_orders')
 --   - use the `cents_to_dollars` macro from the dbt project (see macros/)
 --   - keep both the *_cents and the dollar variants the way jaffle-shop does
-CREATE OR REPLACE TABLE JAFFLE_LEGACY_DB.PUBLIC.STG_ORDERS AS
+CREATE OR REPLACE TABLE JAFFLE_SHOP.LEGACY_PUBLIC.STG_ORDERS AS
 SELECT
     ID          AS ORDER_ID,
     STORE_ID    AS LOCATION_ID,
@@ -22,4 +22,4 @@ SELECT
     CAST(ORDER_TOTAL AS NUMERIC(18, 2)) / 100 AS ORDER_TOTAL,
 
     DATE_TRUNC('DAY', ORDERED_AT) AS ORDERED_AT
-FROM JAFFLE_LEGACY_DB.PUBLIC.RAW_ORDERS;
+FROM JAFFLE_SHOP.RAW.RAW_ORDERS;

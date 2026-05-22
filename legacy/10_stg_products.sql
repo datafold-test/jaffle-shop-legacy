@@ -4,7 +4,7 @@
 --
 -- Translates to: models/staging/stg_products.sql
 --   - source: source('jaffle_raw', 'raw_products')
-CREATE OR REPLACE TABLE JAFFLE_LEGACY_DB.PUBLIC.STG_PRODUCTS AS
+CREATE OR REPLACE TABLE JAFFLE_SHOP.LEGACY_PUBLIC.STG_PRODUCTS AS
 SELECT
     SKU                                            AS PRODUCT_ID,
     NAME                                           AS PRODUCT_NAME,
@@ -20,4 +20,4 @@ SELECT
     -- product-kind flags
     CASE WHEN TYPE = 'jaffle'   THEN TRUE ELSE FALSE END AS IS_FOOD_ITEM,
     CASE WHEN TYPE = 'beverage' THEN TRUE ELSE FALSE END AS IS_DRINK_ITEM
-FROM JAFFLE_LEGACY_DB.PUBLIC.RAW_PRODUCTS;
+FROM JAFFLE_SHOP.RAW.RAW_PRODUCTS;

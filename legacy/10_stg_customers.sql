@@ -4,8 +4,8 @@
 -- Translates to: models/staging/stg_customers.sql
 --   - dbt source: source('jaffle_raw', 'raw_customers')
 --   - keep the `with source / renamed / select * from renamed` jaffle-shop idiom
-CREATE OR REPLACE TABLE JAFFLE_LEGACY_DB.PUBLIC.STG_CUSTOMERS AS
+CREATE OR REPLACE TABLE JAFFLE_SHOP.LEGACY_PUBLIC.STG_CUSTOMERS AS
 SELECT
     ID   AS CUSTOMER_ID,
     NAME AS CUSTOMER_NAME
-FROM JAFFLE_LEGACY_DB.PUBLIC.RAW_CUSTOMERS;
+FROM JAFFLE_SHOP.RAW.RAW_CUSTOMERS;
