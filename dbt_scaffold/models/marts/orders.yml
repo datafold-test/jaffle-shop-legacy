@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: orders
+    description: >
+      Orders rolled up with per-order item summary and food/drink item counts.
+      Derived from stg_orders joined with an aggregated view of order_items.
+    columns:
+      - name: order_id
+        description: Primary key — unique identifier for each order.
+        tests:
+          - not_null
+          - unique
+      - name: location_id
+        description: The store/location where the order was placed.
+      - name: customer_id
+        description: Foreign key to stg_customers.customer_id.
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_customers')
+              field: customer_id
+      - name: ordered_at
+        description: Day-truncated timestamp of when the order was placed.
+      - name: subtotal
+        description: Order subtotal in dollars (excluding tax).
+      - name: tax_paid
+        description: Tax amount paid in dollars.
+      - name: order_total
+        description: Total order amount in dollars (subtotal + tax).
+      - name: order_cost
+        description: Sum of supply costs for all items in the order. Null when order has no items.
+      - name: order_items_subtotal
+        description: Sum of product prices for all items in the order. Null when order has no items.
+      - name: count_order_items
+        description: Number of items in the order. Null when order has no items.
+      - name: count_food_items
+        description: Number of food items in the order. Null when order has no items.
+      - name: count_drink_items
+        description: Number of drink items in the order. Null when order has no items.
+      - name: is_food_order
+        description: True if the order contains at least one food item.
+        tests:
+          - not_null
+      - name: is_drink_order
+        description: True if the order contains at least one drink item.
+        tests:
+          - not_null
